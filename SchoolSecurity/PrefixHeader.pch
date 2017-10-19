@@ -1,0 +1,108 @@
+//
+//  PrefixHeader.pch
+//  SecurityManager
+//
+//  Created by zhangming on 17/8/16.
+//  Copyright © 2017年 youjiesi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define AMAPAPIKEY @"f834337d8acc0198e923e1265bebb13a"
+
+#define iOS10 ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
+
+#define ScreenBounds [[UIScreen mainScreen] bounds]
+#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
+
+#define BASECOLOR [UIColor colorWithHexString:@"#FFFFFF"]
+#define FONTCOLOR [UIColor colorWithHexString:@"#4A4A4A"]
+#define VIEWCOLOR [UIColor colorWithHexString:@"#EEEEEE"]
+
+#define MJWeakSelf __weak typeof(self) weakSelf = self;
+#define CLASSNAME NSString *className = NSStringFromClass([self class]);
+
+// 判断是否是iPhone X
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+// 导航栏高度
+#define iPhoneX_Top iPhoneX ? 88.0f : 64.0f
+// tabBar高度
+#define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
+// home indicator
+#define iPhoneX_Bottom iPhoneX ? 34.0f : 0.0f
+
+//分类栏gao'du
+#define typeViewHeight 55
+
+//距顶部最小间距
+#define topSpacing 20
+
+//table默认段首高度
+#define groupSectionHeaderHeight 9.5
+
+//table默认段尾高度
+#define groupSectionFooterHeight 0.5
+
+//巡更详情高度
+#define XGHeaderHeight 0.55 * ScreenHeight
+
+//巡更数据库名称
+#define SecurityDB @"SchoolSecurity"
+
+//成功返回的标志
+#define SuccessResponseCode 1
+
+//网络回传失败域
+#define ResponseFailureDomain @"ResponseFailureDomain"
+
+
+//#define IP @"http://wxfk.com"
+
+#define IP @"http://fangke.bconchina.com"
+
+#import "objc/runtime.h"
+#import "UIView+Extension.h"
+#import "UILabel+Extension.h"
+#import "UIButton+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIImage+Extension.h"
+#import "NSDate+Extension.h"
+#import "NSString+Extension.h"
+#import "UIColor+Extension.h"
+#import "LoadingView.h"
+#import "CALayer+Addition.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import "MJRefresh.h"
+#import "HXRefreshHeader.h"
+#import "HttpTool.h"
+#import "UserDefaultsTool.h"
+#import "StrTool.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MAMapKit/MAMapKit.h>
+#import "MJExtension.h"
+#import "SingleClass.h"
+#import "SVProgressHUD.h"
+#import "IQKeyboardManager.h"
+#import <UIButton+WebCache.h>
+#import <UIImageView+WebCache.h>
+#import "MBProgressHUD+Add.h"
+#import "UIButton+ImageTitleSpacing.h"
+#import "BaseViewController.h"
+#import "BaseStore.h"
+//#import <AipOcrSdk/AipOcrSdk.h>
+#import "ImgToBatManager.h"
+#import "UITableView+DJFWave.h"
+#import "IDAuthViewController.h"
+#import "AVCaptureViewController.h"
+#import "SMIdCardViewController.h"
+#import "IDInfoList.h"
+#import "MyCoreDataManager.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

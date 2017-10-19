@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="CallerInfo" representedClassName="CallerInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="caller_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mphone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="org_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="school_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="OrgInfo" representedClassName="OrgInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="org_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SecuritySGAgree" representedClassName="SecuritySGAgree" syncable="YES" codeGenerationType="class">
+        <attribute name="caller_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_card" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_nation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_release_organ" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_sex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_validity_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_car" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_other_persion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="org_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="other_person_list" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="school_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="security_personnel_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitor_picture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitor_tel" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CallerInfo" positionX="-270" positionY="-216" width="128" height="135"/>
+        <element name="OrgInfo" positionX="-279" positionY="-225" width="128" height="75"/>
+        <element name="SecuritySGAgree" positionX="-270" positionY="-171" width="128" height="330"/>
+    </elements>
+</model>
