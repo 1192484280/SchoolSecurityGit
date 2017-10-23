@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6B0F33C31F974843004932C8 /* StrTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F33C21F974843004932C8 /* StrTool.m */; };
+		6B16BAEE1F99D1ED000F84F2 /* SecuritySGAgree+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BADE1F99D1EC000F84F2 /* SecuritySGAgree+CoreDataProperties.m */; };
+		6B16BAF11F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BAE61F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.m */; };
+		6B16BAF31F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BAE91F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.m */; };
+		6B16BAFB1F99D259000F84F2 /* FKManager+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BAF91F99D259000F84F2 /* FKManager+CoreDataProperties.m */; };
+		6B16BB021F99DF9A000F84F2 /* FKDetail+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BB001F99DF9A000F84F2 /* FKDetail+CoreDataProperties.m */; };
+		6B16BB091F99E621000F84F2 /* LFManager+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BB071F99E621000F84F2 /* LFManager+CoreDataProperties.m */; };
+		6B16BB101F99E9F7000F84F2 /* LFDetail+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BB0E1F99E9F7000F84F2 /* LFDetail+CoreDataProperties.m */; };
+		6B16BB161F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BB141F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.m */; };
+		6B16BB1D1F99FA95000F84F2 /* XGJL+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B16BB1B1F99FA95000F84F2 /* XGJL+CoreDataProperties.m */; };
 		6B522FA01F9888CB001C6074 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B522F9F1F9888CB001C6074 /* CacheManager.m */; };
-		6B522FAC1F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B522FAA1F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.m */; };
 		6B69D5AB1F90546D00C57344 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D4331F90546D00C57344 /* AppDelegate.m */; };
 		6B69D5AC1F90546D00C57344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B69D4341F90546D00C57344 /* Assets.xcassets */; };
 		6B69D5AD1F90546D00C57344 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B69D4351F90546D00C57344 /* LaunchScreen.storyboard */; };
@@ -163,8 +171,6 @@
 		6B69D6411F90546D00C57344 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D5AA1F90546D00C57344 /* UIView+Extension.m */; };
 		6B69D6451F90566200C57344 /* SchoolSecurity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D6431F90566200C57344 /* SchoolSecurity.xcdatamodeld */; };
 		6B69D6921F9087EC00C57344 /* MyCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D6911F9087EC00C57344 /* MyCoreDataManager.m */; };
-		6BD50B751F9760DA0097074D /* OrgInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD50B6F1F9760DA0097074D /* OrgInfo+CoreDataProperties.m */; };
-		6BD50B771F9760DA0097074D /* CallerInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD50B731F9760DA0097074D /* CallerInfo+CoreDataProperties.m */; };
 		A047E58257C844912A3ACD1A /* libPods-SchoolSecurity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E011935A955FD029FF5AC0C /* libPods-SchoolSecurity.a */; };
 /* End PBXBuildFile section */
 
@@ -173,12 +179,44 @@
 		1E011935A955FD029FF5AC0C /* libPods-SchoolSecurity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SchoolSecurity.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B0F33C11F974843004932C8 /* StrTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StrTool.h; sourceTree = "<group>"; };
 		6B0F33C21F974843004932C8 /* StrTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StrTool.m; sourceTree = "<group>"; };
+		6B16BADE1F99D1EC000F84F2 /* SecuritySGAgree+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SecuritySGAgree+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BADF1F99D1EC000F84F2 /* SecuritySGAgree+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SecuritySGAgree+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BAE01F99D1EC000F84F2 /* SecuritySGAgree+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SecuritySGAgree+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BAE11F99D1EC000F84F2 /* SecuritySGAgree+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SecuritySGAgree+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BAE31F99D1ED000F84F2 /* CallerInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CallerInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BAE41F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CallerInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BAE51F99D1ED000F84F2 /* CallerInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CallerInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BAE61F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CallerInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BAE81F99D1ED000F84F2 /* OrgInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OrgInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BAE91F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OrgInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BAEA1F99D1ED000F84F2 /* OrgInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OrgInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BAEB1F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OrgInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BAF61F99D259000F84F2 /* FKManager+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKManager+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BAF71F99D259000F84F2 /* FKManager+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKManager+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BAF81F99D259000F84F2 /* FKManager+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FKManager+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BAF91F99D259000F84F2 /* FKManager+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FKManager+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BAFD1F99DF9A000F84F2 /* FKDetail+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKDetail+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BAFE1F99DF9A000F84F2 /* FKDetail+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKDetail+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BAFF1F99DF9A000F84F2 /* FKDetail+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FKDetail+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BB001F99DF9A000F84F2 /* FKDetail+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FKDetail+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BB041F99E621000F84F2 /* LFManager+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFManager+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BB051F99E621000F84F2 /* LFManager+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFManager+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BB061F99E621000F84F2 /* LFManager+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFManager+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BB071F99E621000F84F2 /* LFManager+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFManager+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BB0B1F99E9F7000F84F2 /* LFDetail+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFDetail+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BB0C1F99E9F7000F84F2 /* LFDetail+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFDetail+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BB0D1F99E9F7000F84F2 /* LFDetail+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFDetail+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BB0E1F99E9F7000F84F2 /* LFDetail+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFDetail+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BB111F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecurityScanAgree+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BB121F99F30F000F84F2 /* SecurityScanAgree+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecurityScanAgree+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BB131F99F30F000F84F2 /* SecurityScanAgree+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SecurityScanAgree+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BB141F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SecurityScanAgree+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B16BB181F99FA95000F84F2 /* XGJL+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGJL+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B16BB191F99FA95000F84F2 /* XGJL+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGJL+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B16BB1A1F99FA95000F84F2 /* XGJL+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGJL+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B16BB1B1F99FA95000F84F2 /* XGJL+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGJL+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6B522F9E1F9888CB001C6074 /* CacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
 		6B522F9F1F9888CB001C6074 /* CacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
-		6B522FA71F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecuritySGAgree+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6B522FA81F98A0C1001C6074 /* SecuritySGAgree+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecuritySGAgree+CoreDataClass.h"; sourceTree = "<group>"; };
-		6B522FA91F98A0C1001C6074 /* SecuritySGAgree+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SecuritySGAgree+CoreDataClass.m"; sourceTree = "<group>"; };
-		6B522FAA1F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SecuritySGAgree+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6B69D4141F9052DB00C57344 /* SchoolSecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolSecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B69D4321F90546D00C57344 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6B69D4331F90546D00C57344 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -450,14 +488,6 @@
 		6B69D6441F90566200C57344 /* SchoolSecurity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SchoolSecurity.xcdatamodel; sourceTree = "<group>"; };
 		6B69D6901F9087EC00C57344 /* MyCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreDataManager.h; sourceTree = "<group>"; };
 		6B69D6911F9087EC00C57344 /* MyCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreDataManager.m; sourceTree = "<group>"; };
-		6BD50B6C1F9760DA0097074D /* OrgInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrgInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6BD50B6D1F9760DA0097074D /* OrgInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrgInfo+CoreDataClass.h"; sourceTree = "<group>"; };
-		6BD50B6E1F9760DA0097074D /* OrgInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "OrgInfo+CoreDataClass.m"; sourceTree = "<group>"; };
-		6BD50B6F1F9760DA0097074D /* OrgInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "OrgInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
-		6BD50B701F9760DA0097074D /* CallerInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CallerInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6BD50B711F9760DA0097074D /* CallerInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CallerInfo+CoreDataClass.h"; sourceTree = "<group>"; };
-		6BD50B721F9760DA0097074D /* CallerInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CallerInfo+CoreDataClass.m"; sourceTree = "<group>"; };
-		6BD50B731F9760DA0097074D /* CallerInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CallerInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D7A2341065916F4DE03CC739 /* Pods-SchoolSecurity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolSecurity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolSecurity/Pods-SchoolSecurity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -498,6 +528,105 @@
 				6B0F33C21F974843004932C8 /* StrTool.m */,
 			);
 			path = StrTool;
+			sourceTree = "<group>";
+		};
+		6B16BAD81F99D1EC000F84F2 /* 扫描登记 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BB111F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.h */,
+				6B16BB121F99F30F000F84F2 /* SecurityScanAgree+CoreDataClass.h */,
+				6B16BB131F99F30F000F84F2 /* SecurityScanAgree+CoreDataClass.m */,
+				6B16BB141F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.m */,
+			);
+			path = "扫描登记";
+			sourceTree = "<group>";
+		};
+		6B16BADD1F99D1EC000F84F2 /* 手工登记 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BADE1F99D1EC000F84F2 /* SecuritySGAgree+CoreDataProperties.m */,
+				6B16BADF1F99D1EC000F84F2 /* SecuritySGAgree+CoreDataClass.h */,
+				6B16BAE01F99D1EC000F84F2 /* SecuritySGAgree+CoreDataProperties.h */,
+				6B16BAE11F99D1EC000F84F2 /* SecuritySGAgree+CoreDataClass.m */,
+			);
+			path = "手工登记";
+			sourceTree = "<group>";
+		};
+		6B16BAE21F99D1ED000F84F2 /* 受访人员 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BAE31F99D1ED000F84F2 /* CallerInfo+CoreDataClass.h */,
+				6B16BAE41F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.h */,
+				6B16BAE51F99D1ED000F84F2 /* CallerInfo+CoreDataClass.m */,
+				6B16BAE61F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.m */,
+			);
+			path = "受访人员";
+			sourceTree = "<group>";
+		};
+		6B16BAE71F99D1ED000F84F2 /* 受访部门 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BAE81F99D1ED000F84F2 /* OrgInfo+CoreDataClass.m */,
+				6B16BAE91F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.m */,
+				6B16BAEA1F99D1ED000F84F2 /* OrgInfo+CoreDataClass.h */,
+				6B16BAEB1F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.h */,
+			);
+			path = "受访部门";
+			sourceTree = "<group>";
+		};
+		6B16BAF51F99D230000F84F2 /* 访客管理 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BAF71F99D259000F84F2 /* FKManager+CoreDataClass.h */,
+				6B16BAF81F99D259000F84F2 /* FKManager+CoreDataClass.m */,
+				6B16BAF61F99D259000F84F2 /* FKManager+CoreDataProperties.h */,
+				6B16BAF91F99D259000F84F2 /* FKManager+CoreDataProperties.m */,
+			);
+			path = "访客管理";
+			sourceTree = "<group>";
+		};
+		6B16BAFC1F99DD36000F84F2 /* 访客详细 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BAFD1F99DF9A000F84F2 /* FKDetail+CoreDataProperties.h */,
+				6B16BAFE1F99DF9A000F84F2 /* FKDetail+CoreDataClass.h */,
+				6B16BAFF1F99DF9A000F84F2 /* FKDetail+CoreDataClass.m */,
+				6B16BB001F99DF9A000F84F2 /* FKDetail+CoreDataProperties.m */,
+			);
+			path = "访客详细";
+			sourceTree = "<group>";
+		};
+		6B16BB031F99E5F4000F84F2 /* 来访管理 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BB041F99E621000F84F2 /* LFManager+CoreDataProperties.h */,
+				6B16BB051F99E621000F84F2 /* LFManager+CoreDataClass.h */,
+				6B16BB061F99E621000F84F2 /* LFManager+CoreDataClass.m */,
+				6B16BB071F99E621000F84F2 /* LFManager+CoreDataProperties.m */,
+			);
+			path = "来访管理";
+			sourceTree = "<group>";
+		};
+		6B16BB0A1F99E9DC000F84F2 /* 来访详细 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BB0B1F99E9F7000F84F2 /* LFDetail+CoreDataProperties.h */,
+				6B16BB0C1F99E9F7000F84F2 /* LFDetail+CoreDataClass.h */,
+				6B16BB0D1F99E9F7000F84F2 /* LFDetail+CoreDataClass.m */,
+				6B16BB0E1F99E9F7000F84F2 /* LFDetail+CoreDataProperties.m */,
+			);
+			path = "来访详细";
+			sourceTree = "<group>";
+		};
+		6B16BB171F99FA7F000F84F2 /* 巡更记录 */ = {
+			isa = PBXGroup;
+			children = (
+				6B16BB181F99FA95000F84F2 /* XGJL+CoreDataProperties.h */,
+				6B16BB191F99FA95000F84F2 /* XGJL+CoreDataClass.h */,
+				6B16BB1A1F99FA95000F84F2 /* XGJL+CoreDataClass.m */,
+				6B16BB1B1F99FA95000F84F2 /* XGJL+CoreDataProperties.m */,
+			);
+			path = "巡更记录";
 			sourceTree = "<group>";
 		};
 		6B69D40B1F9052DB00C57344 = {
@@ -1067,11 +1196,11 @@
 		6B69D4DC1F90546D00C57344 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6B69D4E01F90546D00C57344 /* ScaningViewController.h */,
+				6B69D4E11F90546D00C57344 /* ScaningViewController.m */,
 				6B69D4DD1F90546D00C57344 /* ScanedViewController.h */,
 				6B69D4DE1F90546D00C57344 /* ScanedViewController.m */,
 				6B69D4DF1F90546D00C57344 /* ScanedViewController.xib */,
-				6B69D4E01F90546D00C57344 /* ScaningViewController.h */,
-				6B69D4E11F90546D00C57344 /* ScaningViewController.m */,
 				6B69D4E21F90546D00C57344 /* SMIdCardViewController.h */,
 				6B69D4E31F90546D00C57344 /* SMIdCardViewController.m */,
 			);
@@ -1682,18 +1811,15 @@
 		6B69D6861F90874400C57344 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6B522FA71F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.h */,
-				6B522FA81F98A0C1001C6074 /* SecuritySGAgree+CoreDataClass.h */,
-				6B522FA91F98A0C1001C6074 /* SecuritySGAgree+CoreDataClass.m */,
-				6B522FAA1F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.m */,
-				6BD50B6C1F9760DA0097074D /* OrgInfo+CoreDataProperties.h */,
-				6BD50B6D1F9760DA0097074D /* OrgInfo+CoreDataClass.h */,
-				6BD50B6E1F9760DA0097074D /* OrgInfo+CoreDataClass.m */,
-				6BD50B6F1F9760DA0097074D /* OrgInfo+CoreDataProperties.m */,
-				6BD50B701F9760DA0097074D /* CallerInfo+CoreDataProperties.h */,
-				6BD50B711F9760DA0097074D /* CallerInfo+CoreDataClass.h */,
-				6BD50B721F9760DA0097074D /* CallerInfo+CoreDataClass.m */,
-				6BD50B731F9760DA0097074D /* CallerInfo+CoreDataProperties.m */,
+				6B16BB171F99FA7F000F84F2 /* 巡更记录 */,
+				6B16BB0A1F99E9DC000F84F2 /* 来访详细 */,
+				6B16BB031F99E5F4000F84F2 /* 来访管理 */,
+				6B16BAFC1F99DD36000F84F2 /* 访客详细 */,
+				6B16BAF51F99D230000F84F2 /* 访客管理 */,
+				6B16BAD81F99D1EC000F84F2 /* 扫描登记 */,
+				6B16BADD1F99D1EC000F84F2 /* 手工登记 */,
+				6B16BAE71F99D1ED000F84F2 /* 受访部门 */,
+				6B16BAE21F99D1ED000F84F2 /* 受访人员 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1862,6 +1988,8 @@
 				6B69D62F1F90546D00C57344 /* UIImage+SGHelper.m in Sources */,
 				6B69D5D21F90546D00C57344 /* LFModel.m in Sources */,
 				6B69D6411F90546D00C57344 /* UIView+Extension.m in Sources */,
+				6B16BB021F99DF9A000F84F2 /* FKDetail+CoreDataProperties.m in Sources */,
+				6B16BB161F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.m in Sources */,
 				6B69D5F51F90546D00C57344 /* ScanModel.m in Sources */,
 				6B69D5D41F90546D00C57344 /* LFChildScrollView.m in Sources */,
 				6B69D5AB1F90546D00C57344 /* AppDelegate.m in Sources */,
@@ -1876,9 +2004,13 @@
 				6B69D5CE1F90546D00C57344 /* XGTableViewController.m in Sources */,
 				6B69D62C1F90546D00C57344 /* TypeScrollView.m in Sources */,
 				6B69D6361F90546D00C57344 /* CALayer+Addition.m in Sources */,
+				6B16BB1D1F99FA95000F84F2 /* XGJL+CoreDataProperties.m in Sources */,
 				6B69D63A1F90546D00C57344 /* UIButton+Extension.m in Sources */,
+				6B16BAF31F99D1ED000F84F2 /* OrgInfo+CoreDataProperties.m in Sources */,
 				6B69D6331F90546D00C57344 /* SGQRCodeHelperTool.m in Sources */,
+				6B16BAFB1F99D259000F84F2 /* FKManager+CoreDataProperties.m in Sources */,
 				6B69D5E61F90546D00C57344 /* OtherVisiterModel.m in Sources */,
+				6B16BAEE1F99D1ED000F84F2 /* SecuritySGAgree+CoreDataProperties.m in Sources */,
 				6B69D62D1F90546D00C57344 /* MBProgressHUD+Add.m in Sources */,
 				6B69D5F61F90546D00C57344 /* ScanParameterModel.m in Sources */,
 				6B69D6401F90546D00C57344 /* UITableView+DJFWave.m in Sources */,
@@ -1898,12 +2030,14 @@
 				6B69D6201F90546D00C57344 /* SchoolBlackListViewController.m in Sources */,
 				6B69D5D51F90546D00C57344 /* LFManagerCell.m in Sources */,
 				6B69D5DD1F90546D00C57344 /* OtherDetailModel.m in Sources */,
+				6B16BB091F99E621000F84F2 /* LFManager+CoreDataProperties.m in Sources */,
 				6B69D61A1F90546D00C57344 /* EditBlackListViewController.m in Sources */,
 				6B69D5C91F90546D00C57344 /* StepManager.m in Sources */,
 				6B69D5EB1F90546D00C57344 /* FKDJViewController.m in Sources */,
 				6B69D5E51F90546D00C57344 /* OtherVisiterList.m in Sources */,
 				6B69D5FF1F90546D00C57344 /* FKModel.m in Sources */,
 				6B69D6091F90546D00C57344 /* IDInfoViewController.m in Sources */,
+				6B16BB101F99E9F7000F84F2 /* LFDetail+CoreDataProperties.m in Sources */,
 				6B69D6191F90546D00C57344 /* BlackManagerViewController.m in Sources */,
 				6B69D6351F90546D00C57344 /* SGQRCodeScanningView.m in Sources */,
 				6B69D5F41F90546D00C57344 /* ScanList.m in Sources */,
@@ -1938,7 +2072,6 @@
 				6B69D63D1F90546D00C57344 /* UIImage+Extension.m in Sources */,
 				6B69D6451F90566200C57344 /* SchoolSecurity.xcdatamodeld in Sources */,
 				6B69D6221F90546D00C57344 /* SchoolBlackListCell.m in Sources */,
-				6B522FAC1F98A0C1001C6074 /* SecuritySGAgree+CoreDataProperties.m in Sources */,
 				6B69D6071F90546D00C57344 /* IDAuthViewController.m in Sources */,
 				6B69D5EF1F90546D00C57344 /* SGDJParameterModel.m in Sources */,
 				6B69D5C31F90546D00C57344 /* XGDDetailCell.m in Sources */,
@@ -1954,9 +2087,8 @@
 				6B69D5DB1F90546D00C57344 /* LFDetailModel.m in Sources */,
 				6B69D5DE1F90546D00C57344 /* OtherDetailCell.m in Sources */,
 				6B69D61C1F90546D00C57344 /* PoliceBlackListViewController.m in Sources */,
-				6BD50B751F9760DA0097074D /* OrgInfo+CoreDataProperties.m in Sources */,
-				6BD50B771F9760DA0097074D /* CallerInfo+CoreDataProperties.m in Sources */,
 				6B69D62E1F90546D00C57344 /* MBProgressHUD.m in Sources */,
+				6B16BAF11F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.m in Sources */,
 				6B69D5C71F90546D00C57344 /* XGStartViewController.m in Sources */,
 				6B69D5B01F90546D00C57344 /* main.m in Sources */,
 				6B69D62A1F90546D00C57344 /* ImgToBatManager.m in Sources */,

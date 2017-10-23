@@ -72,6 +72,16 @@
 
 - (void)refreshList{
     
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [PersonList sharedInstance].personModel.name = [UserDefaultsTool getObjWithKey:@"userName"];
+        [PersonList sharedInstance].personModel.id_card = [UserDefaultsTool getObjWithKey:@"id_card"];
+        [PersonList sharedInstance].personModel.mphone = [UserDefaultsTool getObjWithKey:@"mphone"];
+        [PersonList sharedInstance].personModel.headimg = [UserDefaultsTool getObjWithKey:@"userHeadimg"];
+        
+        return;
+    }
+    
     [self addLoadingView];
     
     BaseStore *store = [[BaseStore alloc] init];
@@ -274,10 +284,7 @@
         
         [weakSelf showSVPSuccess:@"保存成功"];
         
-        if (weakSelf.changePersonblock != nil) {
-            
-            weakSelf.changePersonblock();
-        }
+        [self upPersonInfo];
         
         _theNewImg = nil;
         
@@ -291,6 +298,31 @@
     }];
 }
 
+- (void)upPersonInfo{
+    
+    BaseStore *store = [[BaseStore alloc] init];
+    
+    NSString *school_id = [UserDefaultsTool getSchoolId];
+    NSString *security_personnel_id = [UserDefaultsTool getSecurityId];
+    
+    MJWeakSelf
+    [store getPersonInfoWithSchoolId:school_id andSecurityId:security_personnel_id Success:^{
+        
+        [UserDefaultsTool setObj:[PersonList sharedInstance].personModel.name andKey:@"userName"];
+        [UserDefaultsTool setObj:[PersonList sharedInstance].personModel.mphone andKey:@"mphone"];
+        [UserDefaultsTool setObj:[PersonList sharedInstance].personModel.headimg andKey:@"userHeadimg"];
+        
+        if (weakSelf.changePersonblock != nil) {
+            
+            weakSelf.changePersonblock();
+        }
+        
+        
+    } Failure:^(NSError *error) {
+        
+    }];
+    
+}
 
 #pragma mark - 压缩图片
 - (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize{

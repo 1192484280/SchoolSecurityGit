@@ -53,6 +53,12 @@
 
 - (IBAction)onSearchBtn:(UIButton *)sender {
     
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [self showSVPError:@"请检查网络连接"];
+        return;
+    }
+    
     FKParameterModel *model = [[FKParameterModel alloc] init];
     model.school_id = [UserDefaultsTool getSchoolId];
     model.page = @"1";

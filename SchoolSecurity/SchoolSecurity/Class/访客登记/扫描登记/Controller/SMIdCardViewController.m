@@ -116,32 +116,61 @@
 #pragma mark - SMIdCardCellDelegate
 - (void)onSureBtn{
     
-    [self addLoadingView];
     
-    BaseStore *store = [[BaseStore alloc] init];
-    NSString *id_card = [IDInfoList sharedInstance].idInfo.num;
-    NSString *vr_id = [ScanList sharedInstance].scanModel.vr_id;
-    NSString *visiter_id = [ScanList sharedInstance].scanModel.visitor_id;
-    NSString *school_id = [UserDefaultsTool getSchoolId];
-    NSString *security_personnel_id = [UserDefaultsTool getSecurityId];
-    
-    MJWeakSelf
-    [store confirmIdCardWithIdCard:id_card andVrId:vr_id andVisiterId:visiter_id andSchoolId:school_id andSecuriyyId:security_personnel_id Success:^{
-        
-        [weakSelf showSVPSuccess:@"扫描身份证信息与绑定身份证信息一致"];
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
         
         [IDInfoList sharedInstance].smResult = @"扫描身份证信息与绑定身份证信息一致";
         
-        [weakSelf performSelector:@selector(back) withObject:nil afterDelay:1];
+        //判断身份证号是否与扫描二维码获得的一致
+        if (![[IDInfoList sharedInstance].idInfo.num isEqualToString:[ScanList sharedInstance].scanModel.visitor_id_card]) {
+            
+            [IDInfoList sharedInstance].smResult = @"扫描身份证信息与绑定身份证信息不一致";
+            
+            return;
+        }
         
+        //判断身份证是否属于黑名单
+        NSString *a;
+        if ([a isEqualToString:@"属于黑名单"]) {
+            
+            [IDInfoList sharedInstance].smResult = @"此人属于黑名单列表，禁止进入！";
+            
+            return;
+        }
         
-    } Failure:^(NSError *error) {
+        [self showSVPSuccess:@"扫描身份证信息与绑定身份证信息一致"];
+        [self performSelector:@selector(back) withObject:nil afterDelay:1];
         
-        [weakSelf showSVPError:[HttpTool handleError:error]];
+    }else{
         
-        [IDInfoList sharedInstance].smResult = [HttpTool handleError:error];
+        [self addLoadingView];
         
-    }];
+        BaseStore *store = [[BaseStore alloc] init];
+        NSString *id_card = [IDInfoList sharedInstance].idInfo.num;
+        NSString *vr_id = [ScanList sharedInstance].scanModel.vr_id;
+        NSString *visiter_id = [ScanList sharedInstance].scanModel.visitor_id;
+        NSString *school_id = [UserDefaultsTool getSchoolId];
+        NSString *security_personnel_id = [UserDefaultsTool getSecurityId];
+        
+        MJWeakSelf
+        [store confirmIdCardWithIdCard:id_card andVrId:vr_id andVisiterId:visiter_id andSchoolId:school_id andSecuriyyId:security_personnel_id Success:^{
+            
+            [weakSelf showSVPSuccess:@"扫描身份证信息与绑定身份证信息一致"];
+            
+            [IDInfoList sharedInstance].smResult = @"扫描身份证信息与绑定身份证信息一致";
+            
+            [weakSelf performSelector:@selector(back) withObject:nil afterDelay:1];
+            
+            
+        } Failure:^(NSError *error) {
+            
+            [weakSelf showSVPError:[HttpTool handleError:error]];
+            
+            [IDInfoList sharedInstance].smResult = [HttpTool handleError:error];
+            
+        }];
+    }
+    
 
 }
 - (void)back{

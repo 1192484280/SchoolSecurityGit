@@ -10,6 +10,7 @@
 #import "XGJLCell.h"
 #import "XGDDetailViewController.h"
 #import "XGStartViewController.h"
+#import "XGJL+CoreDataProperties.h"
 
 @interface XGJLViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,XGJLCellDelegate>
 {
@@ -129,6 +130,26 @@
     
 }
 - (void)refreshList{
+    
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[XGJL class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            [self.tableView.mj_header endRefreshing];
+            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+            if (coredataModelArr.count > 0) {
+                
+                self.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+                [self.tableView reloadData];
+            }else{
+                
+                [self showSVPError:@"网络加载失败"];
+            }
+        } Error:^(NSError *error) {
+            
+        }];
+        return;
+    }
     
     BaseStore *store = [[BaseStore alloc] init];
     

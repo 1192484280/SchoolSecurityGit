@@ -11,6 +11,7 @@
 #import "FKParameterModel.h"
 #import "FKManagerSearchViewController.h"
 #import "FKDetailViewController.h"
+#import "FKManager+CoreDataProperties.h"
 
 @interface FKManagerViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,FKManagerCellDelegate>
 
@@ -92,14 +93,28 @@
 }
 - (void)refreshList{
     
-    [self addLoadingView];
+    MJWeakSelf
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[FKManager class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
+            weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+            
+            weakSelf.ListArr = [NSMutableArray arrayWithArray:coredataModelArr];
+            [weakSelf.tableView reloadData];
+        } Error:^(NSError *error) {
+            
+        }];
+        return;
+    }
+   
     BaseStore *store = [[BaseStore alloc] init];
     
-    MJWeakSelf
     [store getFKManagerListArrWithParameter:self.parameterModel Success:^(NSArray *arr, BOOL haveMore) {
         
-        [weakSelf removeLoadingView];
-        
+
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView.mj_footer endRefreshing];
         
@@ -111,6 +126,7 @@
             [weakSelf.ListArr addObjectsFromArray:arr];
             
             if (haveMore == NO) {
+                
                 
                 weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
                 
@@ -124,8 +140,6 @@
         [weakSelf.tableView reloadData];
         
     } Failure:^(NSError *error) {
-        
-        [weakSelf removeLoadingView];
         
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView.mj_footer endRefreshing];

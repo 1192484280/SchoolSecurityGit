@@ -1,8 +1,8 @@
 //
-//  SecuritySGAgree+CoreDataClass.h
+//  FKDetail+CoreDataClass.h
 //  SchoolSecurity
 //
-//  Created by zhangming on 2017/10/19.
+//  Created by zhangming on 2017/10/20.
 //  Copyright © 2017年 youjiesi. All rights reserved.
 //
 //
@@ -12,10 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecuritySGAgree : NSManagedObject
+@interface FKDetail : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "SecuritySGAgree+CoreDataProperties.h"
+#import "FKDetail+CoreDataProperties.h"

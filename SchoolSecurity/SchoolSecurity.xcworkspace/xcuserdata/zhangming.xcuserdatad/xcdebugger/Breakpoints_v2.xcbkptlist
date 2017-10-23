@@ -19,14 +19,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "530099562.297215"
+            filePath = "SchoolSecurity/Class/&#x8bbf;&#x5ba2;&#x767b;&#x8bb0;/&#x624b;&#x5de5;&#x767b;&#x8bb0;/Controller/SGDJViewController.m"
+            timestampString = "530433681.864368"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
-            landmarkName = "-ifLetGoWithSGDJParameterModel:Success:Failure:"
+            startingLineNumber = "508"
+            endingLineNumber = "508"
+            landmarkName = "-postStoreWithSetParameterModelWithStatus:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[SGDJViewController postStoreWithSetParameterModelWithStatus:]_block_invoke"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E8%AE%BF%E5%AE%A2%E7%99%BB%E8%AE%B0/%E6%89%8B%E5%B7%A5%E7%99%BB%E8%AE%B0/Controller/SGDJViewController.m"
+                  timestampString = "530433684.381404"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "509"
+                  endingLineNumber = "509"
+                  offsetFromSymbolStart = "3549">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.470"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E8%AE%BF%E5%AE%A2%E7%99%BB%E8%AE%B0/%E6%89%8B%E5%B7%A5%E7%99%BB%E8%AE%B0/Controller/SGDJViewController.m"
+                  timestampString = "530433684.383728"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "509"
+                  endingLineNumber = "509"
+                  offsetFromSymbolStart = "111">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.471"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E8%AE%BF%E5%AE%A2%E7%99%BB%E8%AE%B0/%E6%89%8B%E5%B7%A5%E7%99%BB%E8%AE%B0/Controller/SGDJViewController.m"
+                  timestampString = "530433684.385568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "509"
+                  endingLineNumber = "509"
+                  offsetFromSymbolStart = "55">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[SGDJViewController postStoreWithSetParameterModelWithStatus:]_block_invoke.474"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E8%AE%BF%E5%AE%A2%E7%99%BB%E8%AE%B0/%E6%89%8B%E5%B7%A5%E7%99%BB%E8%AE%B0/Controller/SGDJViewController.m"
+                  timestampString = "530433684.387313"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "511"
+                  endingLineNumber = "511"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -35,43 +97,88 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SchoolSecurity/OtherFile/CacheManager.m"
-            timestampString = "530099562.297296"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "530433681.864533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "+doSomethingWithArr:"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "-confirmIdCardWithIdCard:andVrId:andVisiterId:andSchoolId:andSecuriyyId:Success:Failure:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "+[CacheManager doSomethingWithArr:]"
+                  symbolName = "-[BaseStore confirmIdCardWithIdCard:andVrId:andVisiterId:andSchoolId:andSecuriyyId:Success:Failure:]"
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/OtherFile/CacheManager.m"
-                  timestampString = "530099562.504538"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433684.398022"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "288">
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "783">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__35+[CacheManager doSomethingWithArr:]_block_invoke"
+                  symbolName = "__100-[BaseStore confirmIdCardWithIdCard:andVrId:andVisiterId:andSchoolId:andSecuriyyId:Success:Failure:]_block_invoke"
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/OtherFile/CacheManager.m"
-                  timestampString = "530099562.509127"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433684.399878"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "157">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.177"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433684.401713"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.178"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433684.40354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__100-[BaseStore confirmIdCardWithIdCard:andVrId:andVisiterId:andSchoolId:andSecuriyyId:Success:Failure:]_block_invoke.180"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433684.405516"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -83,13 +190,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SchoolSecurity/OtherFile/CacheManager.m"
-            timestampString = "530099562.297624"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "530433681.865023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "+doSomethingWithArr:"
+            startingLineNumber = "716"
+            endingLineNumber = "716"
+            landmarkName = "-getOtherListArrWithVr_id:Success:Failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x8bbf;&#x5ba2;&#x7ba1;&#x7406;/Controller/FKDetailViewController.m"
+            timestampString = "530433681.865467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-refreshList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -100,42 +223,122 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "530099684.041776"
+            timestampString = "530433681.865571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
-            landmarkName = "-ifLetGoWithSGDJParameterModel:Success:Failure:"
+            startingLineNumber = "1288"
+            endingLineNumber = "1288"
+            landmarkName = "-getXGDetailWithP_id:Success:Failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "530433681.865893"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "423"
+            endingLineNumber = "423"
+            landmarkName = "-smLoginoutWithIdCard:andSecurityId:Success:Failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "530433769.999302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "-smLoginoutWithIdCard:andSecurityId:Success:Failure:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[BaseStore ifLetGoWithSGDJParameterModel:Success:Failure:]"
+                  symbolName = "-[BaseStore smLoginoutWithIdCard:andSecurityId:Success:Failure:]"
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
-                  timestampString = "530099684.158733"
+                  timestampString = "530433770.225013"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "329"
-                  endingLineNumber = "329"
-                  offsetFromSymbolStart = "2368">
+                  startingLineNumber = "421"
+                  endingLineNumber = "421"
+                  offsetFromSymbolStart = "392">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__59-[BaseStore ifLetGoWithSGDJParameterModel:Success:Failure:]_block_invoke"
+                  symbolName = "__64-[BaseStore smLoginoutWithIdCard:andSecurityId:Success:Failure:]_block_invoke"
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
-                  timestampString = "530099684.160453"
+                  timestampString = "530433770.226727"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "331"
-                  endingLineNumber = "331"
+                  startingLineNumber = "423"
+                  endingLineNumber = "423"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "530433918.443172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "652"
+            endingLineNumber = "652"
+            landmarkName = "-getLFDetailInfoWithVr_id:Success:Failure:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BaseStore getLFDetailInfoWithVr_id:Success:Failure:]"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433918.673516"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "652"
+                  endingLineNumber = "652"
+                  offsetFromSymbolStart = "1160">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__54-[BaseStore getLFDetailInfoWithVr_id:Success:Failure:]_block_invoke_4"
+                  moduleName = "SchoolSecurity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "530433918.675446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "654"
+                  endingLineNumber = "654"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>

@@ -262,43 +262,30 @@
 
 
 - (void)refreshUI{
+
+    NSString *name = [UserDefaultsTool getObjWithKey:@"userName"];
+    NSString *mphone = [UserDefaultsTool getObjWithKey:@"mphone"];
+    NSString *img = [UserDefaultsTool getObjWithKey:@"userHeadimg"];
     
-    BaseStore *store = [[BaseStore alloc] init];
+    img = [NSString stringWithFormat:@"%@/%@",IP,img];
     
-    NSString *school_id = [UserDefaultsTool getSchoolId];
-    NSString *security_personnel_id = [UserDefaultsTool getSecurityId];
+    [self.headerIm sd_setImageWithURL:[NSURL URLWithString:img] placeholderImage:[UIImage imageNamed:@"add_img"]];
     
-    MJWeakSelf
+    if (name.length > 0) {
+        
+        [self.nameBtn setTitle:name forState:UIControlStateNormal];
+    }else{
+        
+        [self.nameBtn setTitle:@"填写用户名" forState:UIControlStateNormal];
+    }
     
-    [store getPersonInfoWithSchoolId:school_id andSecurityId:security_personnel_id Success:^{
+    if (mphone.length > 0) {
         
-        NSString *img = [NSString stringWithFormat:@"%@/%@",IP,[PersonList sharedInstance].personModel.headimg];
+        [self.telBtn setTitle:mphone forState:UIControlStateNormal];
+    }else{
         
-        [self.headerIm sd_setImageWithURL:[NSURL URLWithString:img] placeholderImage:[UIImage imageNamed:@"add_img"]];
-        
-        if ([PersonList sharedInstance].personModel.name.length > 0) {
-            
-            [weakSelf.nameBtn setTitle:[PersonList sharedInstance].personModel.name forState:UIControlStateNormal];
-        }else{
-            
-            [weakSelf.nameBtn setTitle:@"填写用户名" forState:UIControlStateNormal];
-        }
-        
-        if ([PersonList sharedInstance].personModel.tel.length > 0) {
-            
-            [weakSelf.telBtn setTitle:[PersonList sharedInstance].personModel.mphone forState:UIControlStateNormal];
-        }else{
-            
-            [weakSelf.telBtn setTitle:@"填写电话号" forState:UIControlStateNormal];
-        }
-        
-        [UserDefaultsTool setObj:weakSelf.nameBtn.currentTitle andKey:@"user_name"];
-        [UserDefaultsTool setObj:weakSelf.telBtn.currentTitle andKey:@"user_tel"];
-        
-    }Failure:^(NSError *error) {
-        
-        [SVProgressHUD showErrorWithStatus:[HttpTool handleError:error]];
-    }];
+        [self.telBtn setTitle:@"填写电话号" forState:UIControlStateNormal];
+    }
     
 }
 

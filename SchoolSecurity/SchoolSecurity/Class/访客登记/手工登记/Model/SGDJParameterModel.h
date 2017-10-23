@@ -53,7 +53,7 @@
 @property (nonatomic, copy) NSString *id_release_organ;
 
 //是否随行
-@property (nonatomic, copy) NSString *is_other_persion;
+@property (nonatomic, copy) NSString *is_other_person;
 
 //是否有车
 @property (nonatomic, copy) NSString *is_car;

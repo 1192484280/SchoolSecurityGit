@@ -15,6 +15,7 @@
 #import "SMIdCardViewController.h"
 #import "ScanParameterModel.h"
 #import "OtherVisiterModel.h"
+#import "SecurityScanAgree+CoreDataProperties.h"
 
 @interface ScanedViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -287,6 +288,7 @@
 #pragma mark - 扫描身份证
 - (IBAction)onScanIDCardBtn:(UIButton *)sender {
     
+    [self.view endEditing:YES];
     
     [IDInfoList sharedInstance].idInfo = [[IDInfo alloc] init];
     
@@ -300,6 +302,8 @@
 
 #pragma mark - 编辑随行人员
 - (IBAction)onEditOtherVisiterBtn:(UIButton *)sender {
+    
+    [self.view endEditing:YES];
     
     OtherVisiterAddViewController *VC = [[OtherVisiterAddViewController alloc] init];
     [VC returnOtherBlock:^{
@@ -492,48 +496,102 @@
     if (self.visiter_carTf.text.length > 0) {
         
         self.parameterModel.is_car = @"1";
-        self.parameterModel.id_card = self.visiter_carTf.text;
+        self.parameterModel.plate_number = self.visiter_carTf.text;
     }
     
 
     self.parameterModel.visitor_tel = self.visiter_phoneTf.text;
     
-    [self addLoadingView];
-    BaseStore *store = [[BaseStore alloc] init];
-
-    MJWeakSelf
-    [store ifLetGoWithParameterModel:self.parameterModel Success:^{
+    
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
         
-        NSString *str = @"";
-        NSString *str2 = @"";
-        UIColor *color = [UIColor blackColor];
-        
-        if ([status isEqualToString:@"3"]) {
+        MJWeakSelf
+        [MyCoreDataManager inserDataWith_CoredatamodelClass:[SecurityScanAgree class] CoredataModel:^(SecurityScanAgree *info) {
             
-            str = @"已放行";
-            str2 = @"访客已进入";
-        
-        }
-        if ([status isEqualToString:@"5"]) {
+            info.vr_id = weakSelf.parameterModel.vr_id;
+            info.visitor_id = weakSelf.parameterModel.visitor_id;
+            info.school_id = weakSelf.parameterModel.school_id;
+            info.security_personnel_id = weakSelf.parameterModel.security_personnel_id;
+            info.status = weakSelf.parameterModel.status;
+            info.id_card = weakSelf.parameterModel.id_card;
+            info.id_name = weakSelf.parameterModel.id_name;
+            info.id_sex = weakSelf.parameterModel.id_sex;
+            info.id_birthday = weakSelf.parameterModel.id_birthday;
+            info.id_address = weakSelf.parameterModel.id_address;
+            info.id_validity_date = weakSelf.parameterModel.id_validity_date;
+            info.id_nation = weakSelf.parameterModel.id_nation;
+            info.id_release_organ = weakSelf.parameterModel.id_release_organ;
+            info.is_other_person = weakSelf.parameterModel.is_other_person;
+            info.is_car = weakSelf.parameterModel.is_car;
+            info.visitor_picture = weakSelf.parameterModel.visitor_picture;
+            info.visitor_tel = weakSelf.parameterModel.visitor_tel;
+            info.other_person_list = weakSelf.parameterModel.other_person_list;
+            info.plate_number = weakSelf.parameterModel.plate_number;
             
-            str = @"已拒绝";
-            str2 = @"受访人拒绝";
-            color = [UIColor redColor];
-        }
+            NSString *str = @"";
+            NSString *str2 = @"";
+            UIColor *color = [UIColor blackColor];
+            
+            if ([status isEqualToString:@"3"]) {
+                
+                str = @"已放行";
+                str2 = @"访客已进入";
+                
+            }
+            if ([status isEqualToString:@"5"]) {
+                
+                str = @"已拒绝";
+                str2 = @"受访人拒绝";
+                color = [UIColor redColor];
+            }
+            
+            weakSelf.fkStatus.alpha = 1;
+            weakSelf.fkStatus.text = str2;
+            weakSelf.fkStatus.textColor = color;
+            
+            
+        } Error:^(NSError *error) {
+            
+        }];
         
-        [self showSVPSuccess:str];
+    }else{
         
+        [self addLoadingView];
+        BaseStore *store = [[BaseStore alloc] init];
         
-        weakSelf.fkStatus.alpha = 1;
-        weakSelf.fkStatus.text = str2;
-        weakSelf.fkStatus.textColor = color;
-        
-    } Failure:^(NSError *error) {
-        
-        [weakSelf showSVPError:[HttpTool handleError:error]];
-        self.agreeBtn.userInteractionEnabled = YES;
-        self.refuseBtn.userInteractionEnabled = YES;
-    }];
+        MJWeakSelf
+        [store ifLetGoWithParameterModel:self.parameterModel Success:^{
+            
+            NSString *str = @"";
+            NSString *str2 = @"";
+            UIColor *color = [UIColor blackColor];
+            
+            if ([status isEqualToString:@"3"]) {
+                
+                str = @"已放行";
+                str2 = @"访客已进入";
+                
+            }
+            if ([status isEqualToString:@"5"]) {
+                
+                str = @"已拒绝";
+                str2 = @"受访人拒绝";
+                color = [UIColor redColor];
+            }
+            
+            [self showSVPSuccess:str];
+            
+            weakSelf.fkStatus.alpha = 1;
+            weakSelf.fkStatus.text = str2;
+            weakSelf.fkStatus.textColor = color;
+            
+        } Failure:^(NSError *error) {
+            
+            [weakSelf showSVPError:[HttpTool handleError:error]];
+            self.agreeBtn.userInteractionEnabled = YES;
+            self.refuseBtn.userInteractionEnabled = YES;
+        }];
+    }
     
 }
 #pragma mark - 数组转js格式

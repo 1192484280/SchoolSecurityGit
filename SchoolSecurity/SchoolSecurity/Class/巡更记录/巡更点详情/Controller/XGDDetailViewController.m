@@ -27,14 +27,14 @@
     
     if (!_tableView) {
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, iPhoneX_Top, ScreenWidth, ScreenHeight - (iPhoneX_Top)) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (iPhoneX_Top) + 0.5, ScreenWidth, ScreenHeight - (iPhoneX_Top) - 0.5) style:UITableViewStylePlain];
         _tableView.contentInset = UIEdgeInsetsMake(XGHeaderHeight, 0, 0, 0);
         [_tableView setContentOffset:CGPointMake(0, -XGHeaderHeight)];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 10)];
-       _tableView.separatorColor = [UIColor orangeColor]; _tableView.tableFooterView = [UIView new];
+        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 5)];
+       _tableView.separatorColor = [UIColor blackColor]; _tableView.tableFooterView = [UIView new];
     }
     return _tableView;
 }
@@ -42,18 +42,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupUI];
+    [self setNavbar];
     
-    [self setupBackBtnNavBarWithTitle:@"巡更详情"];
+    [self setupUI];
     
     [self refreshList];
     
 }
 
+- (void)setNavbar{
+    
+    self.title = @"巡更详情";
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"icon_back_normal" selectedImageName:@"icon_back_normal" target:self action:@selector(back)];
+}
+
 
 - (void)setupUI{
     
-    XGDDetailHeaderView *headerView = [[XGDDetailHeaderView alloc] initWithFrame:CGRectMake(0, iPhoneX_Top, ScreenWidth, XGHeaderHeight)];
+    XGDDetailHeaderView *headerView = [[XGDDetailHeaderView alloc] initWithFrame:CGRectMake(0, (iPhoneX_Top) + 0.5, ScreenWidth, XGHeaderHeight)];
     [self.view addSubview:headerView];
     self.headerView = headerView;
     

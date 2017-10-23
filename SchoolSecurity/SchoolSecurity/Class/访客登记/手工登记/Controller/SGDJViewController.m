@@ -43,6 +43,10 @@
     return _parameterModel;
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [SVProgressHUD dismiss];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -209,6 +213,8 @@
 #pragma mark - 扫描身份证
 - (IBAction)onScanIDCardBtn:(UIButton *)sender {
     
+    [self.view endEditing:YES];
+    
     [IDInfoList sharedInstance].idInfo = [[IDInfo alloc] init];
     
     AVCaptureViewController *VC = [[AVCaptureViewController alloc] init];
@@ -300,6 +306,8 @@
 #pragma mark - 编辑随行人员
 - (IBAction)onEditOtherVisiterBtn:(UIButton *)sender {
     
+    [self.view endEditing:YES];
+    
     OtherVisiterAddViewController *VC = [[OtherVisiterAddViewController alloc] init];
     [VC returnOtherBlock:^{
         
@@ -390,11 +398,11 @@
         return NO;
     }
     
-//    if (ifSacn == NO) {
-//
-//        [self showMBPError:@"请扫描身份证以确认身份"];
-//        return NO;
-//    }
+    if (ifSacn == NO) {
+
+        [self showMBPError:@"请扫描身份证以确认身份"];
+        return NO;
+    }
     
     
     if (! (self.visiter_dateTf.text.length > 0)) {
@@ -409,7 +417,7 @@
 
 #pragma mark - 设置参数，进行网络请求
 - (void)postStoreWithSetParameterModelWithStatus:(NSString *)status{
-    
+
     self.parameterModel.status = status;
     self.parameterModel.visitor_picture = [ImgToBatManager image2DataURL:self.visiter_headImBtn.currentImage];
     self.parameterModel.school_id = [UserDefaultsTool getSchoolId];
@@ -436,23 +444,11 @@
     self.parameterModel.id_nation = [IDInfoList sharedInstance].idInfo.nation;
     self.parameterModel.id_release_organ = [IDInfoList sharedInstance].idInfo.issue;
     
-     /*
-    self.parameterModel.id_birthday =  @"1991/12/15";
-    self.parameterModel.id_address = @"山东省泰安市宁阳县";
+    self.parameterModel.is_other_person = @"0";
     
-    NSString *a = @"2015/3/20";
-    NSString *b = @"2016/2/25";
-    
-    self.parameterModel.id_validity_date = [NSString stringWithFormat:@"%@-%@",a,b];
-    
-    self.parameterModel.id_nation = @"汉";
-    self.parameterModel.id_release_organ = @"宁阳派出所";*/
-    
-    
-    self.parameterModel.is_other_persion = @"0";
     if([OtherVisiterList sharedInstance].otherVisiterListArr.count > 0){
         
-        self.parameterModel.is_other_persion = [NSString stringWithFormat:@"%lu",(unsigned long)[OtherVisiterList sharedInstance].otherVisiterListArr.count];
+        self.parameterModel.is_other_person = [NSString stringWithFormat:@"%lu",(unsigned long)[OtherVisiterList sharedInstance].otherVisiterListArr.count];
         
         NSMutableArray *arr = [NSMutableArray array];
         
@@ -479,7 +475,7 @@
     if (self.visiter_carTf.text.length > 0) {
         
         self.parameterModel.is_car = @"1";
-        self.parameterModel.id_card = self.visiter_carTf.text;
+        self.parameterModel.plate_number = self.visiter_carTf.text;
     }
     
     self.parameterModel.visitor_tel = self.visiter_phoneTf.text;
@@ -502,10 +498,10 @@
             info.id_validity_date = weakSelf.parameterModel.id_validity_date;
             info.id_nation = weakSelf.parameterModel.id_nation;
             info.id_release_organ = weakSelf.parameterModel.id_release_organ;
-            info.is_other_persion = weakSelf.parameterModel.is_other_persion;
+            info.is_other_person = weakSelf.parameterModel.is_other_person;
             info.other_person_list = weakSelf.parameterModel.other_person_list;
             info.is_car = weakSelf.parameterModel.is_car;
-            info.id_card = weakSelf.parameterModel.id_card;
+            info.plate_number = weakSelf.parameterModel.plate_number;
             info.visitor_tel = weakSelf.parameterModel.visitor_tel;
             info.caller_id = weakSelf.parameterModel.caller_id;
             info.org_id = weakSelf.parameterModel.caller_id;

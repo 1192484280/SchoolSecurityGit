@@ -72,6 +72,11 @@
 
 - (IBAction)onSearchBtn:(UIButton *)sender {
 
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [self showSVPError:@"请检查网络连接"];
+        return;
+    }
     
     if (!(self.lf_nameText.text.length > 0) && !(self.lf_telText.text.length > 0) && !(self.sf_nameText.text.length > 0) && !(self.sf_telText.text.length > 0) && !(self.yy_startText.text.length > 0) && !(self.yy_endText.text.length > 0) && !(self.sf_startText.text.length > 0) && !(self.sf_endText.text.length > 0)) {
         

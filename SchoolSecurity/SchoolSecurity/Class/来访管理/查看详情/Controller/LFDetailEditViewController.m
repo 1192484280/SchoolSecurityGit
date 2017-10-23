@@ -15,6 +15,8 @@
 #import "OtherVisiterAddViewController.h"
 #import "ScanParameterModel.h"
 #import "ScanList.h"
+#import "SecurityScanAgree+CoreDataProperties.h"
+#import "LFDetail+CoreDataProperties.h"
 
 @interface LFDetailEditViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -49,6 +51,10 @@
 }
 
 
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [SVProgressHUD dismiss];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -439,6 +445,61 @@
     
     
     self.parameterModel.visitor_tel = self.lf_telText.text;
+    
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        MJWeakSelf
+        [MyCoreDataManager inserDataWith_CoredatamodelClass:[SecurityScanAgree class] CoredataModel:^(SecurityScanAgree *info) {
+            
+            info.vr_id = weakSelf.parameterModel.vr_id;
+            info.visitor_id = weakSelf.parameterModel.visitor_id;
+            info.school_id = weakSelf.parameterModel.school_id;
+            info.security_personnel_id = weakSelf.parameterModel.security_personnel_id;
+            info.status = weakSelf.parameterModel.status;
+            info.id_card = weakSelf.parameterModel.id_card;
+            info.id_name = weakSelf.parameterModel.id_name;
+            info.id_sex = weakSelf.parameterModel.id_sex;
+            info.id_birthday = weakSelf.parameterModel.id_birthday;
+            info.id_address = weakSelf.parameterModel.id_address;
+            info.id_validity_date = weakSelf.parameterModel.id_validity_date;
+            info.id_nation = weakSelf.parameterModel.id_nation;
+            info.id_release_organ = weakSelf.parameterModel.id_release_organ;
+            info.is_other_person = weakSelf.parameterModel.is_other_person;
+            info.is_car = weakSelf.parameterModel.is_car;
+            info.visitor_picture = weakSelf.parameterModel.visitor_picture;
+            info.visitor_tel = weakSelf.parameterModel.visitor_tel;
+            info.other_person_list = weakSelf.parameterModel.other_person_list;
+            info.plate_number = weakSelf.parameterModel.plate_number;
+            
+            if ([status isEqualToString:@"3"]) {
+                
+                
+                [weakSelf showSVPSuccess:@"已放行，待网络正常时将自动上传"];
+                weakSelf.loginoutView.alpha = 1;
+                
+            }
+            if ([status isEqualToString:@"5"]) {
+                
+                
+                [weakSelf showSVPSuccess:@"已拒绝，待网络正常时将自动上传"];
+                weakSelf.fkStatusLa.alpha = 1;
+                weakSelf.fkStatusLa.text = @"拒绝进入";
+                weakSelf.fkStatusLa.textColor = [UIColor redColor];
+                
+            }
+            
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.parameterModel.vr_id] result:^(BOOL isResult) {
+                
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        
+        return;
+    }
     
     [self addLoadingView];
     

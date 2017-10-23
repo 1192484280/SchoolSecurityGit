@@ -406,7 +406,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受访信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeG-Xp-1Ow">
-                                    <rect key="frame" x="16" y="17" width="100" height="21"/>
+                                    <rect key="frame" x="24" y="17" width="100" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="C4q-eW-ncf"/>
                                         <constraint firstAttribute="width" constant="100" id="Ooz-mS-YaM"/>
@@ -590,7 +590,7 @@
                                 <constraint firstItem="kp6-bn-2BP" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" id="MbR-CF-d88"/>
                                 <constraint firstItem="f6J-Up-wu4" firstAttribute="top" secondItem="kp6-bn-2BP" secondAttribute="bottom" constant="8" id="RfL-wt-NIt"/>
                                 <constraint firstItem="5i0-AC-21Y" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" constant="24" id="WJa-tz-qdH"/>
-                                <constraint firstItem="QeG-Xp-1Ow" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" constant="16" id="WQp-G2-vzL"/>
+                                <constraint firstItem="QeG-Xp-1Ow" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" constant="24" id="WQp-G2-vzL"/>
                                 <constraint firstItem="XDV-Wu-pCJ" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" id="Weh-gM-5EH"/>
                                 <constraint firstItem="koi-DF-1nh" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" id="ZXC-dQ-w5d"/>
                                 <constraint firstItem="2OI-Cx-ZwQ" firstAttribute="leading" secondItem="NB1-Bv-ZBr" secondAttribute="leading" id="ciU-LT-I2f"/>

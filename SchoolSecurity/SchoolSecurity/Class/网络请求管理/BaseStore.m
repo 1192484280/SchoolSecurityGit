@@ -20,6 +20,11 @@
 #import "PersonList.h"
 #import "OrgInfo+CoreDataProperties.h"
 #import "CallerInfo+CoreDataProperties.h"
+#import "FKManager+CoreDataProperties.h"
+#import "FKDetail+CoreDataProperties.h"
+#import "LFManager+CoreDataProperties.h"
+#import "LFDetail+CoreDataProperties.h"
+#import "XGJL+CoreDataProperties.h"
 
 @implementation BaseStore
 
@@ -56,12 +61,6 @@
 #pragma mark - 获取部门列表
 - (void)getPartListWithSchoolId:(NSString *)school_id Success:(void(^)(NSArray *arr))success Failure:(void(^)(NSError *error))failure{
     
-    NSString *url = [NSString stringWithFormat:@"%@/api/Api/getOrgList",IP];
-    
-    NSDictionary *dic = @{
-                          @"school_id":school_id
-                          };
-    
     if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]){
         
         [MyCoreDataManager selectDataWith_CoredatamoldeClass:[OrgInfo class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
@@ -71,49 +70,83 @@
         } Error:^(NSError *error) {
             
         }];
+        
+        return;
+    }
+    
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"orglUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+    
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
     }else{
         
-        [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
             
-            NSError *error = [HttpTool inspectError:responseObject];
+            [self upDateForKey:key];
             
-            if (error == nil) {
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[OrgInfo class] where:nil result:^(BOOL isResult) {
                 
-                NSArray *arr = [CallerOrgModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 
-                for (CallerOrgModel *model in arr) {
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
+    
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/Api/getOrgList",IP];
+    
+    NSDictionary *dic = @{
+                          @"school_id":school_id
+                          };
+    [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
+        
+        NSError *error = [HttpTool inspectError:responseObject];
+        
+        if (error == nil) {
+            
+            NSArray *arr = [CallerOrgModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            
+            for (CallerOrgModel *model in arr) {
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[OrgInfo class] where:[NSString stringWithFormat:@"org_id = %@",model.org_id] Alldata_arr:^(NSArray *coredataModelArr) {
                     
-                    [MyCoreDataManager selectDataWith_CoredatamoldeClass:[OrgInfo class] where:[NSString stringWithFormat:@"org_id = %@",model.org_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                    if(!(coredataModelArr.count >0)){
                         
-                        if(!(coredataModelArr.count >0)){
+                        [MyCoreDataManager inserDataWith_CoredatamodelClass:[OrgInfo class] CoredataModel:^(OrgInfo * info) {
                             
-                            [MyCoreDataManager inserDataWith_CoredatamodelClass:[OrgInfo class] CoredataModel:^(OrgInfo * info) {
-                                
-                                info.org_id = model.org_id;
-                                info.name = model.name;
-                                
-                            } Error:^(NSError *error) {
-                                
-                                
-                            }];
-                        }
-                    } Error:^(NSError *error) {
-                        
-                    }];
+                            info.org_id = model.org_id;
+                            info.name = model.name;
+                            
+                        } Error:^(NSError *error) {
+                            
+                            
+                        }];
+                    }
+                } Error:^(NSError *error) {
                     
-                }
+                }];
                 
-                success(arr);
-            }else{
-                
-                failure(error);
             }
             
-        } failure:^(NSError *error) {
+            success(arr);
+        }else{
             
             failure(error);
-        }];
-    }
+        }
+        
+    } failure:^(NSError *error) {
+        
+        failure(error);
+    }];
     
 }
 
@@ -122,12 +155,6 @@
 #pragma mark - 获取受访人列表
 - (void)getCallerListWithSchoolId:(NSString *)school_id andOrgId:(NSString *)org_id ArrSuccess:(void(^)(NSArray *arr))success Failure:(void(^)(NSError *error))failure{
     
-    NSString *url = [NSString stringWithFormat:@"%@/api/Api/getCallerList",IP];
-    
-    NSDictionary *dic = @{
-                          @"school_id":school_id,
-                          @"org_id":org_id
-                          };
     
     if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
         
@@ -139,52 +166,86 @@
             
         }];
         
+        return;
+    }
+    
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"callerDetailUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+    
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
     }else{
         
-        [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
             
-            NSError *error = [HttpTool inspectError:responseObject];
+            [self upDateForKey:key];
             
-            if (error == nil) {
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[CallerInfo class] where:nil result:^(BOOL isResult) {
                 
-                NSArray *arr = [CallerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 
-                for (CallerModel *model in arr) {
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/Api/getCallerList",IP];
+    
+    NSDictionary *dic = @{
+                          @"school_id":school_id,
+                          @"org_id":org_id
+                          };
+    
+    [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
+        
+        NSError *error = [HttpTool inspectError:responseObject];
+        
+        if (error == nil) {
+            
+            NSArray *arr = [CallerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            
+            for (CallerModel *model in arr) {
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[CallerInfo class] where:[NSString stringWithFormat:@"caller_id = %@",model.caller_id] Alldata_arr:^(NSArray *coredataModelArr) {
                     
-                    [MyCoreDataManager selectDataWith_CoredatamoldeClass:[CallerInfo class] where:[NSString stringWithFormat:@"caller_id = %@",model.caller_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                    if(!(coredataModelArr.count >0)){
                         
-                        if(!(coredataModelArr.count >0)){
+                        [MyCoreDataManager inserDataWith_CoredatamodelClass:[CallerInfo class] CoredataModel:^(CallerInfo * info) {
                             
-                            [MyCoreDataManager inserDataWith_CoredatamodelClass:[CallerInfo class] CoredataModel:^(CallerInfo * info) {
-                                
-                                info.caller_id = model.caller_id;
-                                info.org_id = model.org_id;
-                                info.school_id = model.school_id;
-                                info.name = model.name;
-                                info.mphone = model.mphone;
-                                info.tel = model.tel;
-                                
-                            } Error:^(NSError *error) {
-                                
-                                
-                            }];
-                        }
-                    } Error:^(NSError *error) {
-                        
-                    }];
+                            info.caller_id = model.caller_id;
+                            info.org_id = model.org_id;
+                            info.school_id = model.school_id;
+                            info.name = model.name;
+                            info.mphone = model.mphone;
+                            info.tel = model.tel;
+                            
+                        } Error:^(NSError *error) {
+                            
+                            
+                        }];
+                    }
+                } Error:^(NSError *error) {
                     
-                }
-                success(arr);
-            }else{
+                }];
                 
-                failure(error);
             }
-            
-        } failure:^(NSError *error) {
+            success(arr);
+        }else{
             
             failure(error);
-        }];
-    }
+        }
+        
+    } failure:^(NSError *error) {
+        
+        failure(error);
+    }];
     
 }
 
@@ -224,7 +285,7 @@
 #pragma mark - 同意或拒绝放行
 - (void)ifLetGoWithParameterModel:(ScanParameterModel *)model Success:(void(^)())success Failure:(void(^)(NSError *error))failure{
     
-    NSString *url = [NSString stringWithFormat:@"%@//api/Api/visitingRecordsStatus",IP];
+    NSString *url = [NSString stringWithFormat:@"%@/api/Api/visitingRecordsStatus",IP];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
@@ -247,7 +308,8 @@
         [dic setObject:model.is_other_person forKey:@"is_other_person"];
         [dic setObject:model.is_car forKey:@"is_car"];
         [dic setObject:model.visitor_tel forKey:@"visitor_tel"];
-        [dic setObject:model.visitor_picture forKey:@"visitor_picture"];
+        
+        //[dic setObject:model.visitor_picture forKey:@"visitor_picture"];
         
         /*
          随行信息+车牌号
@@ -255,7 +317,7 @@
         
         if ([model.is_car isEqualToString:@"1"]) {
             
-            [dic setObject:model.id_card forKey:@"id_card"];
+            [dic setObject:model.plate_number forKey:@"plate_number"];
         }
         
         if (![model.is_other_person isEqualToString:@"0"]) {
@@ -307,7 +369,7 @@
     [dic setObject:model.id_validity_date forKey:@"id_validity_date"];
     [dic setObject:model.id_nation forKey:@"id_nation"];
     [dic setObject:model.id_release_organ forKey:@"id_release_organ"];
-    [dic setObject:model.is_other_persion forKey:@"is_other_persion"];
+    [dic setObject:model.is_other_person forKey:@"is_other_person"];
     [dic setObject:model.is_car forKey:@"is_car"];
     [dic setObject:model.visitor_tel forKey:@"visitor_tel"];
     [dic setObject:model.visitor_picture forKey:@"visitor_picture"];
@@ -317,10 +379,10 @@
      */
     if ([model.is_car isEqualToString:@"1"]) {
         
-        [dic setObject:model.id_card forKey:@"id_card"];
+        [dic setObject:model.plate_number forKey:@"plate_number"];
     }
     
-    if (![model.is_other_persion isEqualToString:@"0"]) {
+    if (![model.is_other_person isEqualToString:@"0"]) {
         
         [dic setObject:model.other_person_list forKey:@"other_person_list"];
     }
@@ -376,6 +438,46 @@
 
 #pragma mark - 获取来访列表
 - (void)getLFManagerListWithParametersModel:(LFParametersModel *)model Success:(void(^)(NSArray *arr, BOOL haveMore))success Failure:(void(^)(NSError *error))failure{
+    
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"status = '%@'",model.status] Alldata_arr:^(NSArray *coredataModelArr) {
+           
+            success(coredataModelArr, NO);
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        return;
+    }
+    
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"lfListUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
+    }else{
+        
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
+            
+            [self upDateForKey:key];
+            
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFManager class] where:nil result:^(BOOL isResult) {
+                
+                
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
+
     
     NSString *url = [NSString stringWithFormat:@"%@/api/Api/visitingRecords",IP];
     
@@ -442,6 +544,33 @@
             
             NSArray *arr  = [LFModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
             
+            for (LFModel *model in arr) {
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"vr_id = %@",model.vr_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                    
+                    if (!(coredataModelArr.count >0)) {
+                        
+                        [MyCoreDataManager inserDataWith_CoredatamodelClass:[LFManager class] CoredataModel:^(LFManager *info) {
+                            
+                            info.format_visitor_time = model.format_visitor_time;
+                            info.note = model.note;
+                            info.status = model.status;
+                            info.vr_id = model.vr_id;
+                            info.visitor_name = model.visitor_name;
+                            info.visitor_tel = model.visitor_tel;
+                            info.caller_name = model.caller_name;
+                            info.caller_tel = model.caller_tel;
+                            
+                        } Error:^(NSError *error) {
+                            
+                        }];
+                    }
+                } Error:^(NSError *error) {
+                    
+                }];
+            }
+            
+            
             if ( !(arr.count >0)) {
                 
                 haveMore = NO;
@@ -459,9 +588,60 @@
     
 }
 
+- (void)upDateForKey:(NSString *)key{
+    
+    [UserDefaultsTool setObj:[NSString stringWithFormat:@"%f",[NSDate timeIntervalSinceReferenceDate]] andKey:key];
+}
+
 
 #pragma mark - 获取来访详情信息
 - (void)getLFDetailInfoWithVr_id:(NSString *)vr_id Success:(void(^)(LFDetailModel *model))success Failure:(void(^)(NSError *error))failure{
+    
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",vr_id] Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            if (coredataModelArr.count > 0) {
+                
+                success(coredataModelArr[0]);
+            }else{
+                
+                failure(nil);
+            }
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        
+        return;
+    }
+    
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"lfDetailUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+    
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
+    }else{
+        
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
+            
+            [self upDateForKey:key];
+            
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFDetail class] where:nil result:^(BOOL isResult) {
+                
+                
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
     
     NSString *url = [NSString stringWithFormat:@"%@/api/Api/visitingRecordDetail",IP];
     
@@ -476,6 +656,40 @@
         if (error == nil) {
             
             LFDetailModel *model = [LFDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+            
+            [MyCoreDataManager selectDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",model.vr_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                
+                if (!(coredataModelArr.count > 0)) {
+                    
+                    [MyCoreDataManager inserDataWith_CoredatamodelClass:[LFDetail class] CoredataModel:^(LFDetail *info) {
+                        
+                        info.vr_id = model.vr_id;
+                        info.format_visitor_time = model.format_visitor_time;
+                        info.visitor_id = model.visitor_id;
+                        info.caller_id = model.caller_id;
+                        info.is_car = model.is_car;
+                        info.plate_number = model.plate_number;
+                        info.is_other_person = model.is_other_person;
+                        info.note = model.note;
+                        info.visitor_status = model.visitor_status;
+                        info.caller_name = model.caller_name;
+                        info.caller_mphone = model.caller_mphone;
+                        info.caller_tel = model.caller_tel;
+                        info.org_name = model.org_name;
+                        info.school_name = model.school_name;
+                        info.visitor_name = model.visitor_name;
+                        info.visitor_tel = model.visitor_tel;
+                        info.visitor_id_card = model.visitor_id_card;
+                        info.visitor_picture = model.visitor_picture;
+                        
+                    } Error:^(NSError *error) {
+                        
+                    }];
+                }
+                
+            } Error:^(NSError *error) {
+                
+            }];
             
             success(model);
         }else{
@@ -762,6 +976,33 @@
 #pragma mark - 获取访客管理列表
 -(void)getFKManagerListArrWithParameter:(FKParameterModel *)model Success:(void(^)(NSArray *arr,BOOL haveMore))success Failure:(void(^)(NSError *error))failure{
     
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"fkManagerUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+    
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
+    }else{
+        
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
+            
+            [self upDateForKey:key];
+            
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[FKManager class] where:nil result:^(BOOL isResult) {
+                
+                
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
+    
     NSString *url = [NSString stringWithFormat:@"%@/api/Api/visitorList",IP];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -803,6 +1044,30 @@
             
             NSArray *arr  = [FKModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
             
+            for (FKModel *model in arr) {
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[FKManager class] where:[NSString stringWithFormat:@"visitor_id = '%@'",model.visitor_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                    
+                    if (!(coredataModelArr.count > 0)) {
+                        
+                        [MyCoreDataManager inserDataWith_CoredatamodelClass:[FKManager class] CoredataModel:^(FKManager *info) {
+                            
+                            info.id_name = model.id_name;
+                            info.visitor_tel = model.visitor_tel;
+                            info.visitor_time = model.visitor_time;
+                            info.visits_number = model.visits_number;
+                            info.id_card = model.id_card;
+                            info.visitor_id = model.visitor_id;
+                            
+                        } Error:^(NSError *error) {
+                            
+                        }];
+                    }
+                } Error:^(NSError *error) {
+                    
+                }];
+            }
+            
             if ( !(arr.count >0)) {
                 
                 haveMore = NO;
@@ -824,6 +1089,51 @@
 #pragma mark - 访客详情
 - (void)getDetailInfoWithVisitor_id:(NSString *)visitor_id Success:(void(^)(FKDetailMode *model))success Failure:(void(^)(NSError *error))failure{
     
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[FKDetail class] where:[NSString stringWithFormat:@"visitor_id = '%@'",visitor_id] Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            if (coredataModelArr.count >0) {
+                
+                success(coredataModelArr[0]);
+            }else{
+                
+                failure(nil);
+            }
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        return;
+    }
+    
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"fkDetailUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+    
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
+    }else{
+        
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
+            
+            [self upDateForKey:key];
+            
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[FKDetail class] where:nil result:^(BOOL isResult) {
+                
+                
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
+    
     NSString *url = [NSString stringWithFormat:@"%@/api/Api/visitorDetail",IP];
     
     NSDictionary *dic = @{
@@ -837,6 +1147,31 @@
         if (error == nil) {
             
             FKDetailMode *model  = [FKDetailMode mj_objectWithKeyValues:responseObject[@"data"]];
+            
+            [MyCoreDataManager selectDataWith_CoredatamoldeClass:[FKDetail class] where:[NSString stringWithFormat:@"visitor_id = '%@'",model.visitor_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                
+                if (!(coredataModelArr.count >0)) {
+                    
+                    [MyCoreDataManager inserDataWith_CoredatamodelClass:[FKDetail class] CoredataModel:^(FKDetail *info) {
+                       
+                        info.visitor_id = model.visitor_id;
+                        info.name = model.name;
+                        info.sex = model.sex;
+                        info.tel = model.tel;
+                        info.id_card = model.id_card;
+                        info.status = model.status;
+                        info.wx_id = model.wx_id;
+                        info.school_list = model.school_list;
+                        info.birthday = model.birthday;
+                        
+                    } Error:^(NSError *error) {
+                        
+                    }];
+                }
+                
+            } Error:^(NSError *error) {
+                
+            }];
             success(model);
         }else{
             
@@ -845,6 +1180,7 @@
         
     } failure:^(NSError *error) {
         
+        //NSLog(@"%@",[[NSString alloc] initWithData:error.userInfo[@"com.alamofire.serialization.response.error.data"] encoding:NSUTF8StringEncoding]);
         failure(error);
     }];
 }
@@ -852,6 +1188,33 @@
 
 #pragma mark - 巡更列表
 - (void)getXGLBWithSchoolId:(NSString *)schoolId andSecurityId:(NSString *)securityId andPage:(NSString *)page Success:(void(^)(NSArray *listArr,BOOL haveMore))success Failure:(void(^)(NSError *error))failure{
+    
+    //网络正常时，超过八小时，重置数据库
+    NSString *key = @"xgListUpDate";
+    NSString *upDateStr = [UserDefaultsTool getObjWithKey:key];
+    
+    if (!upDateStr) {
+        
+        [self upDateForKey:key];
+    }else{
+        
+        NSTimeInterval upDate = upDateStr.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        
+        if (now - upDate > 8*60*60) {
+            
+            [self upDateForKey:key];
+            
+            //如果大于8小时，就重置数据库
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[XGJL class] where:nil result:^(BOOL isResult) {
+                
+                
+            } Error:^(NSError *error) {
+                
+            }];
+            
+        }
+    }
     
     NSString *url = [NSString stringWithFormat:@"%@/api/Api/patrolList",IP];
     
@@ -863,6 +1226,7 @@
     
     [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
         
+    
         NSError *error = [HttpTool inspectError:responseObject];
         
         if (error == nil) {
@@ -870,6 +1234,29 @@
             BOOL haveMore = YES;
             
             NSArray *arr  = [XGJLModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
+            
+            for (XGJLModel *model in arr) {
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[XGJL class] where:[NSString stringWithFormat:@"p_id = '%@'",model.p_id] Alldata_arr:^(NSArray *coredataModelArr) {
+                   
+                    if (!(coredataModelArr.count > 0)) {
+                        
+                        [MyCoreDataManager inserDataWith_CoredatamodelClass:[XGJL class] CoredataModel:^(XGJL *info) {
+                            
+                            info.p_id = model.p_id;
+                            info.patrol_time = model.patrol_time;
+                            info.psr_number = model.psr_number;
+                            info.distance = model.distance;
+                            
+                        } Error:^(NSError *error) {
+                            
+                        }];
+                    }
+                    
+                } Error:^(NSError *error) {
+                    
+                }];
+            }
             
             if ( !(arr.count >0)) {
                 
@@ -936,6 +1323,11 @@
             PersonInfoModel *personModel = [PersonInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
             
             [PersonList sharedInstance].personModel = personModel;
+            
+            [UserDefaultsTool setObj:personModel.name andKey:@"userName"];
+            [UserDefaultsTool setObj:personModel.id_card andKey:@"id_card"];
+            [UserDefaultsTool setObj:personModel.mphone andKey:@"mphone"];
+            [UserDefaultsTool setObj:personModel.headimg andKey:@"userHeadimg"];
             
             success();
             

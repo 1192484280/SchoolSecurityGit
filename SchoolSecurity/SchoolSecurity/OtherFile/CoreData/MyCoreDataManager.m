@@ -35,7 +35,7 @@
     [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     
     //创建数据库保存路径
-    NSString * dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/XG.sqlite"];
+    NSString * dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/schoolSecurity.sqlite"];
     NSURL *url = [NSURL fileURLWithPath:dbPath];
     
     //添加SQLite持久存储到解析器

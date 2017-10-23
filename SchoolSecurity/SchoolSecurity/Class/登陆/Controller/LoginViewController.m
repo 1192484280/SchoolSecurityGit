@@ -29,6 +29,9 @@
     
     self.view.backgroundColor = VIEWCOLOR;
     
+    //测试
+    passText.keyboardType = UIKeyboardTypeNumberPad;
+    accountText.keyboardType = UIKeyboardTypeNumberPad;
     
     [self setupBackBtnNavBarWithTitle:@"登陆"];
     
@@ -82,13 +85,10 @@
     NSString *passWord = passText.text;
     [store LoginWithAccount:account andPassWord:passWord Sucess:^(LoginUserModel *model) {
         
-        
-        [UserDefaultsTool setObj:accountText.text andKey:@"account"];
-        [UserDefaultsTool setObj:passText.text andKey:@"passWord"];
         [UserDefaultsTool setObj:model.school_id andKey:@"school_id"];
         [UserDefaultsTool setObj:model.security_personnel_id andKey:@"security_personnel_id"];
         [UserDefaultsTool setObj:model.name andKey:@"userName"];
-        [UserDefaultsTool setObj:model.tel andKey:@"userTel"];
+        [UserDefaultsTool setObj:model.mphone andKey:@"mphone"];
         [UserDefaultsTool setObj:model.headimg andKey:@"userHeadimg"];
         
         [[NSUserDefaults standardUserDefaults] synchronize];

@@ -26,12 +26,13 @@
     
     [self setupBackBtnNavBarWithTitle:@"访客详细"];
     
+    [self addLoadingView];
     [self refreshList];
 }
 
+
 - (void)refreshList{
     
-    [self addLoadingView];
     
     BaseStore *store = [[BaseStore alloc] init];
     
@@ -43,8 +44,6 @@
         [weakSelf setModelWithModel:model];
         
     } Failure:^(NSError *error) {
-        
-        [weakSelf removeLoadingView];
         
         [weakSelf showSVPError:[HttpTool handleError:error]];
     }];
