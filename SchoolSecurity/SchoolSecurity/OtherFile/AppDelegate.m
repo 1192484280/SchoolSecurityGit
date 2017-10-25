@@ -31,6 +31,7 @@
             case 1:{
                 NSLog(@"手机流量上网");
                 [SingleClass sharedInstance].networkState = @"0";
+                [CacheManager cacheOperation];
             }
                 break;
             case 2:{

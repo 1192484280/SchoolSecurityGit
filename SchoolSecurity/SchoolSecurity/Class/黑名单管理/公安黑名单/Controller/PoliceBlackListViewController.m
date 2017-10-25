@@ -10,6 +10,7 @@
 #import "PoliceBlackListCell.h"
 #import "AddBlackListViewController.h"
 #import "EditBlackListViewController.h"
+#import "AllPoliceBlack+CoreDataProperties.h"
 
 @interface PoliceBlackListViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,PoliceBlackListCellDelegate>
 {
@@ -93,11 +94,28 @@
 #pragma mark - 刷新数据
 - (void)refreshList{
     
+    MJWeakSelf
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[AllPoliceBlack class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
+            if (coredataModelArr.count > 0) {
+                
+                weakSelf.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+                [weakSelf.tableView reloadData];
+            }
+        } Error:^(NSError *error) {
+            
+        }];
+        
+        return;
+    }
+    
     [self addLoadingView];
     
     BaseStore *store = [[BaseStore alloc] init];
-
-    MJWeakSelf
     [store getPoliceBlackListWithPage:page Succes:^(NSArray *arr, BOOL haveMore) {
         
         [weakSelf removeLoadingView];
@@ -126,8 +144,6 @@
         [weakSelf.tableView reloadData];
         
     } Failure:^(NSError *error) {
-        
-        [weakSelf removeLoadingView];
         
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView.mj_footer endRefreshing];

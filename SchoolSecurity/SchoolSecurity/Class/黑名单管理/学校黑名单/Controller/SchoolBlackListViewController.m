@@ -10,6 +10,7 @@
 #import "SchoolBlackListCell.h"
 #import "AddBlackListViewController.h"
 #import "EditBlackListViewController.h"
+#import "AllSchoolBlack+CoreDataProperties.h"
 
 @interface SchoolBlackListViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,SchoolBlackListCellDelegate>
 {
@@ -91,13 +92,31 @@
 
 - (void)refreshList{
     
+    MJWeakSelf
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[AllSchoolBlack class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
+            if (coredataModelArr.count > 0) {
+                
+                weakSelf.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+                [weakSelf.tableView reloadData];
+            }
+        } Error:^(NSError *error) {
+            
+        }];
+        
+        return;
+    }
+    
     [self addLoadingView];
     
     BaseStore *store = [[BaseStore alloc] init];
     
     NSString *schoolId = [UserDefaultsTool getSchoolId];
     
-    MJWeakSelf
     [store getSchoolBlackListWithSchoolID:schoolId andPage:page Succes:^(NSArray *arr, BOOL haveMore) {
         
         [weakSelf removeLoadingView];

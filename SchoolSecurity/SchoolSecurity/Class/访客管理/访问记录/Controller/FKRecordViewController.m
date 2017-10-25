@@ -10,6 +10,7 @@
 #import "LFManagerCell.h"
 #import "LFDetailViewController.h"
 #import "LFDetailEditViewController.h"
+#import "FWJL+CoreDataProperties.h"
 
 @interface FKRecordViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,LFManagerCellDelegate>
 
@@ -176,45 +177,60 @@
 
 - (void)refreshList
 {
-    
-    [self addLoadingView];
-    
-    BaseStore *store = [[BaseStore alloc] init];
-    
     MJWeakSelf
-    [store getLFManagerListWithParametersModel:self.parameterMadel Success:^(NSArray *arr, BOOL haveMore) {
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"])
+    {
         
-        [weakSelf removeLoadingView];
-        [weakSelf.tableView.mj_header endRefreshing];
-        [weakSelf.tableView.mj_footer endRefreshing];
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[FWJL class] where:[NSString stringWithFormat:@"visitor_id = '%@'",self.parameterMadel.visitor_id] Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
+            weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+            weakSelf.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+            [weakSelf.tableView reloadData];
+        } Error:^(NSError *error) {
+            
+        }];
         
-        if ([weakSelf.parameterMadel.page isEqualToString:@"1"]) {
+        return;
+    }else{
+        
+        [self addLoadingView];
+        
+        BaseStore *store = [[BaseStore alloc] init];
+        
+        [store getLFManagerListWithParametersModel:self.parameterMadel Success:^(NSArray *arr, BOOL haveMore) {
             
-            weakSelf.listArr = [NSMutableArray arrayWithArray:arr];
-        }else{
+            [weakSelf removeLoadingView];
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
             
-            [weakSelf.listArr addObjectsFromArray:arr];
-            
-            if (haveMore == NO) {
+            if ([weakSelf.parameterMadel.page isEqualToString:@"1"]) {
                 
-                weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
-                
+                weakSelf.listArr = [NSMutableArray arrayWithArray:arr];
             }else{
                 
-                weakSelf.tableView.mj_footer.state = MJRefreshStateIdle;
+                [weakSelf.listArr addObjectsFromArray:arr];
+                
+                if (haveMore == NO) {
+                    
+                    weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+                    
+                }else{
+                    
+                    weakSelf.tableView.mj_footer.state = MJRefreshStateIdle;
+                }
+                
             }
+            [weakSelf.tableView reloadData];
             
-        }
-        [weakSelf.tableView reloadData];
-        
-    } Failure:^(NSError *error) {
-        
-        [weakSelf.tableView.mj_header endRefreshing];
-        [weakSelf.tableView.mj_footer endRefreshing];
-        [weakSelf showSVPError:[HttpTool handleError:error]];
-    }];
-    
-    
+        } Failure:^(NSError *error) {
+            
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
+            [weakSelf showSVPError:[HttpTool handleError:error]];
+        }];
+    }
 }
 
 - (void)loadMoreData{

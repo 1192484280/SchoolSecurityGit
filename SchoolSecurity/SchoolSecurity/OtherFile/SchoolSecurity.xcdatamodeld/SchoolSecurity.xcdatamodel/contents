@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="AllPoliceBlack" representedClassName="AllPoliceBlack" syncable="YES">
+        <attribute name="id_card" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pbl_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="AllSchoolBlack" representedClassName="AllSchoolBlack" syncable="YES">
+        <attribute name="bl_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_card" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="school_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="CallerInfo" representedClassName="CallerInfo" syncable="YES" codeGenerationType="class">
         <attribute name="caller_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mphone" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,6 +20,11 @@
         <attribute name="org_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="school_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FKDC" representedClassName="FKDC" syncable="YES">
+        <attribute name="schoolId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="securityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vr_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="FKDetail" representedClassName="FKDetail" syncable="YES" codeGenerationType="class">
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,6 +44,17 @@
         <attribute name="visitor_tel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visitor_time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visits_number" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FWJL" representedClassName="FWJL" syncable="YES">
+        <attribute name="caller_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="caller_tel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="format_visitor_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitor_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitor_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitor_tel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vr_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="LFDetail" representedClassName="LFDetail" syncable="YES" codeGenerationType="class">
         <attribute name="caller_id" optional="YES" attributeType="String" syncable="YES"/>
@@ -60,6 +89,19 @@
     <entity name="OrgInfo" representedClassName="OrgInfo" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="org_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="OtherPersonInfo" representedClassName="OtherPersonInfo" syncable="YES">
+        <attribute name="id_address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_card" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_nation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_release_organ" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_sex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_validity_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitor_picture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vr_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vrop_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SecurityScanAgree" representedClassName="SecurityScanAgree" syncable="YES" codeGenerationType="class">
         <attribute name="id_address" optional="YES" attributeType="String" syncable="YES"/>
@@ -104,25 +146,38 @@
         <attribute name="visitor_picture" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visitor_tel" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="XGDetail" representedClassName="XGDetail" syncable="YES" codeGenerationType="class"/>
+    <entity name="XGDetail" representedClassName="XGDetail" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headimg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="line" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="p_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="patrol_add_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="patrol_end_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="psr_info" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="security_personnel_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sp_name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="XGJL" representedClassName="XGJL" syncable="YES" codeGenerationType="class">
         <attribute name="distance" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="p_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="patrol_time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="psr_number" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="XGPoint" representedClassName="XGPoint" syncable="YES" codeGenerationType="class"/>
     <elements>
+        <element name="AllPoliceBlack" positionX="-225" positionY="-63" width="128" height="105"/>
+        <element name="AllSchoolBlack" positionX="-216" positionY="-54" width="128" height="120"/>
         <element name="CallerInfo" positionX="-270" positionY="-216" width="128" height="135"/>
         <element name="FKDetail" positionX="-252" positionY="-54" width="128" height="180"/>
         <element name="FKManager" positionX="-261" positionY="-63" width="128" height="135"/>
+        <element name="FWJL" positionX="-216" positionY="-54" width="128" height="180"/>
         <element name="LFDetail" positionX="-216" positionY="-36" width="128" height="315"/>
         <element name="LFManager" positionX="-234" positionY="-45" width="128" height="165"/>
         <element name="OrgInfo" positionX="-279" positionY="-225" width="128" height="75"/>
+        <element name="OtherPersonInfo" positionX="-234" positionY="-72" width="128" height="210"/>
         <element name="SecurityScanAgree" positionX="-270" positionY="-72" width="128" height="330"/>
         <element name="SecuritySGAgree" positionX="-270" positionY="-171" width="128" height="345"/>
+        <element name="XGDetail" positionX="-234" positionY="-72" width="128" height="180"/>
         <element name="XGJL" positionX="-198" positionY="-27" width="128" height="105"/>
-        <element name="XGDetail" positionX="-234" positionY="-72" width="128" height="45"/>
-        <element name="XGPoint" positionX="-225" positionY="-63" width="128" height="45"/>
+        <element name="FKDC" positionX="-234" positionY="-72" width="128" height="90"/>
     </elements>
 </model>

@@ -14,6 +14,9 @@
 #import "OtherDetailModel.h"
 #import "OtherVisiterModel.h"
 #import "EnlargeImgViewController.h"
+#import "LFManager+CoreDataProperties.h"
+#import "LFDetail+CoreDataProperties.h"
+#import "FKDC+CoreDataProperties.h"
 
 @interface LFDetailViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
@@ -263,6 +266,48 @@
 
 - (void)loginout{
     
+    MJWeakSelf
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[FKDC class] where:[NSString stringWithFormat:@"vr_id = '%@'",self.vr_id] Alldata_arr:^(NSArray *coredataModelArr) {
+           
+            if (!(coredataModelArr.count > 0)) {
+                
+                [MyCoreDataManager inserDataWith_CoredatamodelClass:[FKDC class] CoredataModel:^(FKDC *info) {
+                    
+                    info.vr_id = weakSelf.vr_id;
+                    info.schoolId = [UserDefaultsTool getSchoolId];
+                    info.securityId = [UserDefaultsTool getSecurityId];
+                    
+                    [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"vr_id = '%@'",self.vr_id] result:^(BOOL isResult) {
+                     
+                     if (weakSelf.loginoutBlock != nil) {
+                     
+                     weakSelf.loginoutBlock();
+                     }
+                     weakSelf.fkLoginoutBtn.alpha = 0;
+                     weakSelf.statusLa.alpha = 1;
+                     weakSelf.statusLa.text = @"访客已离开";
+                     
+                     [weakSelf showSVPSuccess:@"成功登出，待网络正常时将自动上传"];
+                     
+                     } Error:^(NSError *error) {
+                     
+                     }];
+                    
+                } Error:^(NSError *error) {
+                    
+                }];
+            }
+        } Error:^(NSError *error) {
+            
+        }];
+        
+        
+        
+        return;
+    }
+    
     [self addLoadingView];
     
     BaseStore *store = [[BaseStore alloc] init];
@@ -271,7 +316,6 @@
     NSString *schoolId = [UserDefaultsTool getSchoolId];
     NSString *securityId = [UserDefaultsTool getSecurityId];
     
-    MJWeakSelf
     [store fkLoginOutWithVr_Id:vr_id andSchoolId:schoolId andSecurityId:securityId Success:^{
         
         if (weakSelf.loginoutBlock != nil) {

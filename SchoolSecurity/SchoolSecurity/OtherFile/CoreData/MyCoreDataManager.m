@@ -152,13 +152,25 @@
     NSFetchRequest * request = [NSFetchRequest new];
     request.entity = description;
     request.predicate = pre;
-    NSArray * array = [[MyCoreDataManager sharedInstance].context executeFetchRequest:request error:NULL];
     
+    NSError *error = nil;
+    NSArray * array = [[MyCoreDataManager sharedInstance].context executeFetchRequest:request error:&error];
+    if (error) {
+        [NSException raise:@"查询错误" format:@"%@", [error localizedDescription]];
+    }
+
     for (id modelobject in array) {
         
         Coredatamodel(modelobject);
-        [[MyCoreDataManager sharedInstance].context updatedObjects];
+        //[[MyCoreDataManager sharedInstance].context updatedObjects];
         
+    }
+    
+    //保存,用 save 方法
+    BOOL success = [[MyCoreDataManager sharedInstance].context save:&error];
+    
+    if (!success) {
+        [NSException raise:@"访问数据库错误" format:@"%@",[error localizedDescription]];
     }
 }
 

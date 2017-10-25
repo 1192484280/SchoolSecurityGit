@@ -67,7 +67,9 @@
 - (IBAction)onLookFKDetailBtn:(UIButton *)sender {
     
     FKRecordViewController *VC = [[FKRecordViewController alloc] init];
+    
     VC.visitor_id = self.visitor_id;
+    VC.visitor_name = self.nameLa.text;
     
     [self.navigationController pushViewController:VC animated:YES];
     

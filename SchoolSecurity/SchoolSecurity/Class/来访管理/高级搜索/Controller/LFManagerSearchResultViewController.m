@@ -81,6 +81,8 @@
     MJWeakSelf
     
     BaseStore *store = [[BaseStore alloc] init];
+    
+    
     [store getLFManagerListWithParametersModel:self.parameterModel Success:^(NSArray *arr, BOOL haveMore) {
         
         [weakSelf.tableView.mj_header endRefreshing];

@@ -13,6 +13,8 @@
 #import "CallerListViewController.h"
 #import "OtherVisiterAddViewController.h"
 #import "SecuritySGAgree+CoreDataProperties.h"
+#import "AllSchoolBlack+CoreDataProperties.h"
+#import "AllPoliceBlack+CoreDataProperties.h"
 
 @interface SGDJViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -328,6 +330,8 @@
 #pragma mark - 放行
 - (IBAction)onAgreeBtn:(UIButton *)sender {
     
+    [self.view endEditing:YES];
+    
     if ([self nextOrNo]) {
     
         sender.userInteractionEnabled = NO;
@@ -361,56 +365,103 @@
 - (BOOL)nextOrNo{
     
     if ([self.caller_orgBtn.currentTitle isEqualToString:@"--"]) {
-        
+
         [self showMBPError:@"请输入受访人部门"];
         return NO;
     }
-    
+
     if ([self.caller_nameBtn.currentTitle isEqualToString:@"--"]) {
-        
+
         [self showMBPError:@"请输入受访人姓名"];
         return NO;
     }
-    
-    
+
+
     UIImage *img = [UIImage imageNamed:@"add_img"];
     if ([self.visiter_headImBtn.currentImage isEqual:img]) {
-        
+
         [self showMBPError:@"请输入来访人照片"];
-        
+
         return NO;
     }
-    
+
     if (! (self.visiter_nameTf.text.length > 0)) {
-        
+
         [self showMBPError:@"请输入来访人姓名"];
         return NO;
     }
-    
+
     if (! (self.visiter_phoneTf.text.length > 0)) {
-        
+
         [self showMBPError:@"请输入来访人电话"];
         return NO;
     }
     if (! (self.visiter_idcardTf.text.length > 0)) {
-        
+
         [self showMBPError:@"请输入来访人身份证号"];
         return NO;
     }
-    
+
     if (ifSacn == NO) {
 
         [self showMBPError:@"请扫描身份证以确认身份"];
         return NO;
     }
-    
-    
+
+    if ([StrTool checkUserID:self.visiter_idcardTf.text] == NO) {
+
+        [self showMBPError:@"请输入正确身份证号"];
+        return NO;
+    }
+
+
     if (! (self.visiter_dateTf.text.length > 0)) {
-        
+
         [self showMBPError:@"请输入来访日期"];
         return NO;
     }
     
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        static BOOL IFBLACK = NO;
+        
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[AllSchoolBlack class] where:[NSString stringWithFormat:@"id_card = '%@'",self.visiter_idcardTf.text] Alldata_arr:^(NSArray *coredataModelArr) {
+            
+            
+            if (coredataModelArr.count >0) {
+                
+                IFBLACK = YES;
+                [self showSVPError:@"此人在学校黑名单中，禁止进入"];
+                return;
+            }else{
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[AllPoliceBlack class] where:[NSString stringWithFormat:@"id_card = '%@'",self.visiter_idcardTf.text] Alldata_arr:^(NSArray *coredataModelArr) {
+                    
+                    
+                    if (coredataModelArr.count >0) {
+                        
+                        IFBLACK = YES;
+                        [self showSVPError:@"此人在公安黑名单中，禁止进入"];
+                        return;
+                    }
+                    
+                } Error:^(NSError *error) {
+                    
+                    
+                }];
+            }
+            
+        } Error:^(NSError *error) {
+            
+            
+        }];
+        
+        if (IFBLACK == YES) {
+            
+           return NO;
+        }
+        
+    }
     return YES;
     
 }
@@ -481,6 +532,7 @@
     self.parameterModel.visitor_tel = self.visiter_phoneTf.text;
     
     if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
         
         MJWeakSelf
         [MyCoreDataManager inserDataWith_CoredatamodelClass:[SecuritySGAgree class] CoredataModel:^(SecuritySGAgree *info) {

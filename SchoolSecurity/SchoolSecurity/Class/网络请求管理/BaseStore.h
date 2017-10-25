@@ -62,7 +62,7 @@
 /**
  * 获取来访管理列表
  */
-- (void)getLFManagerListWithParametersModel:(LFParametersModel *)model Success:(void(^)(NSArray *arr, BOOL haveMore))success Failure:(void(^)(NSError *error))failure;
+- (void)getLFManagerListWithParametersModel:(LFParametersModel *)paraModel Success:(void(^)(NSArray *arr, BOOL haveMore))success Failure:(void(^)(NSError *error))failure;
 
 
 /**
@@ -161,6 +161,16 @@
  * 添加巡更扫描点
  */
 - (void)addXGPointWithPs_id:(NSString *)ps_id andSecurityId:(NSString *)securityId andP_id:(NSString *)p_id andNote:(NSString *)note Success:(void(^)())success Failure:(void(^)(NSError *error))failure;
+
+/**
+ * 获取全部学校黑名单
+ */
+- (void)getAllSchoolBlackListWithSchoolId:(NSString *)school_id Success:(void(^)())success Failure:(void(^)(NSError *error))failure;
+
+/**
+ * 获取全部公安黑名单
+ */
+- (void)getAllPoliceBlackListSuccess:(void(^)())success Failure:(void(^)(NSError *error))failure;
 
 
 @end

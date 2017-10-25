@@ -10,7 +10,7 @@
 #import "LFManagerCell.h"
 #import "LFDetailViewController.h"
 #import "LFDetailEditViewController.h"
-
+#import "LFManager+CoreDataProperties.h"
 
 @interface LFSubViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,LFManagerCellDelegate>
 
@@ -102,10 +102,42 @@
 
 - (void)refreshListModel:(LFParametersModel*)model Complete:(void(^)())complete
 {
-    
+
     self.Md = model;
     
     MJWeakSelf
+    
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"])
+    {
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"status = '%@'",model.status] Alldata_arr:^(NSArray *coredataModelArr) {
+           
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_footer endRefreshing];
+            self.listArr = [NSMutableArray array];
+            if (coredataModelArr.count > 0) {
+                
+                
+                self.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+                
+                [self.listArr sortUsingComparator:^NSComparisonResult(LFModel *obj1, LFModel *obj2) {
+                    return [obj2.vr_id compare:obj1.vr_id];
+                }];
+            }
+            
+            [weakSelf.tableView reloadData];
+            
+            if (complete) {
+                complete();
+            }
+            
+        } Error:^(NSError *error) {
+            
+            if (complete) {
+                complete();
+            }
+        }];
+        return;
+    }
     
     BaseStore *store = [[BaseStore alloc] init];
     [store getLFManagerListWithParametersModel:self.Md Success:^(NSArray *arr,BOOL haveMore) {
@@ -129,6 +161,10 @@
             
             self.tableView.mj_footer.state = MJRefreshStateIdle;
         }
+        
+        [self.listArr sortUsingComparator:^NSComparisonResult(LFModel *obj1, LFModel *obj2) {
+            return [obj2.vr_id compare:obj1.vr_id];
+        }];
         [weakSelf.tableView reloadData];
         
         if (complete) {

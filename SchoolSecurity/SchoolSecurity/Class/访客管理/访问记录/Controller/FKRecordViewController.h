@@ -11,5 +11,5 @@
 @interface FKRecordViewController : BaseViewController
 
 @property (nonatomic, copy) NSString *visitor_id;
-
+@property (nonatomic, copy) NSString *visitor_name;
 @end

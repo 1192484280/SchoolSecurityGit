@@ -131,19 +131,20 @@
 }
 - (void)refreshList{
     
+    MJWeakSelf
     if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
         
         [MyCoreDataManager selectDataWith_CoredatamoldeClass:[XGJL class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
             
-            [self.tableView.mj_header endRefreshing];
-            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+            [weakSelf.tableView.mj_header endRefreshing];
+            weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
             if (coredataModelArr.count > 0) {
                 
-                self.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
-                [self.tableView reloadData];
+                weakSelf.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+                [weakSelf.tableView reloadData];
             }else{
                 
-                [self showSVPError:@"网络加载失败"];
+                [weakSelf showSVPError:@"网络加载失败"];
             }
         } Error:^(NSError *error) {
             
@@ -156,7 +157,7 @@
     NSString *schoolId = [UserDefaultsTool getSchoolId];
     NSString *securityId = [UserDefaultsTool getSecurityId];
     
-    MJWeakSelf
+    
     [store getXGLBWithSchoolId:schoolId andSecurityId:securityId andPage:page Success:^(NSArray *listArr, BOOL haveMore) {
         
         [weakSelf.tableView.mj_header endRefreshing];

@@ -534,16 +534,18 @@
             
             if ([status isEqualToString:@"3"]) {
                 
-                str = @"已放行";
+                str = @"已放行，待网络正常时将自动上传";
                 str2 = @"访客已进入";
                 
             }
             if ([status isEqualToString:@"5"]) {
                 
-                str = @"已拒绝";
+                str = @"已拒绝，待网络正常时将自动上传";
                 str2 = @"受访人拒绝";
                 color = [UIColor redColor];
             }
+            
+            [self showSVPSuccess:str];
             
             weakSelf.fkStatus.alpha = 1;
             weakSelf.fkStatus.text = str2;

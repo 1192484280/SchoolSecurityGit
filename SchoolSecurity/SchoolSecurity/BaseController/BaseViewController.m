@@ -43,11 +43,11 @@
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated{
-    
-    [SVProgressHUD dismiss];
-    
-}
+//- (void)viewWillDisappear:(BOOL)animated{
+//    
+//    [SVProgressHUD dismiss];
+//    
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,12 +136,18 @@
 - (void)showSVPError:(NSString *)msg{
     
     [SVProgressHUD showErrorWithStatus:msg];
+    [self performSelector:@selector(svpDismiss) withObject:nil afterDelay:2];
 }
 
+- (void)svpDismiss{
+    
+    [SVProgressHUD dismiss];
+}
 #pragma mark - SVP展示成功信息
 - (void)showSVPSuccess:(NSString *)msg{
     
     [SVProgressHUD showSuccessWithStatus:msg];
+    [self performSelector:@selector(svpDismiss) withObject:nil afterDelay:2];
 }
 
 

@@ -9,6 +9,8 @@
 #import "SMIdCardViewController.h"
 #import "SMIdCardCell.h"
 #import "ScanList.h"
+#import "AllSchoolBlack+CoreDataProperties.h"
+#import "AllPoliceBlack+CoreDataProperties.h"
 
 @interface SMIdCardViewController ()<UITableViewDelegate,UITableViewDataSource,SMIdCardCellDelegate>
 
@@ -125,21 +127,50 @@
         if (![[IDInfoList sharedInstance].idInfo.num isEqualToString:[ScanList sharedInstance].scanModel.visitor_id_card]) {
             
             [IDInfoList sharedInstance].smResult = @"扫描身份证信息与绑定身份证信息不一致";
-            
+            [self showSVPError:[IDInfoList sharedInstance].smResult];
             return;
         }
         
         //判断身份证是否属于黑名单
-        NSString *a;
-        if ([a isEqualToString:@"属于黑名单"]) {
+        [MyCoreDataManager selectDataWith_CoredatamoldeClass:[AllSchoolBlack class] where:[NSString stringWithFormat:@"id_card = '%@'",[IDInfoList sharedInstance].idInfo.num] Alldata_arr:^(NSArray *coredataModelArr) {
             
-            [IDInfoList sharedInstance].smResult = @"此人属于黑名单列表，禁止进入！";
             
-            return;
+            if (coredataModelArr.count >0) {
+                
+                
+                [IDInfoList sharedInstance].smResult = @"此人属于学校黑名单列表，禁止进入！";
+                [self showSVPError:[IDInfoList sharedInstance].smResult];
+            }else{
+                
+                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[AllPoliceBlack class] where:[NSString stringWithFormat:@"id_card = '%@'",[IDInfoList sharedInstance].idInfo.num] Alldata_arr:^(NSArray *coredataModelArr) {
+                    
+                    
+                    if (coredataModelArr.count >0) {
+                        
+                        [IDInfoList sharedInstance].smResult = @"此人属于公安黑名单列表，禁止进入！";;
+                        [self showSVPError:[IDInfoList sharedInstance].smResult];
+                    }
+                    
+                } Error:^(NSError *error) {
+                    
+                    
+                }];
+            }
+            
+        } Error:^(NSError *error) {
+            
+            
+        }];
+        
+        if ([[IDInfoList sharedInstance].smResult isEqualToString:@"扫描身份证信息与绑定身份证信息一致"]) {
+            
+            [self showSVPSuccess:[IDInfoList sharedInstance].smResult];
+            [self performSelector:@selector(back) withObject:nil afterDelay:1];
+        }else{
+            
+            [self showSVPError:[IDInfoList sharedInstance].smResult];
         }
         
-        [self showSVPSuccess:@"扫描身份证信息与绑定身份证信息一致"];
-        [self performSelector:@selector(back) withObject:nil afterDelay:1];
         
     }else{
         

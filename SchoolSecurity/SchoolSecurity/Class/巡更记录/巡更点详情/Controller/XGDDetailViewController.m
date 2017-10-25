@@ -131,7 +131,6 @@
         
     } Failure:^(NSError *error) {
         
-        [weakSelf removeLoadingView];
         
         [weakSelf showSVPError:[HttpTool handleError:error]];
     }];
