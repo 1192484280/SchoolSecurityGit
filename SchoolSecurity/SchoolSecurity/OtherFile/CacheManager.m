@@ -12,6 +12,7 @@
 #import "SecuritySGAgree+CoreDataProperties.h"
 #import "SecurityScanAgree+CoreDataProperties.h"
 #import "FKDC+CoreDataProperties.h"
+#import "FKDetail+CoreDataProperties.h"
 
 @implementation CacheManager
 
@@ -156,12 +157,13 @@
             BaseStore *store = [[BaseStore alloc] init];
             [store fkLoginOutWithVr_Id:model.vr_id andSchoolId:info.schoolId andSecurityId:info.securityId Success:^{
                 
-                //提交完成，删除数据库对应数据
+                //提交完成，删除访客登出数据库对应数据
                 [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[FKDC class] where:[NSString stringWithFormat:@"vr_id = '%@'",model.vr_id] result:^(BOOL isResult) {
                     
                 } Error:^(NSError *error) {
                     
                 }];
+                
                 
             } Failure:^(NSError *error) {
                 

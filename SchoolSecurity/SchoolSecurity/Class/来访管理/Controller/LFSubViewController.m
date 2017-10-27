@@ -113,15 +113,13 @@
            
             [weakSelf.tableView.mj_header endRefreshing];
             [weakSelf.tableView.mj_footer endRefreshing];
-            self.listArr = [NSMutableArray array];
+            weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+            weakSelf.listArr = [NSMutableArray array];
             if (coredataModelArr.count > 0) {
                 
                 
-                self.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
+                weakSelf.listArr = [NSMutableArray arrayWithArray:coredataModelArr];
                 
-                [self.listArr sortUsingComparator:^NSComparisonResult(LFModel *obj1, LFModel *obj2) {
-                    return [obj2.vr_id compare:obj1.vr_id];
-                }];
             }
             
             [weakSelf.tableView reloadData];
@@ -145,26 +143,23 @@
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView.mj_footer endRefreshing];
         
-        if ([self.Md.page isEqualToString:@"1"]) {
+        if ([weakSelf.Md.page isEqualToString:@"1"]) {
             
-            self.listArr = [NSMutableArray arrayWithArray:arr];
+            weakSelf.listArr = [NSMutableArray arrayWithArray:arr];
         }else{
             
-            [self.listArr addObjectsFromArray:arr];
+            [weakSelf.listArr addObjectsFromArray:arr];
         }
         
         if (haveMore == NO) {
             
-            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+            weakSelf.tableView.mj_footer.state = MJRefreshStateNoMoreData;
             
         }else{
             
-            self.tableView.mj_footer.state = MJRefreshStateIdle;
+            weakSelf.tableView.mj_footer.state = MJRefreshStateIdle;
         }
         
-        [self.listArr sortUsingComparator:^NSComparisonResult(LFModel *obj1, LFModel *obj2) {
-            return [obj2.vr_id compare:obj1.vr_id];
-        }];
         [weakSelf.tableView reloadData];
         
         if (complete) {

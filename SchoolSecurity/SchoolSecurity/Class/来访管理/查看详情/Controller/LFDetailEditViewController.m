@@ -17,6 +17,7 @@
 #import "ScanList.h"
 #import "SecurityScanAgree+CoreDataProperties.h"
 #import "LFDetail+CoreDataProperties.h"
+#import "LFManager+CoreDataProperties.h"
 
 @interface LFDetailEditViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -86,6 +87,7 @@
         
         [ScanList sharedInstance].scanModel.vr_id = model.vr_id;
         [ScanList sharedInstance].scanModel.visitor_id = model.visitor_id;
+        [ScanList sharedInstance].scanModel.visitor_id_card = model.visitor_id_card;
         weakSelf.parameterModel.visitor_id = model.visitor_id;
         
         [weakSelf setUI:model];
@@ -270,14 +272,19 @@
     
     //判断是否继续执行
     if (![self nextOrNo]) {
-        
+
         return;
-        
+
     }
     
+    NSString *msg = @"确认放行";
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        msg = @"当前网络不畅，执行操作后数据将待网络正常时上传";
+    }
     sender.userInteractionEnabled = NO;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认放行" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         sender.userInteractionEnabled = YES;
@@ -440,63 +447,16 @@
     if (self.lf_carIdText.text.length > 0) {
         
         self.parameterModel.is_car = @"1";
-        self.parameterModel.id_card = self.lf_carIdText.text;
+        self.parameterModel.plate_number = self.lf_carIdText.text;
     }
     
     
     self.parameterModel.visitor_tel = self.lf_telText.text;
     
+    //无网络时缓存数据
     if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
         
-        MJWeakSelf
-        [MyCoreDataManager inserDataWith_CoredatamodelClass:[SecurityScanAgree class] CoredataModel:^(SecurityScanAgree *info) {
-            
-            info.vr_id = weakSelf.parameterModel.vr_id;
-            info.visitor_id = weakSelf.parameterModel.visitor_id;
-            info.school_id = weakSelf.parameterModel.school_id;
-            info.security_personnel_id = weakSelf.parameterModel.security_personnel_id;
-            info.status = weakSelf.parameterModel.status;
-            info.id_card = weakSelf.parameterModel.id_card;
-            info.id_name = weakSelf.parameterModel.id_name;
-            info.id_sex = weakSelf.parameterModel.id_sex;
-            info.id_birthday = weakSelf.parameterModel.id_birthday;
-            info.id_address = weakSelf.parameterModel.id_address;
-            info.id_validity_date = weakSelf.parameterModel.id_validity_date;
-            info.id_nation = weakSelf.parameterModel.id_nation;
-            info.id_release_organ = weakSelf.parameterModel.id_release_organ;
-            info.is_other_person = weakSelf.parameterModel.is_other_person;
-            info.is_car = weakSelf.parameterModel.is_car;
-            info.visitor_picture = weakSelf.parameterModel.visitor_picture;
-            info.visitor_tel = weakSelf.parameterModel.visitor_tel;
-            info.other_person_list = weakSelf.parameterModel.other_person_list;
-            info.plate_number = weakSelf.parameterModel.plate_number;
-            
-            if ([status isEqualToString:@"3"]) {
-                
-                
-                [weakSelf showSVPSuccess:@"已放行，待网络正常时将自动上传"];
-                weakSelf.loginoutView.alpha = 1;
-                
-            }
-            if ([status isEqualToString:@"5"]) {
-                
-                
-                [weakSelf showSVPSuccess:@"已拒绝，待网络正常时将自动上传"];
-                weakSelf.fkStatusLa.alpha = 1;
-                weakSelf.fkStatusLa.text = @"拒绝进入";
-                weakSelf.fkStatusLa.textColor = [UIColor redColor];
-                
-            }
-            
-            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.parameterModel.vr_id] result:^(BOOL isResult) {
-                
-            } Error:^(NSError *error) {
-                
-            }];
-            
-        } Error:^(NSError *error) {
-            
-        }];
+        [self saveCacheWithStatus:status];
         
         return;
     }
@@ -526,10 +486,22 @@
             
         }
     
-        if(weakSelf.ifLetGoBlock != nil){
+        //操作完后，删除数据库数据
+        [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.vr_id] result:^(BOOL isResult) {
             
-            weakSelf.ifLetGoBlock();
-        }
+            if(weakSelf.ifLetGoBlock != nil){
+                
+                weakSelf.ifLetGoBlock();
+            }
+        } Error:^(NSError *error) {
+            
+        }];
+        [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.vr_id] result:^(BOOL isResult) {
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        
         
     } Failure:^(NSError *error) {
         
@@ -540,6 +512,71 @@
     
 }
 
+- (void)saveCacheWithStatus:(NSString *)status{
+    
+    MJWeakSelf
+    [MyCoreDataManager inserDataWith_CoredatamodelClass:[SecurityScanAgree class] CoredataModel:^(SecurityScanAgree *info) {
+        
+        info.vr_id = weakSelf.parameterModel.vr_id;
+        info.visitor_id = weakSelf.parameterModel.visitor_id;
+        info.school_id = weakSelf.parameterModel.school_id;
+        info.security_personnel_id = weakSelf.parameterModel.security_personnel_id;
+        info.status = weakSelf.parameterModel.status;
+        info.id_card = weakSelf.parameterModel.id_card;
+        info.id_name = weakSelf.parameterModel.id_name;
+        info.id_sex = weakSelf.parameterModel.id_sex;
+        info.id_birthday = weakSelf.parameterModel.id_birthday;
+        info.id_address = weakSelf.parameterModel.id_address;
+        info.id_validity_date = weakSelf.parameterModel.id_validity_date;
+        info.id_nation = weakSelf.parameterModel.id_nation;
+        info.id_release_organ = weakSelf.parameterModel.id_release_organ;
+        info.is_other_person = weakSelf.parameterModel.is_other_person;
+        info.is_car = weakSelf.parameterModel.is_car;
+        info.visitor_picture = weakSelf.parameterModel.visitor_picture;
+        info.visitor_tel = weakSelf.parameterModel.visitor_tel;
+        info.other_person_list = weakSelf.parameterModel.other_person_list;
+        info.plate_number = weakSelf.parameterModel.plate_number;
+        
+        if ([status isEqualToString:@"3"]) {
+            
+            
+            [weakSelf showSVPSuccess:@"已放行，待网络正常时将自动上传"];
+            weakSelf.fkStatusLa.alpha = 1;
+            weakSelf.fkStatusLa.text = @"访客以进入";
+            weakSelf.fkStatusLa.textColor = [UIColor redColor];
+            
+        }
+        if ([status isEqualToString:@"5"]) {
+            
+            
+            [weakSelf showSVPSuccess:@"已拒绝，待网络正常时将自动上传"];
+            weakSelf.fkStatusLa.alpha = 1;
+            weakSelf.fkStatusLa.text = @"拒绝进入";
+            weakSelf.fkStatusLa.textColor = [UIColor redColor];
+            
+        }
+        
+        //操作完成，删除来访列表缓存的数据
+        [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.vr_id] result:^(BOOL isResult) {
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.vr_id] result:^(BOOL isResult) {
+            
+        } Error:^(NSError *error) {
+            
+        }];
+        
+        if(weakSelf.ifLetGoBlock != nil){
+            
+            weakSelf.ifLetGoBlock();
+        }
+        
+    } Error:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark - 数组转js格式
 - (NSString *)arrayToJSONString:(NSArray *)array

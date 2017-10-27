@@ -249,7 +249,13 @@
 #pragma mark - 访客登出
 - (IBAction)onFKLoginoutBtn:(UIButton *)sender {
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认登出" preferredStyle:UIAlertControllerStyleAlert];
+    NSString *msg = @"确认登出";
+    if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+        
+        msg = @"当前网络不畅，执行操作后数据将待网络正常时上传";
+    }
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
@@ -281,16 +287,28 @@
                     
                     [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"vr_id = '%@'",self.vr_id] result:^(BOOL isResult) {
                      
-                     if (weakSelf.loginoutBlock != nil) {
-                     
-                     weakSelf.loginoutBlock();
-                     }
                      weakSelf.fkLoginoutBtn.alpha = 0;
                      weakSelf.statusLa.alpha = 1;
                      weakSelf.statusLa.text = @"访客已离开";
                      
                      [weakSelf showSVPSuccess:@"成功登出，待网络正常时将自动上传"];
                      
+                     //清除来访列表此条数据
+                    [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFManager class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.vr_id] result:^(BOOL isResult) {
+                        
+                        if (weakSelf.loginoutBlock != nil) {
+                            
+                            weakSelf.loginoutBlock();
+                        }
+                    } Error:^(NSError *error) {
+                        
+                    }];
+                    [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[LFDetail class] where:[NSString stringWithFormat:@"vr_id = '%@'",weakSelf.vr_id] result:^(BOOL isResult) {
+                        
+                    } Error:^(NSError *error) {
+                        
+                    }];
+                        
                      } Error:^(NSError *error) {
                      
                      }];
