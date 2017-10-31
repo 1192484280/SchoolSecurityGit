@@ -171,8 +171,10 @@
 		6B69D6411F90546D00C57344 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D5AA1F90546D00C57344 /* UIView+Extension.m */; };
 		6B69D6451F90566200C57344 /* SchoolSecurity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D6431F90566200C57344 /* SchoolSecurity.xcdatamodeld */; };
 		6B69D6921F9087EC00C57344 /* MyCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D6911F9087EC00C57344 /* MyCoreDataManager.m */; };
-		6B8C439D1F9DCD50006CB773 /* XGDetail+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C439B1F9DCD50006CB773 /* XGDetail+CoreDataClass.m */; };
-		6B8C439E1F9DCD50006CB773 /* XGDetail+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C439C1F9DCD50006CB773 /* XGDetail+CoreDataProperties.m */; };
+		6B6E36061FA32B99009E570C /* XGDetail+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E36041FA32B99009E570C /* XGDetail+CoreDataClass.m */; };
+		6B6E36071FA32B99009E570C /* XGDetail+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E36051FA32B99009E570C /* XGDetail+CoreDataProperties.m */; };
+		6B993B261FA80DFB007C1510 /* ScanLogout+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */; };
+		6B993B271FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B993B251FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m */; };
 		6BE3E4671FA0841300AEC260 /* FKDC+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E4651FA0841300AEC260 /* FKDC+CoreDataClass.m */; };
 		6BE3E4681FA0841300AEC260 /* FKDC+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E4661FA0841300AEC260 /* FKDC+CoreDataProperties.m */; };
 		6BFD95A51F9EDA6A00E85879 /* FWJL+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD95A31F9EDA6A00E85879 /* FWJL+CoreDataClass.m */; };
@@ -500,11 +502,15 @@
 		6B69D6441F90566200C57344 /* SchoolSecurity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SchoolSecurity.xcdatamodel; sourceTree = "<group>"; };
 		6B69D6901F9087EC00C57344 /* MyCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreDataManager.h; sourceTree = "<group>"; };
 		6B69D6911F9087EC00C57344 /* MyCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreDataManager.m; sourceTree = "<group>"; };
-		6B8C43991F9DCD50006CB773 /* XGDetail+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGDetail+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6B8C439A1F9DCD50006CB773 /* XGDetail+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGDetail+CoreDataClass.h"; sourceTree = "<group>"; };
-		6B8C439B1F9DCD50006CB773 /* XGDetail+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGDetail+CoreDataClass.m"; sourceTree = "<group>"; };
-		6B8C439C1F9DCD50006CB773 /* XGDetail+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGDetail+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6B6E36021FA32B99009E570C /* XGDetail+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGDetail+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B6E36031FA32B99009E570C /* XGDetail+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGDetail+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B6E36041FA32B99009E570C /* XGDetail+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGDetail+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B6E36051FA32B99009E570C /* XGDetail+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGDetail+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6B91168A1FA026C6000D4EF8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		6B993B221FA80DFB007C1510 /* ScanLogout+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScanLogout+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6B993B231FA80DFB007C1510 /* ScanLogout+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScanLogout+CoreDataClass.h"; sourceTree = "<group>"; };
+		6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ScanLogout+CoreDataClass.m"; sourceTree = "<group>"; };
+		6B993B251FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ScanLogout+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6BE3E4631FA0841300AEC260 /* FKDC+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKDC+CoreDataProperties.h"; sourceTree = "<group>"; };
 		6BE3E4641FA0841300AEC260 /* FKDC+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKDC+CoreDataClass.h"; sourceTree = "<group>"; };
 		6BE3E4651FA0841300AEC260 /* FKDC+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FKDC+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -1849,6 +1855,7 @@
 		6B69D6861F90874400C57344 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B993B1B1FA80A3D007C1510 /* 扫描登出 */,
 				6BE3E4621FA083A500AEC260 /* 访客登出 */,
 				6BFD95B51F9EEC2C00E85879 /* 公安全部黑名单 */,
 				6BFD95B41F9EEC1600E85879 /* 学校全部黑名单 */,
@@ -1871,12 +1878,23 @@
 		6B8C438C1F9DCA66006CB773 /* 巡更详情 */ = {
 			isa = PBXGroup;
 			children = (
-				6B8C43991F9DCD50006CB773 /* XGDetail+CoreDataProperties.h */,
-				6B8C439A1F9DCD50006CB773 /* XGDetail+CoreDataClass.h */,
-				6B8C439B1F9DCD50006CB773 /* XGDetail+CoreDataClass.m */,
-				6B8C439C1F9DCD50006CB773 /* XGDetail+CoreDataProperties.m */,
+				6B6E36021FA32B99009E570C /* XGDetail+CoreDataProperties.h */,
+				6B6E36031FA32B99009E570C /* XGDetail+CoreDataClass.h */,
+				6B6E36041FA32B99009E570C /* XGDetail+CoreDataClass.m */,
+				6B6E36051FA32B99009E570C /* XGDetail+CoreDataProperties.m */,
 			);
 			path = "巡更详情";
+			sourceTree = "<group>";
+		};
+		6B993B1B1FA80A3D007C1510 /* 扫描登出 */ = {
+			isa = PBXGroup;
+			children = (
+				6B993B221FA80DFB007C1510 /* ScanLogout+CoreDataProperties.h */,
+				6B993B231FA80DFB007C1510 /* ScanLogout+CoreDataClass.h */,
+				6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */,
+				6B993B251FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m */,
+			);
+			path = "扫描登出";
 			sourceTree = "<group>";
 		};
 		6BD47D551F9ED564009773B1 /* 访问记录 */ = {
@@ -1969,7 +1987,7 @@
 					6B69D4131F9052DB00C57344 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = KT68RG6C2C;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -2096,7 +2114,6 @@
 				6B69D5C01F90546D00C57344 /* XGDDetailViewController.m in Sources */,
 				6B69D5D01F90546D00C57344 /* LFManagerViewController.m in Sources */,
 				6B69D62F1F90546D00C57344 /* UIImage+SGHelper.m in Sources */,
-				6B8C439E1F9DCD50006CB773 /* XGDetail+CoreDataProperties.m in Sources */,
 				6B69D5D21F90546D00C57344 /* LFModel.m in Sources */,
 				6BE3E4681FA0841300AEC260 /* FKDC+CoreDataProperties.m in Sources */,
 				6B69D6411F90546D00C57344 /* UIView+Extension.m in Sources */,
@@ -2169,7 +2186,9 @@
 				6BFD95B21F9EE2C900E85879 /* OtherPersonInfo+CoreDataClass.m in Sources */,
 				6B69D6381F90546D00C57344 /* NSString+Extension.m in Sources */,
 				6B69D5E71F90546D00C57344 /* LoginViewController.m in Sources */,
+				6B6E36071FA32B99009E570C /* XGDetail+CoreDataProperties.m in Sources */,
 				6B69D5B51F90546D00C57344 /* PersonParameterModel.m in Sources */,
+				6B993B261FA80DFB007C1510 /* ScanLogout+CoreDataClass.m in Sources */,
 				6B69D6151F90546D00C57344 /* SettingViewController.m in Sources */,
 				6B69D63F1F90546D00C57344 /* UIScrollView+EmptyDataSet.m in Sources */,
 				6B69D6051F90546D00C57344 /* UIImage+Extend.m in Sources */,
@@ -2186,6 +2205,7 @@
 				6B69D62B1F90546D00C57344 /* LoadingView.m in Sources */,
 				6B69D5F31F90546D00C57344 /* SMIdCardViewController.m in Sources */,
 				6B69D5D91F90546D00C57344 /* LFDetailViewController.m in Sources */,
+				6B6E36061FA32B99009E570C /* XGDetail+CoreDataClass.m in Sources */,
 				6B69D5EA1F90546D00C57344 /* BaseStore.m in Sources */,
 				6B69D6031F90546D00C57344 /* FKRecordViewController.m in Sources */,
 				6B69D63D1F90546D00C57344 /* UIImage+Extension.m in Sources */,
@@ -2205,6 +2225,7 @@
 				6B69D5CA1F90546D00C57344 /* StepModel.m in Sources */,
 				6B69D5DB1F90546D00C57344 /* LFDetailModel.m in Sources */,
 				6B69D5DE1F90546D00C57344 /* OtherDetailCell.m in Sources */,
+				6B993B271FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m in Sources */,
 				6B69D61C1F90546D00C57344 /* PoliceBlackListViewController.m in Sources */,
 				6B69D62E1F90546D00C57344 /* MBProgressHUD.m in Sources */,
 				6B16BAF11F99D1ED000F84F2 /* CallerInfo+CoreDataProperties.m in Sources */,
@@ -2225,7 +2246,6 @@
 				6B69D6101F90546D00C57344 /* LHSIDCardScaningView.m in Sources */,
 				6B69D5E91F90546D00C57344 /* LoginUserModel.m in Sources */,
 				6BFD95C11F9EEC6C00E85879 /* AllPoliceBlack+CoreDataProperties.m in Sources */,
-				6B8C439D1F9DCD50006CB773 /* XGDetail+CoreDataClass.m in Sources */,
 				6B69D5D11F90546D00C57344 /* LFSubViewController.m in Sources */,
 				6B69D6211F90546D00C57344 /* SchoolBlackListModel.m in Sources */,
 				6BFD95BA1F9EEC5D00E85879 /* AllSchoolBlack+CoreDataClass.m in Sources */,
@@ -2347,6 +2367,7 @@
 			baseConfigurationReference = D7A2341065916F4DE03CC739 /* Pods-SchoolSecurity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KT68RG6C2C;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2360,6 +2381,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youjiesi.SchoolSecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8f38538a-dbba-4e1a-9dd1-6b1a9071d9c8";
+				PROVISIONING_PROFILE_SPECIFIER = "校园安保描述文件";
 			};
 			name = Debug;
 		};
@@ -2368,6 +2391,7 @@
 			baseConfigurationReference = 15F6BE0D0306C80FFDDE280B /* Pods-SchoolSecurity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KT68RG6C2C;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2381,6 +2405,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youjiesi.SchoolSecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8f38538a-dbba-4e1a-9dd1-6b1a9071d9c8";
+				PROVISIONING_PROFILE_SPECIFIER = "校园安保描述文件";
 			};
 			name = Release;
 		};

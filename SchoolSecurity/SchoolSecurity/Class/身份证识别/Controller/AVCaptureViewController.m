@@ -16,6 +16,7 @@
 #import "UIImage+Extend.h"
 #import "RectManager.h"
 #import "UIAlertController+Extend.h"
+#import "ScanLogout+CoreDataProperties.h"
 
 @interface AVCaptureViewController () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate>
 
@@ -605,27 +606,65 @@
                     
                     if ([IDInfoList sharedInstance].idInfo.num > 0) {
                         
-                        [self addLoadingView];
-                        BaseStore *store = [[BaseStore alloc] init];
-                        
-                        NSString *securityId = [UserDefaultsTool getSecurityId];
-                        
-                        MJWeakSelf
-                        [store smLoginoutWithIdCard:[IDInfoList sharedInstance].idInfo.num andSecurityId:securityId Success:^{
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"扫描完成，确认登出" preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                             
-                            [weakSelf showSVPSuccess:@"成功登出"];
+                        }]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                             
-                            [weakSelf performSelector:@selector(goBack) withObject:nil afterDelay:1];
+                            if ([[SingleClass sharedInstance].networkState isEqualToString:@"2"]) {
+                                
+                                [MyCoreDataManager selectDataWith_CoredatamoldeClass:[ScanLogout class] where:[NSString stringWithFormat:@"idCard = %@",[IDInfoList sharedInstance].idInfo.num] Alldata_arr:^(NSArray *coredataModelArr) {
+                                    
+                                    MJWeakSelf
+                                    if (!(coredataModelArr.count >0)) {
+                                        
+                                        [MyCoreDataManager inserDataWith_CoredatamodelClass:[ScanLogout class] CoredataModel:^(ScanLogout *info) {
+                                            
+                                            info.idCard = [IDInfoList sharedInstance].idInfo.num;
+                                            info.securityId = [UserDefaultsTool getSecurityId];
+                                            [weakSelf showSVPSuccess:@"成功登出,带网络正常时将自动上传"];
+                                            
+                                            [weakSelf performSelector:@selector(goBack) withObject:nil afterDelay:1];
+                                            
+                                        } Error:^(NSError *error) {
+                                            
+                                        }];
+                                    }
+                                } Error:^(NSError *error) {
+                                    
+                                }];
+                                
+                                
+                            }else{
+                                
+                                [self addLoadingView];
+                                BaseStore *store = [[BaseStore alloc] init];
+                                
+                                NSString *securityId = [UserDefaultsTool getSecurityId];
+                                
+                                MJWeakSelf
+                                [store smLoginoutWithIdCard:[IDInfoList sharedInstance].idInfo.num andSecurityId:securityId Success:^{
+                                    
+                                    [weakSelf showSVPSuccess:@"成功登出"];
+                                    
+                                    [weakSelf performSelector:@selector(goBack) withObject:nil afterDelay:1];
+                                    
+                                    
+                                } Failure:^(NSError *error) {
+                                    
+                                    [weakSelf showSVPError:[HttpTool handleError:error]];
+                                    
+                                    [weakSelf performSelector:@selector(goBack) withObject:nil afterDelay:1];
+                                }];
+                                
+                            }
                             
+                        }]];
+                        [self presentViewController:alert animated:YES completion:^{
                             
-                        } Failure:^(NSError *error) {
-                            
-                            [weakSelf showSVPError:[HttpTool handleError:error]];
-                            
-                            [weakSelf performSelector:@selector(goBack) withObject:nil afterDelay:1];
                         }];
-                        
-                        
+
                     }else{
                         
                         [self showSVPError:@"请扫描身份证正面"];

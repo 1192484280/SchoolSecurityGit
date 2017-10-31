@@ -1,8 +1,8 @@
 //
-//  XGDetail+CoreDataClass.h
+//  ScanLogout+CoreDataClass.h
 //  SchoolSecurity
 //
-//  Created by zhangming on 2017/10/27.
+//  Created by zhangming on 2017/10/31.
 //  Copyright © 2017年 youjiesi. All rights reserved.
 //
 //
@@ -12,10 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XGDetail : NSManagedObject
+@interface ScanLogout : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "XGDetail+CoreDataProperties.h"
+#import "ScanLogout+CoreDataProperties.h"

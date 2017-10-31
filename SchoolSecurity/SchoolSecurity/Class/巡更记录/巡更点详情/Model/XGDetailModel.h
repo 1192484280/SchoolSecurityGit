@@ -56,7 +56,7 @@
 
 @property (nonatomic, copy) NSString *headimg;
 
-@property (nonatomic, copy) NSString *line;
+@property (nonatomic, copy) NSArray *line;
 
 @property (nonatomic, copy) NSString *p_id;
 

@@ -13,6 +13,7 @@
 #import "SecurityScanAgree+CoreDataProperties.h"
 #import "FKDC+CoreDataProperties.h"
 #import "FKDetail+CoreDataProperties.h"
+#import "ScanLogout+CoreDataProperties.h"
 
 @implementation CacheManager
 
@@ -24,9 +25,12 @@
     
     //扫描放行/拒绝
     [self scanCache];
-    
+
     //访客登出缓存
     [self fkdcCache];
+
+    //扫描登出缓存
+    [self scanLogout];
     
     //更新全部学校黑名单
     [self upSchoolBlackList];
@@ -109,6 +113,44 @@
         });
     }
 }
+
+
+#pragma mark - 扫描登出缓存
++ (void)scanLogout{
+    
+    [MyCoreDataManager selectDataWith_CoredatamoldeClass:[ScanLogout class] where:nil Alldata_arr:^(NSArray *coredataModelArr) {
+       
+        if (coredataModelArr.count > 0) {
+            
+            //缓存数据执行网络操作
+            [self postScanLogoutCacheWithArr:coredataModelArr];
+        }
+    } Error:^(NSError *error) {
+        
+    }];
+}
++ (void)postScanLogoutCacheWithArr:(NSArray *)arr{
+    
+    for (ScanLogout *info in arr) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        BaseStore *store = [[BaseStore alloc] init];
+        [store smLoginoutWithIdCard:info.idCard andSecurityId:info.securityId Success:^{
+            
+            [MyCoreDataManager deleteDataWith_CoredatamoldeClass:[ScanLogout class] where:[NSString stringWithFormat:@"idCard = '%@'",info.idCard] result:^(BOOL isResult) {
+                
+            } Error:^(NSError *error) {
+                
+            }];
+        } Failure:^(NSError *error) {
+            
+        }];
+        
+    });
+    }
+}
+
+
 #pragma mark - 更新全部学校黑名单
 + (void)upSchoolBlackList{
     

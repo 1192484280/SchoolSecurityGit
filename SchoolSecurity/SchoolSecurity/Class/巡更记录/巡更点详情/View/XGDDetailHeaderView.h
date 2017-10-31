@@ -11,7 +11,6 @@
 
 @interface XGDDetailHeaderView : UIView
 
-- (void)updateSubViewsWithScrollOffsetY:(CGFloat)y;
 
 @property (strong, nonatomic) XGDetailModel *model;
 

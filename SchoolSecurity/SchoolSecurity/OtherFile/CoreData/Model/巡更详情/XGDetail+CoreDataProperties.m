@@ -2,7 +2,7 @@
 //  XGDetail+CoreDataProperties.m
 //  SchoolSecurity
 //
-//  Created by zhangming on 2017/10/23.
+//  Created by zhangming on 2017/10/27.
 //  Copyright © 2017年 youjiesi. All rights reserved.
 //
 //
@@ -21,8 +21,8 @@
 @dynamic p_id;
 @dynamic patrol_add_time;
 @dynamic patrol_end_time;
+@dynamic psr_info;
 @dynamic security_personnel_id;
 @dynamic sp_name;
-@dynamic psr_info;
 
 @end

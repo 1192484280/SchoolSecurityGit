@@ -130,7 +130,6 @@
     
     ifLocation = NO;
     
-    
 }
 
 #pragma mark - 定时器方法

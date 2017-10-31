@@ -31,6 +31,7 @@
 #import "AllSchoolBlack+CoreDataProperties.h"
 #import "AllPoliceBlack+CoreDataProperties.h"
 
+
 @implementation BaseStore
 
 #pragma mark - 登陆
@@ -314,7 +315,7 @@
         [dic setObject:model.is_car forKey:@"is_car"];
         [dic setObject:model.visitor_tel forKey:@"visitor_tel"];
         
-        //[dic setObject:model.visitor_picture forKey:@"visitor_picture"];
+        [dic setObject:model.visitor_picture forKey:@"visitor_picture"];
         
         /*
          随行信息+车牌号
@@ -1548,7 +1549,7 @@
 
                 model.distance = detail.distance;
                 model.headimg = detail.headimg;
-                model.line = detail.line;
+                model.line = [NSKeyedUnarchiver unarchiveObjectWithData:detail.line];
                 model.p_id = detail.p_id;
                 model.patrol_add_time = detail.patrol_add_time;
                 model.patrol_end_time = detail.patrol_end_time;
@@ -1590,7 +1591,7 @@
                         info.psr_info = [NSKeyedArchiver archivedDataWithRootObject:model.psr_info];
                         info.distance = model.distance;
                         info.headimg = model.headimg;
-                        info.line = model.line;
+                        info.line = [NSKeyedArchiver archivedDataWithRootObject:model.line];
                         info.p_id = model.p_id;
                         info.patrol_add_time = model.patrol_add_time;
                         info.patrol_end_time = model.patrol_end_time;

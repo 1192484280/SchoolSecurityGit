@@ -68,63 +68,63 @@
  #pragma mark - 设置起点终点大头针
  - (void)setPointAnnotation:(XGDetailModel *)model{
  
- NSData *jsdata = [model.line mj_JSONData];
- 
- //起点
- NSDictionary * startData = [NSDictionary dictionary];
- //终点
- NSDictionary * stopData = [NSDictionary dictionary];
- 
- if (jsdata)
- {
- NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:jsdata options:NSJSONReadingAllowFragments error:nil];
- 
- startData = [dataArray firstObject];
- stopData = [dataArray lastObject];
- 
- 
- }
- 
- MAPointAnnotation *startPointAnnotation = [[MAPointAnnotation alloc] init];
- startPointAnnotation.coordinate = CLLocationCoordinate2DMake([startData[@"latitude"] doubleValue], [startData[@"longtitude"] doubleValue]);
- startPointAnnotation.title = @"起点";
- [_mapView addAnnotation:startPointAnnotation];
- 
- 
- MAPointAnnotation *stopPointAnnotation = [[MAPointAnnotation alloc] init];
- stopPointAnnotation.coordinate = CLLocationCoordinate2DMake([stopData[@"latitude"] doubleValue], [stopData[@"longtitude"] doubleValue]);
- stopPointAnnotation.title = @"终点";
- [_mapView addAnnotation:stopPointAnnotation];
+     NSData *jsdata = [model.line mj_JSONData];
+     
+     //起点
+     NSDictionary * startData = [NSDictionary dictionary];
+     //终点
+     NSDictionary * stopData = [NSDictionary dictionary];
+     
+     if (jsdata)
+     {
+     NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:jsdata options:NSJSONReadingAllowFragments error:nil];
+     
+     startData = [dataArray firstObject];
+     stopData = [dataArray lastObject];
+     
+     
+     }
+     
+     MAPointAnnotation *startPointAnnotation = [[MAPointAnnotation alloc] init];
+     startPointAnnotation.coordinate = CLLocationCoordinate2DMake([startData[@"latitude"] doubleValue], [startData[@"longtitude"] doubleValue]);
+     startPointAnnotation.title = @"起点";
+     [_mapView addAnnotation:startPointAnnotation];
+     
+     
+     MAPointAnnotation *stopPointAnnotation = [[MAPointAnnotation alloc] init];
+     stopPointAnnotation.coordinate = CLLocationCoordinate2DMake([stopData[@"latitude"] doubleValue], [stopData[@"longtitude"] doubleValue]);
+     stopPointAnnotation.title = @"终点";
+     [_mapView addAnnotation:stopPointAnnotation];
  
  }
  
  #pragma mark - 大头针回调
  - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
  {
- if ([annotation isKindOfClass:[MAPointAnnotation class]])
- {
- static NSString *reuseIndetifier = @"annotationReuseIndetifier";
- MAAnnotationView *annotationView = (MAAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIndetifier];
- 
- if (annotationView == nil)
- {
- annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
- reuseIdentifier:reuseIndetifier];
- }
- 
- if ([annotation.title isEqualToString:@"起点"]) {
- 
- annotationView.image = [UIImage imageNamed:@"icon_startAnima"];
- }else{
- 
- annotationView.image = [UIImage imageNamed:@"icon_stopAnima"];
- }
- 
- //设置中心点偏移，使得标注底部中间点成为经纬度对应点
- annotationView.centerOffset = CGPointMake(0, -18);
- return annotationView;
- }
- return nil;
+     if ([annotation isKindOfClass:[MAPointAnnotation class]])
+     {
+     static NSString *reuseIndetifier = @"annotationReuseIndetifier";
+     MAAnnotationView *annotationView = (MAAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIndetifier];
+     
+     if (annotationView == nil)
+     {
+     annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
+     reuseIdentifier:reuseIndetifier];
+     }
+     
+     if ([annotation.title isEqualToString:@"起点"]) {
+     
+     annotationView.image = [UIImage imageNamed:@"icon_startAnima"];
+     }else{
+     
+     annotationView.image = [UIImage imageNamed:@"icon_stopAnima"];
+     }
+     
+     //设置中心点偏移，使得标注底部中间点成为经纬度对应点
+     annotationView.centerOffset = CGPointMake(0, -18);
+     return annotationView;
+     }
+     return nil;
  }
 
 #pragma mark - mapview delegate
@@ -155,12 +155,11 @@
     self.dateLa.text = [NSString stringWithFormat:@"%@",[model.patrol_add_time substringToIndex:10]];
     
     //绘制路线+起始点
-    NSData *jsdata = [model.line mj_JSONData];
-    
+
     NSMutableArray * indexes = [NSMutableArray array];
-    if (jsdata)
+    if (model.line)
     {
-        NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:jsdata options:NSJSONReadingAllowFragments error:nil];
+        NSArray *dataArray = model.line;
         
         _count = dataArray.count;
         _runningCoords = (CLLocationCoordinate2D *)malloc(_count * sizeof(CLLocationCoordinate2D));
