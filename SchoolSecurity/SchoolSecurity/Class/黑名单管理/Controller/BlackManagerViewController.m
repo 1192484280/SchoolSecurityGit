@@ -33,7 +33,7 @@
     
     if (!_tableView) {
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, iPhoneX_Top , ScreenWidth, ScreenHeight - (iPhoneX_Top) - (iPhoneX_Bottom)) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (iPhoneX_Top) + 0.5 , ScreenWidth, ScreenHeight - (iPhoneX_Top) - (iPhoneX_Bottom)) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionHeaderHeight = 10;

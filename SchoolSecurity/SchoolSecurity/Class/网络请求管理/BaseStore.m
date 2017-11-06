@@ -1580,7 +1580,7 @@
         
         if (error == nil) {
             
-            XGDetailModel *model = [XGDetailModel mj_objectWithKeyValues:responseObject[@"data"][p_id]];
+            XGDetailModel *model = [XGDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
             
             [MyCoreDataManager selectDataWith_CoredatamoldeClass:[XGDetail class] where:[NSString stringWithFormat:@"p_id = '%@'",model.p_id] Alldata_arr:^(NSArray *coredataModelArr) {
                 

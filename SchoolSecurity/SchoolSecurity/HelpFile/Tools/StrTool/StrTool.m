@@ -111,4 +111,15 @@
     NSString *timeString = [NSString stringWithFormat:@"%.0f", a];//转为字符型
     return timeString;
 }
+
+#pragma mark - 数组转js格式
++ (NSString *)arrayToJSONString:(NSArray *)array
+{
+    NSError *error = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    return jsonString;
+}
 @end

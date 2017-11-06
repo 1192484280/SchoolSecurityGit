@@ -30,4 +30,10 @@
  */
 + (NSString *)getTimeStamp;
 
+/**
+ * 数组转js格式
+ */
++ (NSString *)arrayToJSONString:(NSArray *)array;
+
+
 @end

@@ -167,8 +167,8 @@
             
             weakSelf.listArr = [NSMutableArray arrayWithArray:listArr];
         }else{
-            weakSelf.listArr = [NSMutableArray arrayWithArray:listArr];
-            //[weakSelf.listArr addObjectsFromArray:listArr];
+            
+            [weakSelf.listArr addObjectsFromArray:listArr];
             
             if (haveMore == NO) {
                 

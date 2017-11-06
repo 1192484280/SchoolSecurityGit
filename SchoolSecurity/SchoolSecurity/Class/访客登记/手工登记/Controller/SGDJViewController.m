@@ -15,6 +15,7 @@
 #import "SecuritySGAgree+CoreDataProperties.h"
 #import "AllSchoolBlack+CoreDataProperties.h"
 #import "AllPoliceBlack+CoreDataProperties.h"
+#import "LookOtherCallerViewController.h"
 
 @interface SGDJViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -311,6 +312,7 @@
     [self.view endEditing:YES];
     
     OtherVisiterAddViewController *VC = [[OtherVisiterAddViewController alloc] init];
+    
     [VC returnOtherBlock:^{
         
         if ([OtherVisiterList sharedInstance].otherVisiterListArr.count > 0) {
@@ -518,7 +520,7 @@
             [arr addObject:a];
         }
         
-        self.parameterModel.other_person_list = [self arrayToJSONString:arr];
+        self.parameterModel.other_person_list = [StrTool arrayToJSONString:arr];
     }
     
     self.parameterModel.is_car = @"2";
@@ -584,16 +586,21 @@
         }];
     }
 }
-#pragma mark - 数组转js格式
-- (NSString *)arrayToJSONString:(NSArray *)array
-{
-    NSError *error = nil;
+
+#pragma mark - 查看随行人员
+- (IBAction)onOtherCallerBtn:(UIButton *)sender {
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    if (!([OtherVisiterList sharedInstance].otherVisiterListArr.count > 0)) {
+        
+        return;
+    }
     
-    return jsonString;
+    LookOtherCallerViewController *VC = [[LookOtherCallerViewController alloc] init];
+    [self.navigationController pushViewController:VC animated:YES];
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -173,6 +173,9 @@
 		6B69D6921F9087EC00C57344 /* MyCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B69D6911F9087EC00C57344 /* MyCoreDataManager.m */; };
 		6B6E36061FA32B99009E570C /* XGDetail+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E36041FA32B99009E570C /* XGDetail+CoreDataClass.m */; };
 		6B6E36071FA32B99009E570C /* XGDetail+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E36051FA32B99009E570C /* XGDetail+CoreDataProperties.m */; };
+		6B95C47E1FAFFDF7005A9E06 /* LookOtherCallerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B95C47D1FAFFDF7005A9E06 /* LookOtherCallerViewController.m */; };
+		6B95C4821FAFFE46005A9E06 /* LookOtherCallerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B95C4801FAFFE46005A9E06 /* LookOtherCallerCell.m */; };
+		6B95C4831FAFFE46005A9E06 /* LookOtherCallerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B95C4811FAFFE46005A9E06 /* LookOtherCallerCell.xib */; };
 		6B993B261FA80DFB007C1510 /* ScanLogout+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */; };
 		6B993B271FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B993B251FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m */; };
 		6BE3E4671FA0841300AEC260 /* FKDC+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E4651FA0841300AEC260 /* FKDC+CoreDataClass.m */; };
@@ -507,6 +510,11 @@
 		6B6E36041FA32B99009E570C /* XGDetail+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGDetail+CoreDataClass.m"; sourceTree = "<group>"; };
 		6B6E36051FA32B99009E570C /* XGDetail+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XGDetail+CoreDataProperties.m"; sourceTree = "<group>"; };
 		6B91168A1FA026C6000D4EF8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		6B95C47C1FAFFDF7005A9E06 /* LookOtherCallerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookOtherCallerViewController.h; sourceTree = "<group>"; };
+		6B95C47D1FAFFDF7005A9E06 /* LookOtherCallerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookOtherCallerViewController.m; sourceTree = "<group>"; };
+		6B95C47F1FAFFE46005A9E06 /* LookOtherCallerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookOtherCallerCell.h; sourceTree = "<group>"; };
+		6B95C4801FAFFE46005A9E06 /* LookOtherCallerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookOtherCallerCell.m; sourceTree = "<group>"; };
+		6B95C4811FAFFE46005A9E06 /* LookOtherCallerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookOtherCallerCell.xib; sourceTree = "<group>"; };
 		6B993B221FA80DFB007C1510 /* ScanLogout+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScanLogout+CoreDataProperties.h"; sourceTree = "<group>"; };
 		6B993B231FA80DFB007C1510 /* ScanLogout+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScanLogout+CoreDataClass.h"; sourceTree = "<group>"; };
 		6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ScanLogout+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -733,6 +741,7 @@
 		6B69D43E1F90546D00C57344 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				6B95C4781FAFFD00005A9E06 /* 查看登记的随行人员列表 */,
 				6B69D43F1F90546D00C57344 /* 个人信息 */,
 				6B69D44E1F90546D00C57344 /* 受访人列表 */,
 				6B69D4551F90546D00C57344 /* 受访人部门列表 */,
@@ -1886,6 +1895,34 @@
 			path = "巡更详情";
 			sourceTree = "<group>";
 		};
+		6B95C4781FAFFD00005A9E06 /* 查看登记的随行人员列表 */ = {
+			isa = PBXGroup;
+			children = (
+				6B95C47B1FAFFDA2005A9E06 /* View */,
+				6B95C4791FAFFD21005A9E06 /* Controller */,
+			);
+			path = "查看登记的随行人员列表";
+			sourceTree = "<group>";
+		};
+		6B95C4791FAFFD21005A9E06 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B95C47C1FAFFDF7005A9E06 /* LookOtherCallerViewController.h */,
+				6B95C47D1FAFFDF7005A9E06 /* LookOtherCallerViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B95C47B1FAFFDA2005A9E06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B95C47F1FAFFE46005A9E06 /* LookOtherCallerCell.h */,
+				6B95C4801FAFFE46005A9E06 /* LookOtherCallerCell.m */,
+				6B95C4811FAFFE46005A9E06 /* LookOtherCallerCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6B993B1B1FA80A3D007C1510 /* 扫描登出 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2042,6 +2079,7 @@
 				6B69D6231F90546D00C57344 /* SchoolBlackListCell.xib in Resources */,
 				6B69D5C41F90546D00C57344 /* XGDDetailCell.xib in Resources */,
 				6B69D5AD1F90546D00C57344 /* LaunchScreen.storyboard in Resources */,
+				6B95C4831FAFFE46005A9E06 /* LookOtherCallerCell.xib in Resources */,
 				6B69D5D61F90546D00C57344 /* LFManagerCell.xib in Resources */,
 				6B69D5DF1F90546D00C57344 /* OtherDetailCell.xib in Resources */,
 				6B69D60A1F90546D00C57344 /* IDInfoViewController.xib in Resources */,
@@ -2117,6 +2155,7 @@
 				6B69D5D21F90546D00C57344 /* LFModel.m in Sources */,
 				6BE3E4681FA0841300AEC260 /* FKDC+CoreDataProperties.m in Sources */,
 				6B69D6411F90546D00C57344 /* UIView+Extension.m in Sources */,
+				6B95C47E1FAFFDF7005A9E06 /* LookOtherCallerViewController.m in Sources */,
 				6B16BB021F99DF9A000F84F2 /* FKDetail+CoreDataProperties.m in Sources */,
 				6B16BB161F99F30F000F84F2 /* SecurityScanAgree+CoreDataProperties.m in Sources */,
 				6B69D5F51F90546D00C57344 /* ScanModel.m in Sources */,
@@ -2172,6 +2211,7 @@
 				6B16BB101F99E9F7000F84F2 /* LFDetail+CoreDataProperties.m in Sources */,
 				6B69D6191F90546D00C57344 /* BlackManagerViewController.m in Sources */,
 				6B69D6351F90546D00C57344 /* SGQRCodeScanningView.m in Sources */,
+				6B95C4821FAFFE46005A9E06 /* LookOtherCallerCell.m in Sources */,
 				6B69D5F41F90546D00C57344 /* ScanList.m in Sources */,
 				6B69D60F1F90546D00C57344 /* RectManager.m in Sources */,
 				6BE3E4671FA0841300AEC260 /* FKDC+CoreDataClass.m in Sources */,

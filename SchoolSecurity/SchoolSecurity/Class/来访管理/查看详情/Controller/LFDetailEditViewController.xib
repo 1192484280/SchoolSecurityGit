@@ -472,7 +472,7 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwS-b1-dmQ">
                                             <rect key="frame" x="116" y="8" width="205" height="44"/>
-                                            <state key="normal" title="5">
+                                            <state key="normal" title="0">
                                                 <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -480,6 +480,9 @@
                                                     <integer key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onOtherCallerBtn:" destination="-1" eventType="touchUpInside" id="Wm3-HL-4Eb"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAC-J1-qKK">
                                             <rect key="frame" x="329" y="5" width="50" height="50"/>
