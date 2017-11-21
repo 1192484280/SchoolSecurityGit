@@ -83,6 +83,12 @@
         
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    [self removeLoadingView];
+}
 /*
 - (LoadingView *)loadingView
 {
