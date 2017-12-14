@@ -71,6 +71,7 @@
 - (void)back{
     
     [self.navigationController popViewControllerAnimated:YES];
+    [self removeLoadingView];
 }
 
 

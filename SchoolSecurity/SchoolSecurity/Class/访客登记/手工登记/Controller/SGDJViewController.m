@@ -138,9 +138,37 @@
 }
 #pragma mark - 选择照片
 - (IBAction)onHeaderImgBtn:(UIButton *)sender {
-    
-    {
-        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+        
+        picker.delegate = self;
+        
+        picker.sourceType=sourceType;
+        
+        [self presentViewController:picker animated:YES completion:nil];
+        
+    }else{
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"选择图片" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            
+            sourceType = UIImagePickerControllerSourceTypeCamera;
+            UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+            
+            picker.delegate = self;
+            
+            picker.sourceType=sourceType;
+            
+            [self presentViewController:picker animated:YES completion:nil];
+            
+        }]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
             UIImagePickerController * picker = [[UIImagePickerController alloc]init];
@@ -150,42 +178,10 @@
             picker.sourceType=sourceType;
             
             [self presentViewController:picker animated:YES completion:nil];
+        }]];
+        [self presentViewController:alert animated:YES completion:^{
             
-        }else{
-            
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"选择图片" preferredStyle:UIAlertControllerStyleActionSheet];
-            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-            }]];
-            [alert addAction:[UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                
-                sourceType = UIImagePickerControllerSourceTypeCamera;
-                UIImagePickerController * picker = [[UIImagePickerController alloc]init];
-                
-                picker.delegate = self;
-                
-                picker.sourceType=sourceType;
-                
-                [self presentViewController:picker animated:YES completion:nil];
-                
-            }]];
-            [alert addAction:[UIAlertAction actionWithTitle:@"图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-                UIImagePickerController * picker = [[UIImagePickerController alloc]init];
-                
-                picker.delegate = self;
-                
-                picker.sourceType=sourceType;
-                
-                [self presentViewController:picker animated:YES completion:nil];
-            }]];
-            [self presentViewController:alert animated:YES completion:^{
-                
-            }];
-        }
-        
+        }];
     }
     
 }

@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "531366768.944904"
+            timestampString = "534412323.356014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "397"
@@ -35,8 +35,8 @@
                   symbolName = "-[BaseStore ifLetGoWithSGDJParameterModel:Success:Failure:]"
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
-                  timestampString = "531628421.447858"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurityGit/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "534751721.165615"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "397"
@@ -50,8 +50,8 @@
                   symbolName = "__59-[BaseStore ifLetGoWithSGDJParameterModel:Success:Failure:]_block_invoke"
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
-                  timestampString = "531628421.452244"
+                  urlString = "file:///Users/zhangming/Desktop/SchoolSecurityGit/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
+                  timestampString = "534751721.1689"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "399"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "531366768.945386"
+            timestampString = "534412323.362064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "399"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "531366768.94551"
+            timestampString = "534412323.362748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1148"
@@ -122,6 +122,22 @@
             startingLineNumber = "615"
             endingLineNumber = "615"
             landmarkName = "-IDCardRecognit:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x6765;&#x8bbf;&#x7ba1;&#x7406;/Controller/LFSubViewController.m"
+            timestampString = "534751720.958773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-onDetailBtn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

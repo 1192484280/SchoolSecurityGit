@@ -228,6 +228,7 @@
             [self refreshListModel:self.Md Complete:nil];
         }];
         
+        
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }

@@ -2024,7 +2024,7 @@
 					6B69D4131F9052DB00C57344 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = KT68RG6C2C;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2407,8 +2407,9 @@
 			baseConfigurationReference = D7A2341065916F4DE03CC739 /* Pods-SchoolSecurity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KT68RG6C2C;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
@@ -2421,8 +2422,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youjiesi.SchoolSecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8f38538a-dbba-4e1a-9dd1-6b1a9071d9c8";
-				PROVISIONING_PROFILE_SPECIFIER = "校园安保描述文件";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2431,8 +2432,9 @@
 			baseConfigurationReference = 15F6BE0D0306C80FFDDE280B /* Pods-SchoolSecurity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KT68RG6C2C;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
@@ -2445,8 +2447,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youjiesi.SchoolSecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8f38538a-dbba-4e1a-9dd1-6b1a9071d9c8";
-				PROVISIONING_PROFILE_SPECIFIER = "校园安保描述文件";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
