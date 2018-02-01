@@ -57,4 +57,15 @@
     return dateTime;
 }
 
++ (NSDateComponents *)deltaFrom:(NSDate *)date{
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents *compas = [calendar components:unit fromDate:self toDate:date options:0];
+    
+    return compas;
+}
+
+
+
 @end

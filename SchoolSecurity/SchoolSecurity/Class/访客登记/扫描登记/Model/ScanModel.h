@@ -44,4 +44,6 @@
 
 @property (nonatomic, copy) NSString *visitor_id_card;
 
+@property (nonatomic, copy) NSString *before_time;
+
 @end

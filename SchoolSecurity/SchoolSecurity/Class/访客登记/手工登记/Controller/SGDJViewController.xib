@@ -25,7 +25,7 @@
                 <outlet property="viewBottom" destination="PTH-HH-7vg" id="Fib-VA-057"/>
                 <outlet property="viewY" destination="Ol5-SM-VVm" id="Blc-NM-zef"/>
                 <outlet property="visiter_carTf" destination="SP6-Jn-GYr" id="nSp-zH-qoV"/>
-                <outlet property="visiter_dateTf" destination="6Mt-X4-Hs5" id="weV-w9-WXQ"/>
+                <outlet property="visiter_dateTf" destination="fyn-yM-qwx" id="4sZ-tM-bd9"/>
                 <outlet property="visiter_headImBtn" destination="MoF-vT-a7H" id="4dP-xm-ffh"/>
                 <outlet property="visiter_idcardTf" destination="PBU-B8-fpQ" id="uTY-XV-MGS"/>
                 <outlet property="visiter_nameTf" destination="Ehd-hK-aif" id="PeO-xQ-7tx"/>
@@ -103,7 +103,7 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入来访人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-hK-aif">
                                             <rect key="frame" x="110" y="10" width="245" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -114,7 +114,7 @@
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入来访人电话" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pgt-if-GHR">
                                             <rect key="frame" x="110" y="71" width="245" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -125,7 +125,7 @@
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入身份证号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBU-B8-fpQ">
                                             <rect key="frame" x="110" y="127" width="207" height="50"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -143,17 +143,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mt-X4-Hs5">
-                                            <rect key="frame" x="110" y="191" width="207" height="42"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="clearButtonMode">
-                                                    <integer key="value" value="3"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来访人：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-3p-0Q4">
                                             <rect key="frame" x="8" y="8" width="92" height="44"/>
                                             <constraints>
@@ -177,6 +166,12 @@
                                                 <action selector="onScanIDCardBtn:" destination="-1" eventType="touchUpInside" id="NKV-iB-HIo"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyn-yM-qwx">
+                                            <rect key="frame" x="110" y="191" width="207" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -197,14 +192,16 @@
                                         <constraint firstItem="gDm-C3-PRI" firstAttribute="leading" secondItem="PBU-B8-fpQ" secondAttribute="trailing" constant="8" id="IdT-45-qAA"/>
                                         <constraint firstAttribute="height" constant="241" id="LHb-A4-P8Y"/>
                                         <constraint firstItem="PBU-B8-fpQ" firstAttribute="leading" secondItem="Xgh-uN-f4M" secondAttribute="trailing" constant="10" id="Lsa-9v-eMd"/>
+                                        <constraint firstAttribute="bottom" secondItem="fyn-yM-qwx" secondAttribute="bottom" constant="8" id="P6N-A3-x2Z"/>
                                         <constraint firstItem="Pgt-if-GHR" firstAttribute="top" secondItem="Pgl-Zc-gqG" secondAttribute="bottom" constant="10" id="PXI-TS-rzh"/>
                                         <constraint firstItem="Pgl-Zc-gqG" firstAttribute="top" secondItem="nFI-3p-0Q4" secondAttribute="bottom" constant="8" id="RmR-eZ-2Ji"/>
                                         <constraint firstItem="Pgl-Zc-gqG" firstAttribute="top" secondItem="Ehd-hK-aif" secondAttribute="bottom" constant="10" id="Wvm-w3-j1j"/>
-                                        <constraint firstAttribute="trailing" secondItem="6Mt-X4-Hs5" secondAttribute="trailing" constant="58" id="ZnF-27-A7H"/>
+                                        <constraint firstItem="fyn-yM-qwx" firstAttribute="top" secondItem="qcw-eT-2sZ" secondAttribute="bottom" constant="8" id="XxL-ie-Lbb"/>
                                         <constraint firstAttribute="trailing" secondItem="Pgt-if-GHR" secondAttribute="trailing" constant="20" id="cE4-pz-mC6"/>
                                         <constraint firstItem="edY-FK-bLE" firstAttribute="leading" secondItem="RUK-gU-n3P" secondAttribute="leading" constant="8" id="cNO-Mg-xgo"/>
                                         <constraint firstItem="PBU-B8-fpQ" firstAttribute="top" secondItem="Oof-59-xe8" secondAttribute="bottom" constant="5" id="fIE-sB-fLB"/>
-                                        <constraint firstItem="6Mt-X4-Hs5" firstAttribute="top" secondItem="qcw-eT-2sZ" secondAttribute="bottom" constant="8" id="hU4-IA-jUh"/>
+                                        <constraint firstItem="fyn-yM-qwx" firstAttribute="leading" secondItem="R2Y-Ua-piT" secondAttribute="trailing" constant="10" id="gJ3-eO-W8f"/>
+                                        <constraint firstAttribute="trailing" secondItem="fyn-yM-qwx" secondAttribute="trailing" constant="58" id="iWm-Nn-DD7"/>
                                         <constraint firstItem="qcw-eT-2sZ" firstAttribute="top" secondItem="Oof-59-xe8" secondAttribute="bottom" constant="60" id="iga-l6-Muo"/>
                                         <constraint firstItem="Oof-59-xe8" firstAttribute="leading" secondItem="RUK-gU-n3P" secondAttribute="leading" id="kh0-Gs-DS8"/>
                                         <constraint firstItem="qcw-eT-2sZ" firstAttribute="top" secondItem="PBU-B8-fpQ" secondAttribute="bottom" constant="5" id="lee-5j-Voc"/>
@@ -213,13 +210,11 @@
                                         <constraint firstItem="Ehd-hK-aif" firstAttribute="top" secondItem="RUK-gU-n3P" secondAttribute="top" constant="10" id="oF2-Zq-A1T"/>
                                         <constraint firstItem="R2Y-Ua-piT" firstAttribute="leading" secondItem="RUK-gU-n3P" secondAttribute="leading" constant="8" id="qaf-lY-8Z1"/>
                                         <constraint firstItem="qcw-eT-2sZ" firstAttribute="top" secondItem="Xgh-uN-f4M" secondAttribute="bottom" constant="8" id="rOh-iL-hcE"/>
-                                        <constraint firstAttribute="bottom" secondItem="6Mt-X4-Hs5" secondAttribute="bottom" constant="8" id="ujW-b6-HNe"/>
                                         <constraint firstItem="Xgh-uN-f4M" firstAttribute="leading" secondItem="RUK-gU-n3P" secondAttribute="leading" constant="8" id="um2-vG-4hM"/>
                                         <constraint firstItem="Oof-59-xe8" firstAttribute="top" secondItem="Pgt-if-GHR" secondAttribute="bottom" constant="10" id="xI5-Ku-Jnx"/>
                                         <constraint firstItem="Pgt-if-GHR" firstAttribute="leading" secondItem="edY-FK-bLE" secondAttribute="trailing" constant="10" id="xys-6a-zmP"/>
                                         <constraint firstAttribute="bottom" secondItem="R2Y-Ua-piT" secondAttribute="bottom" constant="8" id="yEU-HQ-ipy"/>
                                         <constraint firstItem="Ehd-hK-aif" firstAttribute="leading" secondItem="nFI-3p-0Q4" secondAttribute="trailing" constant="10" id="zO7-ZN-YPL"/>
-                                        <constraint firstItem="6Mt-X4-Hs5" firstAttribute="leading" secondItem="R2Y-Ua-piT" secondAttribute="trailing" constant="10" id="zqp-vq-bIn"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqr-EG-zei">
@@ -318,7 +313,7 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bME-Cy-TY2">
                                             <rect key="frame" x="110" y="132" width="187" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -330,7 +325,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mT-VC-EKc">
                                             <rect key="frame" x="110" y="8" width="245" height="44"/>
                                             <state key="normal" title="--">
-                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">
@@ -345,7 +340,7 @@
                                             <rect key="frame" x="110" y="69" width="245" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="--">
-                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">
@@ -380,7 +375,7 @@
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBD-89-1bJ">
                                             <rect key="frame" x="110" y="191" width="187" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -460,7 +455,7 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SP6-Jn-GYr">
                                             <rect key="frame" x="110" y="8" width="257" height="44"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -497,7 +492,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWs-WU-jvJ">
                                             <rect key="frame" x="110" y="8" width="207" height="44"/>
                                             <state key="normal" title="0">
-                                                <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">

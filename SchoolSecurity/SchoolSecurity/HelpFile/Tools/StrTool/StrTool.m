@@ -122,4 +122,18 @@
     
     return jsonString;
 }
+
+#pragma mark - 获取当前时间
++ (NSString *)getNowTime{
+    
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    
+    NSString *string = [fmt stringFromDate:date];
+    
+    return string;
+}
+
 @end

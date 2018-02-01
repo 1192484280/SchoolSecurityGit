@@ -32,7 +32,7 @@
 
 - (void)setNavBar{
     
-    self.title = @"安保终端";
+    self.title = @"微访客云";
 
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"icon_setting" selectedImageName:@"icon_navSticon_settingart" target:self action:@selector(onClickSet)];
     

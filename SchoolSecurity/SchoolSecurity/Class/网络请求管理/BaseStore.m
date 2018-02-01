@@ -531,6 +531,8 @@
         
         [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
             
+            
+            
             NSError *error = [HttpTool inspectError:responseObject];
             if (error == nil) {
                 
@@ -730,6 +732,7 @@
                           };
     
     [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
+        
         
         NSError *error = [HttpTool inspectError:responseObject];
         

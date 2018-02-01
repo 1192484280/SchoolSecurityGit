@@ -229,7 +229,7 @@
     
     if (!(self.theNewImg == nil)) {
         
-        UIImage *im1 = [self imageWithImageSimple:self.theNewImg scaledToSize:CGSizeMake(200, 200)];
+        UIImage *im1 = [ImageTool imageWithImageSimple:self.theNewImg scaledToSize:CGSizeMake(200, 200)];
         [PersonList sharedInstance].parameterModel.headimg = [ImgToBatManager image2DataURL:im1];
     }
     
@@ -318,19 +318,6 @@
     } Failure:^(NSError *error) {
         
     }];
-    
-}
-
-#pragma mark - 压缩图片
-- (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize{
-    
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return newImage;
     
 }
 

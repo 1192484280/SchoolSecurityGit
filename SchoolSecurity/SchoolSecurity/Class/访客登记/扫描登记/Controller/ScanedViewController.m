@@ -31,7 +31,6 @@
     
 }
 
-@property (strong, nonatomic) UIImage *theNewImg;
 
 @property (strong, nonatomic) ScanParameterModel *parameterModel;
 @end
@@ -82,8 +81,8 @@
     
     [self setUI];
     
-    self.visiter_dateTf.inputView = self.datePicker;
-    self.textFiled = self.visiter_dateTf;
+    
+    
 }
 
 - (void)setUI{
@@ -140,6 +139,7 @@
         
         self.fkStatus.alpha = 1;
         self.fkStatus.text = @"访客已进入";
+        self.fkStatus.textColor = [UIColor greenColor];
         
     }
 }
@@ -275,10 +275,10 @@
     
     UIImage *image=[info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.theNewImg = image;
     
+    UIImage *img = [ImageTool imageWithImageSimple:image scaledToSize:CGSizeMake(200, 200)];
     
-    [self.visiter_headImBtn setImage:image forState:UIControlStateNormal];
+    [self.visiter_headImBtn setImage:img forState:UIControlStateNormal];
     
 
 }
@@ -335,7 +335,7 @@
 
     sender.userInteractionEnabled = NO;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认放行" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确定放行？放行后系统将自动生成访问记录" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         sender.userInteractionEnabled = YES;
@@ -356,7 +356,7 @@
     
     sender.userInteractionEnabled = NO;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"拒绝放行" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确定拒绝？拒绝后系统将自动生成访问记录" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         sender.userInteractionEnabled = YES;
@@ -582,7 +582,7 @@
                 color = [UIColor redColor];
             }
             
-            [self showSVPSuccess:str];
+            [weakSelf showSVPSuccess:str];
             
             weakSelf.fkStatus.alpha = 1;
             weakSelf.fkStatus.text = str2;
@@ -591,8 +591,8 @@
         } Failure:^(NSError *error) {
             
             [weakSelf showSVPError:[HttpTool handleError:error]];
-            self.agreeBtn.userInteractionEnabled = YES;
-            self.refuseBtn.userInteractionEnabled = YES;
+            weakSelf.agreeBtn.userInteractionEnabled = YES;
+            weakSelf.refuseBtn.userInteractionEnabled = YES;
         }];
     }
     

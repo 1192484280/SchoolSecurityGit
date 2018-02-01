@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "534412323.356014"
+            timestampString = "538907407.133767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "397"
@@ -36,12 +36,12 @@
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangming/Desktop/SchoolSecurityGit/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
-                  timestampString = "534751721.165615"
+                  timestampString = "539142459.621334"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "397"
                   endingLineNumber = "397"
-                  offsetFromSymbolStart = "2229">
+                  offsetFromSymbolStart = "2368">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,30 +51,14 @@
                   moduleName = "SchoolSecurity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangming/Desktop/SchoolSecurityGit/SchoolSecurity/SchoolSecurity/Class/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86/BaseStore.m"
-                  timestampString = "534751721.1689"
+                  timestampString = "539142459.628642"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "399"
                   endingLineNumber = "399"
-                  offsetFromSymbolStart = "44">
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "534412323.362064"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
-            landmarkName = "-ifLetGoWithSGDJParameterModel:Success:Failure:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -100,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
-            timestampString = "534412323.362748"
+            timestampString = "538907407.1342191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1148"
-            endingLineNumber = "1148"
+            startingLineNumber = "1150"
+            endingLineNumber = "1150"
             landmarkName = "-editBlackListWithParameterId:andSchoolId:andName:andIdCard:andNote:andType:Success:Failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,6 +122,64 @@
             startingLineNumber = "228"
             endingLineNumber = "228"
             landmarkName = "-onDetailBtn:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x8bbf;&#x5ba2;&#x767b;&#x8bb0;/&#x624b;&#x5de5;&#x767b;&#x8bb0;/Controller/SGDJViewController.m"
+            timestampString = "539081726.664916"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "580"
+            endingLineNumber = "580"
+            landmarkName = "-postStoreWithSetParameterModelWithStatus:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "538907407.1346869"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1581"
+            endingLineNumber = "1581"
+            landmarkName = "-getXGDetailWithP_id:Success:Failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolSecurity/Class/&#x7f51;&#x7edc;&#x8bf7;&#x6c42;&#x7ba1;&#x7406;/BaseStore.m"
+            timestampString = "538907407.135137"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
+            landmarkName = "-ifLetGoWithSGDJParameterModel:Success:Failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

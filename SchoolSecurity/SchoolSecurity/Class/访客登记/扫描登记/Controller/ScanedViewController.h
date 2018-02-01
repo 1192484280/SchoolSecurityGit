@@ -26,7 +26,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *visiter_idcardTf;
 
-@property (strong, nonatomic) IBOutlet UITextField *visiter_dateTf;
+@property (strong, nonatomic) IBOutlet UILabel *visiter_dateTf;
 
 @property (strong, nonatomic) IBOutlet UITextField *visiter_carTf;
 

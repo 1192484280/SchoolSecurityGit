@@ -29,7 +29,6 @@
     IBOutlet NSLayoutConstraint *shownY;
 }
 
-@property (strong, nonatomic) UIImage *theNewImg;
 @property (strong, nonatomic) SGDJParameterModel *parameterModel;
 
 @end
@@ -68,8 +67,8 @@
     [self setupBackBtnNavBarWithTitle:@"手工登记"];
     
     
-    self.visiter_dateTf.inputView = self.datePicker;
-    self.textFiled = self.visiter_dateTf;
+    self.visiter_dateTf.text = [StrTool getNowTime];
+   
 }
 
 #pragma mark - 选择受访人部门
@@ -200,10 +199,10 @@
     
     UIImage *image=[info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.theNewImg = image;
+    //压缩图片
+    UIImage *im = [ImageTool imageWithImageSimple:image scaledToSize:CGSizeMake(200, 200)];
     
-    
-    [self.visiter_headImBtn setImage:image forState:UIControlStateNormal];
+    [self.visiter_headImBtn setImage:im forState:UIControlStateNormal];
     
 }
 
@@ -334,7 +333,7 @@
     
         sender.userInteractionEnabled = NO;
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认放行" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确定放行？放行后系统将自动生成访问记录" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
             sender.userInteractionEnabled = YES;

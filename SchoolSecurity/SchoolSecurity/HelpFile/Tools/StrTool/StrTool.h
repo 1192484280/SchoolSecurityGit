@@ -35,5 +35,10 @@
  */
 + (NSString *)arrayToJSONString:(NSArray *)array;
 
+/**
+ * 获取时间
+ */
++ (NSString *)getNowTime;
+
 
 @end

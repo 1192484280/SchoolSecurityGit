@@ -14,4 +14,9 @@
 + (NSString *)getWeekDate; // 获取一周后的日期
 + (NSString *)getAfterTomorrowDate; // 获取后天的日期
 + (NSString *)getMonthDate; // 获取一个月后的日期
+/**
+ *传入时间与当前时间的差值
+ */
++ (NSDateComponents *)deltaFrom:(NSDate *)date;
+
 @end

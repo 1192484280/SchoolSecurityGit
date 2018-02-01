@@ -178,6 +178,7 @@
 		6B95C4831FAFFE46005A9E06 /* LookOtherCallerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B95C4811FAFFE46005A9E06 /* LookOtherCallerCell.xib */; };
 		6B993B261FA80DFB007C1510 /* ScanLogout+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */; };
 		6B993B271FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B993B251FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m */; };
+		6BDFF7F41FEA041B009A299A /* ImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFF7F21FEA041B009A299A /* ImageTool.m */; };
 		6BE3E4671FA0841300AEC260 /* FKDC+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E4651FA0841300AEC260 /* FKDC+CoreDataClass.m */; };
 		6BE3E4681FA0841300AEC260 /* FKDC+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE3E4661FA0841300AEC260 /* FKDC+CoreDataProperties.m */; };
 		6BFD95A51F9EDA6A00E85879 /* FWJL+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD95A31F9EDA6A00E85879 /* FWJL+CoreDataClass.m */; };
@@ -519,6 +520,8 @@
 		6B993B231FA80DFB007C1510 /* ScanLogout+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScanLogout+CoreDataClass.h"; sourceTree = "<group>"; };
 		6B993B241FA80DFB007C1510 /* ScanLogout+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ScanLogout+CoreDataClass.m"; sourceTree = "<group>"; };
 		6B993B251FA80DFB007C1510 /* ScanLogout+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ScanLogout+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6BDFF7F21FEA041B009A299A /* ImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTool.m; sourceTree = "<group>"; };
+		6BDFF7F31FEA041B009A299A /* ImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTool.h; sourceTree = "<group>"; };
 		6BE3E4631FA0841300AEC260 /* FKDC+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKDC+CoreDataProperties.h"; sourceTree = "<group>"; };
 		6BE3E4641FA0841300AEC260 /* FKDC+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FKDC+CoreDataClass.h"; sourceTree = "<group>"; };
 		6BE3E4651FA0841300AEC260 /* FKDC+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FKDC+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -1602,6 +1605,7 @@
 		6B69D55A1F90546D00C57344 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				6BDFF7F11FEA0405009A299A /* ImgTool */,
 				6B0F33C01F974833004932C8 /* StrTool */,
 				6B69D55B1F90546D00C57344 /* HttpTool */,
 				6B69D55E1F90546D00C57344 /* UserDefaultsTool */,
@@ -1945,6 +1949,15 @@
 			path = "访问记录";
 			sourceTree = "<group>";
 		};
+		6BDFF7F11FEA0405009A299A /* ImgTool */ = {
+			isa = PBXGroup;
+			children = (
+				6BDFF7F31FEA041B009A299A /* ImageTool.h */,
+				6BDFF7F21FEA041B009A299A /* ImageTool.m */,
+			);
+			path = ImgTool;
+			sourceTree = "<group>";
+		};
 		6BE3E4621FA083A500AEC260 /* 访客登出 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2228,6 +2241,7 @@
 				6B69D5E71F90546D00C57344 /* LoginViewController.m in Sources */,
 				6B6E36071FA32B99009E570C /* XGDetail+CoreDataProperties.m in Sources */,
 				6B69D5B51F90546D00C57344 /* PersonParameterModel.m in Sources */,
+				6BDFF7F41FEA041B009A299A /* ImageTool.m in Sources */,
 				6B993B261FA80DFB007C1510 /* ScanLogout+CoreDataClass.m in Sources */,
 				6B69D6151F90546D00C57344 /* SettingViewController.m in Sources */,
 				6B69D63F1F90546D00C57344 /* UIScrollView+EmptyDataSet.m in Sources */,
@@ -2407,6 +2421,7 @@
 			baseConfigurationReference = D7A2341065916F4DE03CC739 /* Pods-SchoolSecurity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -2432,6 +2447,7 @@
 			baseConfigurationReference = 15F6BE0D0306C80FFDDE280B /* Pods-SchoolSecurity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";

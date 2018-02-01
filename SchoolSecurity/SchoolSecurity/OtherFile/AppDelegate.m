@@ -25,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [NSThread sleepForTimeInterval:2];
     
     [HttpTool netWorkState:^(NSInteger netState) {
         switch (netState) {

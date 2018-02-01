@@ -24,7 +24,7 @@
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewY" destination="XeC-Qx-DfI" id="vzn-Pu-KWs"/>
                 <outlet property="visiter_carTf" destination="7Nk-II-BaH" id="0wW-uS-9AX"/>
-                <outlet property="visiter_dateTf" destination="w0C-HH-eEH" id="1oY-vb-a40"/>
+                <outlet property="visiter_dateTf" destination="W4c-sV-Z74" id="kcK-l0-Fru"/>
                 <outlet property="visiter_headImBtn" destination="2zq-HD-lmH" id="Unk-Cn-wHJ"/>
                 <outlet property="visiter_idcardTf" destination="Phu-Uh-k36" id="ILF-8H-phr"/>
                 <outlet property="visiter_nameTf" destination="wMs-kI-Jw0" id="8mF-YC-8Lm"/>
@@ -102,19 +102,19 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入来访人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMs-kI-Jw0">
                                             <rect key="frame" x="110" y="10" width="245" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入来访人电话" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3iq-zr-uHe">
                                             <rect key="frame" x="110" y="71" width="245" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入身份证号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Phu-Uh-k36">
                                             <rect key="frame" x="110" y="127" width="215" height="50"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -127,12 +127,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0C-HH-eEH">
-                                            <rect key="frame" x="110" y="191" width="207" height="42"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来访人：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1H-d0-CJJ">
                                             <rect key="frame" x="8" y="8" width="92" height="44"/>
                                             <constraints>
@@ -156,22 +150,32 @@
                                                 <action selector="onScanIDCardBtn:" destination="-1" eventType="touchUpInside" id="kFt-SV-eWF"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-sV-Z74">
+                                            <rect key="frame" x="110" y="191" width="207" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="7zC-Vg-bB0" secondAttribute="trailing" id="0UX-sX-RQS"/>
                                         <constraint firstItem="xCM-Fj-5vO" firstAttribute="top" secondItem="7zC-Vg-bB0" secondAttribute="bottom" constant="60" id="1eU-AB-Ps2"/>
                                         <constraint firstItem="13g-kd-wJQ" firstAttribute="top" secondItem="7zC-Vg-bB0" secondAttribute="bottom" constant="8" id="2sj-Cg-OEv"/>
+                                        <constraint firstItem="W4c-sV-Z74" firstAttribute="top" secondItem="xGz-vG-hIt" secondAttribute="bottom" constant="8" id="3BP-PF-KbM"/>
                                         <constraint firstAttribute="trailing" secondItem="xGz-vG-hIt" secondAttribute="trailing" id="40N-id-Zv9"/>
                                         <constraint firstAttribute="trailing" secondItem="wMs-kI-Jw0" secondAttribute="trailing" constant="20" id="4sj-U0-tm7"/>
                                         <constraint firstItem="xCM-Fj-5vO" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" id="6t5-m1-tLb"/>
+                                        <constraint firstAttribute="bottom" secondItem="W4c-sV-Z74" secondAttribute="bottom" constant="8" id="8P6-Hk-hpn"/>
                                         <constraint firstItem="bUo-9F-zAC" firstAttribute="top" secondItem="xGz-vG-hIt" secondAttribute="bottom" constant="8" id="8RF-6E-Yz4"/>
                                         <constraint firstItem="bUo-9F-zAC" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" constant="8" id="8Ul-ct-lKN"/>
                                         <constraint firstItem="3iq-zr-uHe" firstAttribute="leading" secondItem="13g-kd-wJQ" secondAttribute="trailing" constant="10" id="977-Ph-7uA"/>
                                         <constraint firstItem="xCM-Fj-5vO" firstAttribute="top" secondItem="13g-kd-wJQ" secondAttribute="bottom" constant="8" id="Dad-Z6-qyV"/>
+                                        <constraint firstItem="W4c-sV-Z74" firstAttribute="leading" secondItem="bUo-9F-zAC" secondAttribute="trailing" constant="10" id="FLi-m1-KLJ"/>
                                         <constraint firstItem="Phu-Uh-k36" firstAttribute="top" secondItem="xCM-Fj-5vO" secondAttribute="bottom" constant="5" id="GmR-DF-M48"/>
                                         <constraint firstItem="rWv-cR-e2m" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" constant="8" id="Hur-Ue-a4X"/>
                                         <constraint firstItem="13g-kd-wJQ" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" constant="8" id="IVe-lx-MQl"/>
+                                        <constraint firstAttribute="trailing" secondItem="W4c-sV-Z74" secondAttribute="trailing" constant="58" id="MDm-5T-V36"/>
                                         <constraint firstAttribute="trailing" secondItem="3iq-zr-uHe" secondAttribute="trailing" constant="20" id="PNY-Lj-pIL"/>
                                         <constraint firstAttribute="trailing" secondItem="xCM-Fj-5vO" secondAttribute="trailing" id="Pkz-iB-fr1"/>
                                         <constraint firstItem="7zC-Vg-bB0" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" id="Sad-iz-V5N"/>
@@ -181,9 +185,7 @@
                                         <constraint firstItem="xGz-vG-hIt" firstAttribute="top" secondItem="xCM-Fj-5vO" secondAttribute="bottom" constant="60" id="YXm-za-eoV"/>
                                         <constraint firstItem="Phu-Uh-k36" firstAttribute="leading" secondItem="rWv-cR-e2m" secondAttribute="trailing" constant="10" id="dRd-Nf-H2l"/>
                                         <constraint firstItem="wMs-kI-Jw0" firstAttribute="top" secondItem="XW3-eT-xiy" secondAttribute="top" constant="10" id="eDF-Q0-IyR"/>
-                                        <constraint firstItem="w0C-HH-eEH" firstAttribute="leading" secondItem="bUo-9F-zAC" secondAttribute="trailing" constant="10" id="gMv-QW-2Q2"/>
                                         <constraint firstItem="xCM-Fj-5vO" firstAttribute="top" secondItem="3iq-zr-uHe" secondAttribute="bottom" constant="10" id="jnv-8p-b5g"/>
-                                        <constraint firstItem="w0C-HH-eEH" firstAttribute="top" secondItem="xGz-vG-hIt" secondAttribute="bottom" constant="8" id="jwe-EJ-iHe"/>
                                         <constraint firstAttribute="trailing" secondItem="fl7-9G-4PC" secondAttribute="trailing" id="l8r-6J-I2f"/>
                                         <constraint firstAttribute="bottom" secondItem="bUo-9F-zAC" secondAttribute="bottom" constant="8" id="mnV-Zy-PM0"/>
                                         <constraint firstItem="r1H-d0-CJJ" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" constant="8" id="nmL-nY-Xj2"/>
@@ -193,10 +195,8 @@
                                         <constraint firstItem="3iq-zr-uHe" firstAttribute="top" secondItem="7zC-Vg-bB0" secondAttribute="bottom" constant="10" id="sGk-15-Ypy"/>
                                         <constraint firstItem="rWv-cR-e2m" firstAttribute="top" secondItem="xCM-Fj-5vO" secondAttribute="bottom" constant="8" id="u3D-hS-E6o"/>
                                         <constraint firstItem="wMs-kI-Jw0" firstAttribute="leading" secondItem="r1H-d0-CJJ" secondAttribute="trailing" constant="10" id="uqY-6W-PNr"/>
-                                        <constraint firstAttribute="trailing" secondItem="w0C-HH-eEH" secondAttribute="trailing" constant="58" id="vwf-Uc-NAP"/>
                                         <constraint firstItem="xGz-vG-hIt" firstAttribute="top" secondItem="rWv-cR-e2m" secondAttribute="bottom" constant="8" id="vyJ-i6-gyE"/>
                                         <constraint firstItem="7zC-Vg-bB0" firstAttribute="top" secondItem="XW3-eT-xiy" secondAttribute="top" constant="60" id="w9M-4z-hxz"/>
-                                        <constraint firstAttribute="bottom" secondItem="w0C-HH-eEH" secondAttribute="bottom" constant="8" id="wVO-kd-U0h"/>
                                         <constraint firstItem="xGz-vG-hIt" firstAttribute="leading" secondItem="XW3-eT-xiy" secondAttribute="leading" id="xfQ-eT-6Wh"/>
                                         <constraint firstItem="7zC-Vg-bB0" firstAttribute="top" secondItem="wMs-kI-Jw0" secondAttribute="bottom" constant="10" id="zJE-jh-IRB"/>
                                     </constraints>
@@ -297,14 +297,14 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3x-vC-2z5">
                                             <rect key="frame" x="110" y="132" width="187" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vi-xn-Pyw">
                                             <rect key="frame" x="110" y="8" width="245" height="44"/>
                                             <state key="normal" title="--">
-                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">
@@ -319,7 +319,7 @@
                                             <rect key="frame" x="110" y="69" width="245" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="--">
-                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">
@@ -354,7 +354,7 @@
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcW-ML-G5g">
                                             <rect key="frame" x="110" y="191" width="187" height="40"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -429,7 +429,7 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nk-II-BaH">
                                             <rect key="frame" x="110" y="8" width="257" height="44"/>
-                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -461,7 +461,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCT-Zt-UeG">
                                             <rect key="frame" x="110" y="8" width="207" height="44"/>
                                             <state key="normal" title="0">
-                                                <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">

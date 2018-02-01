@@ -63,8 +63,6 @@
     self.lf_telText.keyboardType = UIKeyboardTypeNumberPad;
     
     [IDInfoList sharedInstance].smResult = @"未核实身份证信息";
-    self.lf_dateText.inputView = self.datePicker;
-    self.textFiled = self.lf_dateText;
     
     [self setupBackBtnNavBarWithTitle:@"来访详情"];
     

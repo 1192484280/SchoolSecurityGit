@@ -30,7 +30,7 @@ typedef void (^ifLetGoBlock)(void);
 @property (strong, nonatomic) IBOutlet UITextField *lf_idCardText;
 
 
-@property (strong, nonatomic) IBOutlet UITextField *lf_dateText;
+@property (strong, nonatomic) IBOutlet UILabel *lf_dateText;
 
 @property (strong, nonatomic) IBOutlet UITextField *lf_carIdText;
 

@@ -15,7 +15,7 @@
                 <outlet property="fkStatusLa" destination="6Ip-lV-7Zu" id="0eL-wZ-OQp"/>
                 <outlet property="headerImBtn" destination="ZdG-WZ-zZl" id="elU-pQ-hBE"/>
                 <outlet property="lf_carIdText" destination="iWm-xb-GgI" id="nhP-qW-9eZ"/>
-                <outlet property="lf_dateText" destination="Tj6-33-4pI" id="DV2-Rh-iBU"/>
+                <outlet property="lf_dateText" destination="k5v-8y-L2O" id="CZz-VH-wew"/>
                 <outlet property="lf_idCardText" destination="cmm-IH-7RA" id="aM0-mm-wIT"/>
                 <outlet property="lf_nameText" destination="MhQ-i9-L1E" id="3cP-Mu-cDr"/>
                 <outlet property="lf_otherNumBtn" destination="lwS-b1-dmQ" id="uum-Te-XKY"/>
@@ -98,19 +98,19 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入来访人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhQ-i9-L1E">
                                             <rect key="frame" x="108" y="10" width="213" height="40"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入来访人电话" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVp-mu-7vh">
                                             <rect key="frame" x="108" y="71" width="213" height="40"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入身份证号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cmm-IH-7RA">
                                             <rect key="frame" x="108" y="132" width="213" height="40"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -126,12 +126,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tj6-33-4pI">
-                                            <rect key="frame" x="108" y="191" width="213" height="42"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来访人：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g31-9d-2He">
                                             <rect key="frame" x="8" y="8" width="100" height="44"/>
                                             <constraints>
@@ -164,6 +158,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5v-8y-L2O">
+                                            <rect key="frame" x="108" y="191" width="213" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -180,30 +180,30 @@
                                         <constraint firstItem="Rza-pW-odP" firstAttribute="top" secondItem="g31-9d-2He" secondAttribute="bottom" constant="8" id="Dot-Pm-spV"/>
                                         <constraint firstItem="wZ2-pg-r9t" firstAttribute="top" secondItem="bE4-qw-cYO" secondAttribute="bottom" constant="8" id="JIx-yh-vmv"/>
                                         <constraint firstItem="Rza-pW-odP" firstAttribute="top" secondItem="ems-cL-Ct7" secondAttribute="top" constant="60" id="M5v-sr-FaC"/>
-                                        <constraint firstAttribute="bottom" secondItem="Tj6-33-4pI" secondAttribute="bottom" constant="8" id="Ovs-TK-SVK"/>
                                         <constraint firstItem="AVp-mu-7vh" firstAttribute="leading" secondItem="bE4-qw-cYO" secondAttribute="trailing" id="Rcf-r3-GUP"/>
                                         <constraint firstAttribute="trailing" secondItem="wZ2-pg-r9t" secondAttribute="trailing" id="SdV-ei-9zL"/>
                                         <constraint firstItem="MDm-dQ-GYh" firstAttribute="top" secondItem="N3q-qu-16E" secondAttribute="bottom" constant="8" id="TzE-4F-uoy"/>
                                         <constraint firstItem="Rza-pW-odP" firstAttribute="leading" secondItem="ems-cL-Ct7" secondAttribute="leading" id="VQ1-BY-YFg"/>
+                                        <constraint firstAttribute="bottom" secondItem="k5v-8y-L2O" secondAttribute="bottom" constant="8" id="Wc9-Qj-7IQ"/>
                                         <constraint firstItem="MDm-dQ-GYh" firstAttribute="leading" secondItem="ems-cL-Ct7" secondAttribute="leading" constant="8" id="Wgp-f5-8h0"/>
                                         <constraint firstItem="MhQ-i9-L1E" firstAttribute="top" secondItem="ems-cL-Ct7" secondAttribute="top" constant="10" id="WhF-56-Ky0"/>
                                         <constraint firstItem="N3q-qu-16E" firstAttribute="top" secondItem="cmm-IH-7RA" secondAttribute="bottom" constant="10" id="XDR-Rr-vCQ"/>
                                         <constraint firstAttribute="height" constant="241" id="aKU-w0-6yy"/>
-                                        <constraint firstItem="Tj6-33-4pI" firstAttribute="leading" secondItem="MDm-dQ-GYh" secondAttribute="trailing" id="atM-eC-d48"/>
-                                        <constraint firstItem="Tj6-33-4pI" firstAttribute="top" secondItem="N3q-qu-16E" secondAttribute="bottom" constant="8" id="bgE-Fv-4xp"/>
+                                        <constraint firstAttribute="trailing" secondItem="k5v-8y-L2O" secondAttribute="trailing" constant="58" id="avZ-Rl-afe"/>
                                         <constraint firstItem="N3q-qu-16E" firstAttribute="top" secondItem="dI5-Ii-J34" secondAttribute="bottom" constant="8" id="e1O-Ss-xOL"/>
                                         <constraint firstItem="AVp-mu-7vh" firstAttribute="top" secondItem="Rza-pW-odP" secondAttribute="bottom" constant="10" id="gAv-NI-Qo6"/>
                                         <constraint firstItem="cmm-IH-7RA" firstAttribute="leading" secondItem="dI5-Ii-J34" secondAttribute="trailing" id="gyf-lU-T3a"/>
                                         <constraint firstItem="cmm-IH-7RA" firstAttribute="top" secondItem="wZ2-pg-r9t" secondAttribute="bottom" constant="10" id="n7X-QG-HRc"/>
                                         <constraint firstItem="Rza-pW-odP" firstAttribute="top" secondItem="MhQ-i9-L1E" secondAttribute="bottom" constant="10" id="nLv-VH-hYe"/>
+                                        <constraint firstItem="k5v-8y-L2O" firstAttribute="leading" secondItem="MDm-dQ-GYh" secondAttribute="trailing" id="ou1-bM-hLY"/>
                                         <constraint firstItem="md2-kb-DXw" firstAttribute="centerY" secondItem="cmm-IH-7RA" secondAttribute="centerY" id="pMB-vF-aFt"/>
                                         <constraint firstItem="wZ2-pg-r9t" firstAttribute="top" secondItem="AVp-mu-7vh" secondAttribute="bottom" constant="10" id="qOC-yB-8n1"/>
-                                        <constraint firstAttribute="trailing" secondItem="Tj6-33-4pI" secondAttribute="trailing" constant="58" id="rIu-RW-Scg"/>
                                         <constraint firstItem="bE4-qw-cYO" firstAttribute="top" secondItem="Rza-pW-odP" secondAttribute="bottom" constant="8" id="rPq-tf-NVw"/>
                                         <constraint firstItem="wZ2-pg-r9t" firstAttribute="top" secondItem="Rza-pW-odP" secondAttribute="bottom" constant="60" id="rxJ-e7-vJT"/>
                                         <constraint firstAttribute="trailing" secondItem="AVp-mu-7vh" secondAttribute="trailing" constant="58" id="sMt-FP-8Jj"/>
                                         <constraint firstItem="bE4-qw-cYO" firstAttribute="leading" secondItem="ems-cL-Ct7" secondAttribute="leading" constant="8" id="tG6-y0-Rl7"/>
                                         <constraint firstAttribute="trailing" secondItem="N3q-qu-16E" secondAttribute="trailing" id="uHm-Bc-tyP"/>
+                                        <constraint firstItem="k5v-8y-L2O" firstAttribute="top" secondItem="N3q-qu-16E" secondAttribute="bottom" constant="8" id="ulD-lQ-TqT"/>
                                         <constraint firstAttribute="trailing" secondItem="MhQ-i9-L1E" secondAttribute="trailing" constant="58" id="vsb-O7-F9G"/>
                                         <constraint firstItem="wZ2-pg-r9t" firstAttribute="leading" secondItem="ems-cL-Ct7" secondAttribute="leading" id="x3h-e0-jlq"/>
                                         <constraint firstAttribute="bottom" secondItem="MDm-dQ-GYh" secondAttribute="bottom" constant="8" id="xnN-sr-DMw"/>
@@ -308,7 +308,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="108" id="R9S-Hb-tdf"/>
                                             </constraints>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -317,14 +317,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="108" id="L3e-ht-zcs"/>
                                             </constraints>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgK-4I-9hb">
                                             <rect key="frame" x="108" y="8" width="161" height="44"/>
                                             <state key="normal" title="--">
-                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">
@@ -339,7 +339,7 @@
                                             <rect key="frame" x="108" y="69" width="161" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="--">
-                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">
@@ -441,7 +441,7 @@
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iWm-xb-GgI">
                                             <rect key="frame" x="116" y="8" width="255" height="44"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -473,7 +473,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwS-b1-dmQ">
                                             <rect key="frame" x="116" y="8" width="205" height="44"/>
                                             <state key="normal" title="0">
-                                                <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="contentHorizontalAlignment">

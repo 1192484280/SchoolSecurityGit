@@ -11,6 +11,7 @@
 #import "ScanedViewController.h"
 #import "ScanModel.h"
 #import "ScanList.h"
+#import "SecurityScanAgree+CoreDataProperties.h"
 
 @interface ScaningViewController ()<SGQRCodeScanManagerDelegate>
 {
@@ -107,20 +108,48 @@
         flag ++ ;
         
         [scanManager SG_palySoundName:@"SGQRCode.bundle/sound.caf"];
-        [scanManager SG_stopRunning];
-        [scanManager SG_videoPreviewLayerRemoveFromSuperlayer];
+        
         
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         
         NSDictionary *dic = (id)obj.stringValue;
         
-        //NSLog(@"扫描结果：%@",dic);
+        NSLog(@"扫描结果：%@",dic);
         if (self.flashlightBtn.selected) {
             
             [self onflashlightBtn:self.flashlightBtn];
         }
         
         ScanModel *model = [ScanModel mj_objectWithKeyValues:dic];
+        
+        //计算时间差是否超出before_time
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        format.dateFormat = @"yyyy-MM-dd HH:mm";
+        NSDate *data = [format dateFromString:model.format_visitor_time];
+        
+        NSDateComponents *cmps = [NSDate deltaFrom:data];
+        
+        if (cmps.year || cmps.month || cmps.day || cmps.day > [model.before_time integerValue]) {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"来访时间不在预约时间范围内！" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [scanManager SG_stopRunning];
+                [scanManager SG_videoPreviewLayerRemoveFromSuperlayer];
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }]];
+            [self presentViewController:alert animated:YES completion:^{
+                
+            }];
+            
+            return;
+        }
+        
+        [scanManager SG_stopRunning];
+        [scanManager SG_videoPreviewLayerRemoveFromSuperlayer];
+        
         [ScanList sharedInstance].scanModel = model;
         
         ScanedViewController *VC = [[ScanedViewController alloc] init];
@@ -161,6 +190,7 @@
         [SGQRCodeHelperTool SG_CloseFlashlight];
     }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
