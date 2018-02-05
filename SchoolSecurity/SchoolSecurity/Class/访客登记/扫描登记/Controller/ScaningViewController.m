@@ -114,7 +114,7 @@
         
         NSDictionary *dic = (id)obj.stringValue;
         
-        NSLog(@"扫描结果：%@",dic);
+        //NSLog(@"扫描结果：%@",dic);
         if (self.flashlightBtn.selected) {
             
             [self onflashlightBtn:self.flashlightBtn];
@@ -122,14 +122,40 @@
         
         ScanModel *model = [ScanModel mj_objectWithKeyValues:dic];
         
+        if (![model.school_id isEqualToString:[UserDefaultsTool getSchoolId]]) {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"预约学校非本校!" preferredStyle:UIAlertControllerStyleAlert];
+
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [scanManager SG_stopRunning];
+                [scanManager SG_videoPreviewLayerRemoveFromSuperlayer];
+                [self.navigationController popViewControllerAnimated:YES];
+            }]];
+            [self presentViewController:alert animated:YES completion:^{
+                
+            }];
+            return;
+
+        }
+        
         //计算时间差是否超出before_time
-        NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        format.dateFormat = @"yyyy-MM-dd HH:mm";
-        NSDate *data = [format dateFromString:model.format_visitor_time];
+//        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//        format.dateFormat = @"yyyy-MM-dd HH:mm";
+//        NSDate *data = [format dateFromString:model.format_visitor_time];
+//
+//        NSDateComponents *cmps = [NSDate deltaFrom:data];
+//        if (cmps.year || cmps.month || cmps.day || cmps.hour || cmps.minute >= [model.before_time integerValue] || cmps.minute <= -[model.before_time integerValue])
+        NSInteger visitr_time = [model.visitor_time integerValue];
+        NSInteger current_time = [[StrTool getTimeStamp] integerValue];
         
-        NSDateComponents *cmps = [NSDate deltaFrom:data];
+        NSInteger befor = current_time - [model.before_time integerValue] * 60;
+        NSInteger after = current_time + [model.before_time integerValue] * 60;
         
-        if (cmps.year || cmps.month || cmps.day || cmps.day > [model.before_time integerValue]) {
+
+        NSLog(@"%ld",current_time - visitr_time);
+        
+        if (visitr_time >= after || visitr_time <= befor) {
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"来访时间不在预约时间范围内！" preferredStyle:UIAlertControllerStyleAlert];
             
@@ -150,11 +176,17 @@
         [scanManager SG_stopRunning];
         [scanManager SG_videoPreviewLayerRemoveFromSuperlayer];
         
-        [ScanList sharedInstance].scanModel = model;
-        
-        ScanedViewController *VC = [[ScanedViewController alloc] init];
-        
-        [self.navigationController pushViewController:VC animated:YES];
+        BaseStore *store = [[BaseStore alloc] init];
+        [store getInfoWithVr_id:model.vr_id Success:^(ScanModel *model) {
+            
+            [ScanList sharedInstance].scanModel = model;
+            ScanedViewController *VC = [[ScanedViewController alloc] init];
+            [self.navigationController pushViewController:VC animated:YES];
+            
+        } Failure:^(NSError *error) {
+            
+            [self showMBPError:[HttpTool handleError:error]];
+        }];
         
     } else {
         NSLog(@"暂未识别出扫描的二维码");

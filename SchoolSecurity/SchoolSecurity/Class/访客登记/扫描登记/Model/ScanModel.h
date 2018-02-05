@@ -46,4 +46,8 @@
 
 @property (nonatomic, copy) NSString *before_time;
 
+@property (nonatomic, copy) NSString *visitor_time;
+
+@property (nonatomic, copy) NSString *school_id;
+
 @end

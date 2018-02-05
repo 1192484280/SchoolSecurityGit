@@ -1999,4 +1999,33 @@
         failure(error);
     }];
 }
+
+#pragma mark - 获取扫描登记信息（原二维码扫描信息）
+- (void)getInfoWithVr_id:(NSString *)vr_id Success:(void (^)(ScanModel *))success Failure:(void (^)(NSError *))failure{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/api/Api/visitingRecordDetail",IP];
+    
+    NSDictionary *dic = @{
+                          @"vr_id":vr_id
+                          };
+    
+    [HttpTool getUrlWithString:url parameters:dic success:^(id responseObject) {
+        
+        
+        NSError *error = [HttpTool inspectError:responseObject];
+        
+        if (error == nil) {
+            
+            ScanModel *model = [ScanModel mj_objectWithKeyValues:responseObject[@"data"]];
+            
+            success(model);
+        }else{
+            
+            failure(error);
+        }
+    } failure:^(NSError *error) {
+        
+        failure(error);
+    }];
+}
 @end

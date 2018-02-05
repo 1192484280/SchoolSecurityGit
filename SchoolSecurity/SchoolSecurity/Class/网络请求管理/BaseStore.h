@@ -16,7 +16,7 @@
 #import "FKDetailMode.h"
 #import "XGDetailModel.h"
 #import "PersonParameterModel.h"
-
+#import "ScanModel.h"
 @interface BaseStore : NSObject
 
 /**
@@ -171,6 +171,11 @@
  * 获取全部公安黑名单
  */
 - (void)getAllPoliceBlackListSuccess:(void(^)())success Failure:(void(^)(NSError *error))failure;
+
+/**
+ * 获取扫描登记信息（原二维码扫描信息）
+ */
+- (void)getInfoWithVr_id:(NSString *)vr_id Success:(void(^)(ScanModel *model))success Failure:(void(^)(NSError *error))failure;
 
 
 @end

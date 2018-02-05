@@ -103,12 +103,9 @@
 #pragma mark - 获取时间戳
 + (NSString *)getTimeStamp{
     
-    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate: dat];
-    NSDate *localeDate = [dat  dateByAddingTimeInterval: interval];
-    NSTimeInterval a=[localeDate timeIntervalSince1970];
-    NSString *timeString = [NSString stringWithFormat:@"%.0f", a];//转为字符型
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970];// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
     return timeString;
 }
 
