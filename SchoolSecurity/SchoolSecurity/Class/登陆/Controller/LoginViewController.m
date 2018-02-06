@@ -30,8 +30,8 @@
     self.view.backgroundColor = VIEWCOLOR;
     
     //测试
-    passText.keyboardType = UIKeyboardTypeNumberPad;
-    accountText.keyboardType = UIKeyboardTypeNumberPad;
+//    passText.keyboardType = UIKeyboardTypeNumberPad;
+//    accountText.keyboardType = UIKeyboardTypeNumberPad;
     
     [self setupBackBtnNavBarWithTitle:@"登陆"];
     

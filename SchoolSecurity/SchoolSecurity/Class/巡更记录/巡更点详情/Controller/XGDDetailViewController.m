@@ -27,14 +27,16 @@
     
     if (!_tableView) {
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (iPhoneX_Top) + 0.5, ScreenWidth, ScreenHeight - (iPhoneX_Top) - 0.5) style:UITableViewStylePlain];
-        _tableView.contentInset = UIEdgeInsetsMake(XGHeaderHeight, 0, 0, 0);
-        [_tableView setContentOffset:CGPointMake(0, -XGHeaderHeight)];
-        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, iPhoneX_Top, ScreenWidth, ScreenHeight - (iPhoneX_Top)) style:UITableViewStyleGrouped];
+//        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 5)];
-       _tableView.separatorColor = [UIColor blackColor]; _tableView.tableFooterView = [UIView new];
+        _tableView.sectionHeaderHeight = 9.5;
+        _tableView.sectionFooterHeight = 0.5;
+        XGDDetailHeaderView *headerView = [[XGDDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, XGHeaderHeight)];
+        self.headerView = headerView;
+        _tableView.tableHeaderView = headerView;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
 }
@@ -59,9 +61,7 @@
 
 - (void)setupUI{
     
-    XGDDetailHeaderView *headerView = [[XGDDetailHeaderView alloc] initWithFrame:CGRectMake(0, (iPhoneX_Top) + 0.5, ScreenWidth, XGHeaderHeight)];
-    [self.view addSubview:headerView];
-    self.headerView = headerView;
+    
     
     [self.view addSubview:self.tableView];
 }
