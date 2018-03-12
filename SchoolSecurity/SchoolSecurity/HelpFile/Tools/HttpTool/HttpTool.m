@@ -7,13 +7,15 @@
 //
 
 #import "HttpTool.h"
+#import "AppDelegate.h"
 #import "AFHTTPSessionManager.h"
 
 @implementation HttpTool
 
 + (void)getUrlWithString:(NSString *)url parameters:(id)parameters success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     manager.requestSerializer.timeoutInterval = 15.f;

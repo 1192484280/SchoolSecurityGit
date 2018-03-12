@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HeaderViewController.h"
 #import "CacheManager.h"
+#import "AFHTTPSessionManager.h"
 
 #define AMapKey @"e8ab6778caaea680345d9e0bba534ce8"
 
@@ -21,6 +22,21 @@
 @end
 
 @implementation AppDelegate
+
+static AFHTTPSessionManager *manager ;
+
+- (AFHTTPSessionManager *)sharedHTTPSession {
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer.timeoutInterval = 10;
+        
+    });
+    return manager;
+    
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
